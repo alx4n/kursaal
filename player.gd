@@ -1,0 +1,11 @@
+extends CharacterBody2D
+@export var speed = 100
+
+
+func getInput():
+	var input_direction = Input.get_vector("left","right","up","down")
+	velocity = input_direction * speed
+	
+func _physics_process(delta: float) -> void:
+	getInput()
+	move_and_slide()
