@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://cqm1ftld8nm3d"]
+
+[ext_resource type="Texture2D" uid="uid://cfntk2esnlyln" path="res://assets/Cane - diag.png" id="1_xasec"]
+[ext_resource type="Script" uid="uid://by7dn30hrpqv3" path="res://scripts/weapon.gd" id="2_uxn4k"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_uxn4k"]
+radius = 15.132746
+
+[node name="Weapon" type="Sprite2D" unique_id=784183095]
+texture = ExtResource("1_xasec")
+script = ExtResource("2_uxn4k")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1466454712]
+position = Vector2(65, -35)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1490317302]
+shape = SubResource("CircleShape2D_uxn4k")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
