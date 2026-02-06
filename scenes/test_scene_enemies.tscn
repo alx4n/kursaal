@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://c7ib2c3cntpwr"]
+
+[ext_resource type="Texture2D" uid="uid://duoyy7rla4wgm" path="res://sprites/enemyTestChaser.png" id="1_bdfl4"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lbcmp"]
+radius = 16.0
+
+[node name="TestSceneEnemies" type="Node2D" unique_id=544048373]
+
+[node name="Chaser" type="CharacterBody2D" parent="." unique_id=873544585]
+position = Vector2(329, 206)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Chaser" unique_id=491754701]
+shape = SubResource("CircleShape2D_lbcmp")
+
+[node name="Sprite2D" type="Sprite2D" parent="Chaser" unique_id=1037094403]
+texture = ExtResource("1_bdfl4")
