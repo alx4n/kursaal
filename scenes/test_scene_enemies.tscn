@@ -1,18 +1,43 @@
-[gd_scene format=3 uid="uid://c7ib2c3cntpwr"]
+[gd_scene format=3 uid="uid://cly41smo7docd"]
 
-[ext_resource type="Texture2D" uid="uid://duoyy7rla4wgm" path="res://sprites/enemyTestChaser.png" id="1_bdfl4"]
+[ext_resource type="PackedScene" uid="uid://v1m5xbie07pb" path="res://scenes/enemy_chaser.tscn" id="1_5fqt2"]
+[ext_resource type="Script" uid="uid://5twqmvb3mjx1" path="res://scripts/enemy_sentry.gd" id="2_gv8cs"]
+[ext_resource type="Texture2D" uid="uid://8ujlw621tiu6" path="res://sprites/enemyTestSentry.png" id="3_5eb77"]
+[ext_resource type="Script" uid="uid://mrb6thsl00f5" path="res://scripts/player.gd" id="3_5fqt2"]
+[ext_resource type="Texture2D" uid="uid://dcohnl73tntjb" path="res://icon.svg" id="4_gv8cs"]
+[ext_resource type="PackedScene" uid="uid://dwr4klohlv328" path="res://scenes/projectile_sentry.tscn" id="6_gv8cs"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_lbcmp"]
-radius = 16.0
+[sub_resource type="CircleShape2D" id="CircleShape2D_gv20t"]
+radius = 32.0
 
 [node name="TestSceneEnemies" type="Node2D" unique_id=544048373]
 
-[node name="Chaser" type="CharacterBody2D" parent="." unique_id=873544585]
-position = Vector2(329, 206)
+[node name="Chaser" parent="." unique_id=749136513 instance=ExtResource("1_5fqt2")]
+position = Vector2(762, 285)
+
+[node name="Sentry" type="CharacterBody2D" parent="." unique_id=585826812]
+position = Vector2(1083, 121)
+script = ExtResource("2_gv8cs")
+projectile_scene = ExtResource("6_gv8cs")
 metadata/_edit_group_ = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Chaser" unique_id=491754701]
-shape = SubResource("CircleShape2D_lbcmp")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sentry" unique_id=771844952]
+shape = SubResource("CircleShape2D_gv20t")
 
-[node name="Sprite2D" type="Sprite2D" parent="Chaser" unique_id=1037094403]
-texture = ExtResource("1_bdfl4")
+[node name="Sprite2D" type="Sprite2D" parent="Sentry" unique_id=608683401]
+scale = Vector2(2, 2)
+texture = ExtResource("3_5eb77")
+
+[node name="ProjectileTimer" type="Timer" parent="Sentry" unique_id=1060814752]
+
+[node name="Player" type="CharacterBody2D" parent="." unique_id=212934031 groups=["player"]]
+position = Vector2(293, 190)
+script = ExtResource("3_5fqt2")
+metadata/_edit_group_ = true
+
+[node name="PlayerIcon" type="Sprite2D" parent="Player" unique_id=681601392]
+texture = ExtResource("4_gv8cs")
+
+[node name="SentryProjectile" parent="." unique_id=264381670 instance=ExtResource("6_gv8cs")]
+
+[connection signal="timeout" from="Sentry/ProjectileTimer" to="Sentry" method="_on_projectile_timer_timeout"]

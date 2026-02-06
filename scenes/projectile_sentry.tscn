@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://dwr4klohlv328"]
+
+[ext_resource type="Texture2D" uid="uid://8ujlw621tiu6" path="res://sprites/enemyTestSentry.png" id="1_mjit8"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5fqt2"]
+
+[node name="SentryProjectile" type="RigidBody2D" unique_id=264381670]
+gravity_scale = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1106228779]
+shape = SubResource("CircleShape2D_5fqt2")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1853344308]
+position = Vector2(-4.7683716e-07, 4.7683716e-07)
+scale = Vector2(0.640625, 0.640625)
+texture = ExtResource("1_mjit8")
