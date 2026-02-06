@@ -1,7 +1,7 @@
 extends Sprite2D
 
 const MOUSE_SENSITIVITY = .01
-var mouse_delta = 0
+var mouse_delta: Vector2
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
