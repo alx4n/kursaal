@@ -1,3 +1,13 @@
 [gd_scene format=3 uid="uid://bwyyfd8ebkw1e"]
 
-[node name="Node2D" type="Node2D"]
+[ext_resource type="Script" uid="uid://mrb6thsl00f5" path="res://player.gd" id="1_pw63i"]
+[ext_resource type="Texture2D" uid="uid://dcohnl73tntjb" path="res://icon.svg" id="2_7ykc4"]
+
+[node name="Node2D" type="Node2D" unique_id=1587066420]
+
+[node name="Player" type="CharacterBody2D" parent="." unique_id=88841238]
+script = ExtResource("1_pw63i")
+
+[node name="PlayerIcon" type="Sprite2D" parent="Player" unique_id=114630167]
+position = Vector2(243, 177)
+texture = ExtResource("2_7ykc4")
