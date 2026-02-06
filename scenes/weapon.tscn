@@ -1,19 +1,15 @@
-[gd_scene format=3 uid="uid://cqm1ftld8nm3d"]
+[gd_scene format=3 uid="uid://c00hnh3le7e7l"]
 
-[ext_resource type="Texture2D" uid="uid://cfntk2esnlyln" path="res://assets/Cane - diag.png" id="1_xasec"]
+[ext_resource type="Texture2D" uid="uid://d0mv7yqiowpb2" path="res://assets/Cane frames 1.png" id="1_uxn4k"]
 [ext_resource type="Script" uid="uid://by7dn30hrpqv3" path="res://scripts/weapon.gd" id="2_uxn4k"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_uxn4k"]
-radius = 15.132746
+[sub_resource type="AtlasTexture" id="AtlasTexture_bmw2d"]
+atlas = ExtResource("1_uxn4k")
+region = Rect2(0, 0, 64, 24)
 
 [node name="Weapon" type="Sprite2D" unique_id=784183095]
-texture = ExtResource("1_xasec")
+texture_filter = 1
+scale = Vector2(5, 5)
+texture = SubResource("AtlasTexture_bmw2d")
+hframes = 2
 script = ExtResource("2_uxn4k")
-
-[node name="Area2D" type="Area2D" parent="." unique_id=1466454712]
-position = Vector2(65, -35)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1490317302]
-shape = SubResource("CircleShape2D_uxn4k")
-
-[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
