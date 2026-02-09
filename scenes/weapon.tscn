@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://c00hnh3le7e7l"]
 
-[ext_resource type="Texture2D" uid="uid://d0mv7yqiowpb2" path="res://assets/Cane frames 1.png" id="1_uxn4k"]
+[ext_resource type="Texture2D" uid="uid://d0mv7yqiowpb2" path="res://sprites/Cane frames 1.png" id="1_uxn4k"]
 [ext_resource type="Script" uid="uid://by7dn30hrpqv3" path="res://scripts/weapon.gd" id="2_uxn4k"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bmw2d"]
