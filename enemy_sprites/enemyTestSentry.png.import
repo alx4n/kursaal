@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://duoyy7rla4wgm"
-path="res://.godot/imported/enemyTestChaser.png-f8db7a277e2d0383aba994eff48dfb76.ctex"
+uid="uid://8ujlw621tiu6"
+path="res://.godot/imported/enemyTestSentry.png-2f638635f0677dc2972c7bead6c932dd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/enemyTestChaser.png"
-dest_files=["res://.godot/imported/enemyTestChaser.png-f8db7a277e2d0383aba994eff48dfb76.ctex"]
+source_file="res://enemy_sprites/enemyTestSentry.png"
+dest_files=["res://.godot/imported/enemyTestSentry.png-2f638635f0677dc2972c7bead6c932dd.ctex"]
 
 [params]
 

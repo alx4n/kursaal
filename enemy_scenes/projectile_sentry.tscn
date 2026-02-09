@@ -1,11 +1,15 @@
 [gd_scene format=3 uid="uid://dwr4klohlv328"]
 
-[ext_resource type="Texture2D" uid="uid://8ujlw621tiu6" path="res://sprites/enemyTestSentry.png" id="1_mjit8"]
+[ext_resource type="Texture2D" uid="uid://8ujlw621tiu6" path="res://enemy_sprites/enemyTestSentry.png" id="1_mjit8"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5fqt2"]
 
 [node name="SentryProjectile" type="RigidBody2D" unique_id=264381670]
+collision_layer = 4
+collision_mask = 4
 gravity_scale = 0.0
+linear_damp_mode = 1
+angular_damp_mode = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1106228779]
 shape = SubResource("CircleShape2D_5fqt2")

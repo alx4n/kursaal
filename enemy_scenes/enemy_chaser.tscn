@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://v1m5xbie07pb"]
 
-[ext_resource type="Script" uid="uid://c1qhk3fl4w4t3" path="res://scripts/enemy_chaser.gd" id="1_x7y0m"]
-[ext_resource type="Texture2D" uid="uid://duoyy7rla4wgm" path="res://sprites/enemyTestChaser.png" id="2_wuvmb"]
+[ext_resource type="Script" uid="uid://c1qhk3fl4w4t3" path="res://enemy_scripts/enemy_chaser.gd" id="1_x7y0m"]
+[ext_resource type="Texture2D" uid="uid://duoyy7rla4wgm" path="res://enemy_sprites/enemyTestChaser.png" id="2_wuvmb"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lbcmp"]
 radius = 16.0
