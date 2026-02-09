@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://v1m5xbie07pb"]
+
+[ext_resource type="Script" uid="uid://c1qhk3fl4w4t3" path="res://enemy_scripts/enemy_chaser.gd" id="1_x7y0m"]
+[ext_resource type="Texture2D" uid="uid://duoyy7rla4wgm" path="res://enemy_sprites/enemyTestChaser.png" id="2_wuvmb"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lbcmp"]
+radius = 16.0
+
+[node name="Chaser" type="CharacterBody2D" unique_id=749136513]
+script = ExtResource("1_x7y0m")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1939701309]
+shape = SubResource("CircleShape2D_lbcmp")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1759677447]
+scale = Vector2(2, 2)
+texture = ExtResource("2_wuvmb")

@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://dh4glgejrhsib"]
+
+[ext_resource type="Script" uid="uid://5twqmvb3mjx1" path="res://enemy_scripts/enemy_sentry.gd" id="1_h2a1c"]
+[ext_resource type="PackedScene" uid="uid://dwr4klohlv328" path="res://enemy_scenes/projectile_sentry.tscn" id="2_ifqkb"]
+[ext_resource type="Texture2D" uid="uid://8ujlw621tiu6" path="res://enemy_sprites/enemyTestSentry.png" id="3_r4oi2"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gv20t"]
+radius = 32.0
+
+[node name="Sentry" type="CharacterBody2D" unique_id=1686908263]
+script = ExtResource("1_h2a1c")
+projectile_scene = ExtResource("2_ifqkb")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1001205478]
+shape = SubResource("CircleShape2D_gv20t")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1516912798]
+scale = Vector2(2, 2)
+texture = ExtResource("3_r4oi2")
+
+[node name="ProjectileTimer" type="Timer" parent="." unique_id=734222290]
+
+[connection signal="timeout" from="ProjectileTimer" to="." method="_on_projectile_timer_timeout"]
