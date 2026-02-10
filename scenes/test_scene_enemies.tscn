@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://cly41smo7docd"]
+
+[ext_resource type="PackedScene" uid="uid://v1m5xbie07pb" path="res://scenes/enemy_chaser.tscn" id="1_5fqt2"]
+[ext_resource type="PackedScene" uid="uid://dh4glgejrhsib" path="res://scenes/enemy_sentry.tscn" id="2_p6jae"]
+[ext_resource type="Script" uid="uid://mrb6thsl00f5" path="res://scripts/player.gd" id="3_5fqt2"]
+[ext_resource type="Texture2D" uid="uid://dcohnl73tntjb" path="res://icon.svg" id="4_gv8cs"]
+
+[node name="TestSceneEnemies" type="Node2D" unique_id=544048373]
+
+[node name="Chaser" parent="." unique_id=749136513 instance=ExtResource("1_5fqt2")]
+position = Vector2(762, 285)
+
+[node name="Sentry" parent="." unique_id=1686908263 instance=ExtResource("2_p6jae")]
+position = Vector2(1083, 121)
+
+[node name="Player" type="CharacterBody2D" parent="." unique_id=212934031 groups=["player"]]
+position = Vector2(293, 190)
+script = ExtResource("3_5fqt2")
+metadata/_edit_group_ = true
+
+[node name="PlayerIcon" type="Sprite2D" parent="Player" unique_id=681601392]
+texture = ExtResource("4_gv8cs")
