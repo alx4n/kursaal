@@ -1,13 +1,17 @@
 [gd_scene format=3 uid="uid://v1m5xbie07pb"]
 
-[ext_resource type="Script" uid="uid://c1qhk3fl4w4t3" path="res://scripts/enemy_chaser.gd" id="1_x7y0m"]
+[ext_resource type="Script" uid="uid://c1qhk3fl4w4t3" path="res://scripts/enemy_chaser.gd" id="1_wuvmb"]
 [ext_resource type="Texture2D" uid="uid://duoyy7rla4wgm" path="res://sprites/enemyTestChaser.png" id="2_wuvmb"]
+[ext_resource type="PackedScene" uid="uid://jsmnba36n0qw" path="res://components/health_component.tscn" id="3_3ddd7"]
+[ext_resource type="PackedScene" uid="uid://ba801evc10hje" path="res://components/damage_component.tscn" id="4_3ddd7"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lbcmp"]
 radius = 16.0
 
-[node name="Chaser" type="CharacterBody2D" unique_id=749136513]
-script = ExtResource("1_x7y0m")
+[node name="Chaser" type="CharacterBody2D" unique_id=749136513 node_paths=PackedStringArray("health_component", "damage_component")]
+script = ExtResource("1_wuvmb")
+health_component = NodePath("Components/HealthComponent")
+damage_component = NodePath("Components/DamageComponent")
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1939701309]
@@ -16,3 +20,11 @@ shape = SubResource("CircleShape2D_lbcmp")
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1759677447]
 scale = Vector2(2, 2)
 texture = ExtResource("2_wuvmb")
+
+[node name="Components" type="Node" parent="." unique_id=326964973]
+
+[node name="HealthComponent" parent="Components" unique_id=1274361233 instance=ExtResource("3_3ddd7")]
+unique_name_in_owner = true
+
+[node name="DamageComponent" parent="Components" unique_id=1377696216 instance=ExtResource("4_3ddd7")]
+unique_name_in_owner = true

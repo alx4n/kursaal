@@ -1,6 +1,10 @@
 extends CharacterBody2D
 
 @export var projectile_scene : Resource
+@export var damage_amount: int
+@export var health_component: HealthComponent
+@export var damage_component: DamageComponent
+
 var projectile_speed = 250
 
 func _ready() -> void:

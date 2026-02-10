@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://o7mtk7wj48u5"]
+
+[sub_resource type="GDScript" id="GDScript_r68g2"]
+script/source = "class_name InputComponent extends Node
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+"
+
+[node name="InputComponent" type="Node" unique_id=1673427611]
+script = SubResource("GDScript_r68g2")

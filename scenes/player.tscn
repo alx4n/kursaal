@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://bfnbt7umlbdky"]
+
+[ext_resource type="Script" uid="uid://mrb6thsl00f5" path="res://scripts/player.gd" id="1_qhqgy"]
+[ext_resource type="Texture2D" uid="uid://dcohnl73tntjb" path="res://icon.svg" id="2_dqkch"]
+[ext_resource type="PackedScene" uid="uid://c00hnh3le7e7l" path="res://scenes/weapon.tscn" id="3_qlg0r"]
+[ext_resource type="Script" uid="uid://c6t1f7314lva8" path="res://components/health_component.gd" id="4_qlg0r"]
+[ext_resource type="Script" uid="uid://bnn4d42eggoye" path="res://components/damage_component.gd" id="5_tuyoq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qlg0r"]
+size = Vector2(129, 129)
+
+[node name="Player" type="CharacterBody2D" unique_id=1896878719 node_paths=PackedStringArray("health_component")]
+script = ExtResource("1_qhqgy")
+health_component = NodePath("Components/HealthComponent")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1042029701]
+
+[node name="PlayerIcon" type="Sprite2D" parent="." unique_id=1545704745]
+texture = ExtResource("2_dqkch")
+
+[node name="Weapon" parent="." unique_id=784183095 instance=ExtResource("3_qlg0r")]
+position = Vector2(91.99999, -1.9999999)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1059489626]
+position = Vector2(-0.5, -0.5)
+shape = SubResource("RectangleShape2D_qlg0r")
+
+[node name="Components" type="Node" parent="." unique_id=722667110]
+
+[node name="HealthComponent" type="Node" parent="Components" unique_id=226746594]
+unique_name_in_owner = true
+script = ExtResource("4_qlg0r")
+metadata/_custom_type_script = "uid://c6t1f7314lva8"
+
+[node name="DamageComponent" type="Node" parent="Components" unique_id=111239730]
+unique_name_in_owner = true
+script = ExtResource("5_tuyoq")
+metadata/_custom_type_script = "uid://bnn4d42eggoye"
+
+[connection signal="damage_dealt" from="Components/DamageComponent" to="Components/HealthComponent" method="_on_damage_component_damage_dealt"]
