@@ -9,11 +9,9 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_gv20t"]
 radius = 32.0
 
-[node name="Sentry" type="CharacterBody2D" unique_id=1686908263 node_paths=PackedStringArray("health_component", "damage_component")]
+[node name="Sentry" type="CharacterBody2D" unique_id=1686908263]
 script = ExtResource("1_h2a1c")
 projectile_scene = ExtResource("2_ifqkb")
-health_component = NodePath("Components/HealthComponent")
-damage_component = NodePath("Components/DamageComponent")
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1001205478]
@@ -27,12 +25,15 @@ texture = ExtResource("3_r4oi2")
 
 [node name="Components" type="Node" parent="." unique_id=736204563]
 
-[node name="DamageComponent" type="Node" parent="Components" unique_id=1950474701]
-script = ExtResource("4_r4oi2")
-metadata/_custom_type_script = "uid://bnn4d42eggoye"
-
 [node name="HealthComponent" type="Node" parent="Components" unique_id=2102623751]
+unique_name_in_owner = true
 script = ExtResource("5_yvw6x")
 metadata/_custom_type_script = "uid://c6t1f7314lva8"
 
+[node name="DamageComponent" type="Node" parent="Components" unique_id=1950474701]
+unique_name_in_owner = true
+script = ExtResource("4_r4oi2")
+metadata/_custom_type_script = "uid://bnn4d42eggoye"
+
 [connection signal="timeout" from="ProjectileTimer" to="." method="_on_projectile_timer_timeout"]
+[connection signal="damage_dealt" from="Components/DamageComponent" to="Components/HealthComponent" method="_on_damage_component_damage_dealt"]

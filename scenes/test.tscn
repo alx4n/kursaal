@@ -1,11 +1,9 @@
 [gd_scene format=4 uid="uid://6kky4deya1xo"]
 
-[ext_resource type="Script" uid="uid://mrb6thsl00f5" path="res://scripts/player.gd" id="1_bl13t"]
-[ext_resource type="Texture2D" uid="uid://dcohnl73tntjb" path="res://icon.svg" id="2_iyx0m"]
-[ext_resource type="PackedScene" uid="uid://c00hnh3le7e7l" path="res://scenes/weapon.tscn" id="3_iyx0m"]
+[ext_resource type="PackedScene" uid="uid://d272p15cdivia" path="res://scenes/player.tscn" id="2_74lek"]
 [ext_resource type="TileSet" uid="uid://ccof0irhc7y62" path="res://resources/casino_tile_set_pixel.tres" id="4_74lek"]
 
-[node name="Node2D" type="Node2D" unique_id=1282095804]
+[node name="Node2D2" type="Node2D" unique_id=1282095804]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=780906196]
 scale = Vector2(5, 5)
@@ -17,13 +15,4 @@ scale = Vector2(5, 5)
 tile_map_data = PackedByteArray("AAD2/wYAAAA5AAwAAAD2/wcAAAA5AA0AAAD2/wgAAAA5AA4AAAD2/wkAAAA5AA8AAAD3/wYAAAA6AAwAAAD3/wcAAAA6AA0AAAD3/wgAAAA6AA4AAAD3/wkAAAA6AA8AAAD4/wYAAAA7AAwAAAD4/wcAAAA7AA0AAAD4/wgAAAA7AA4AAAD4/wkAAAA7AA8AAAD5/wYAAAA8AAwAAAD5/wcAAAA8AA0AAAD5/wgAAAA8AA4AAAD5/wkAAAA8AA8AAAD6/wYAAAA9AAwAAAD6/wcAAAA9AA0AAAD6/wgAAAA9AA4AAAD6/wkAAAA9AA8AAAD7/wYAAAA+AAwAAAD7/wcAAAA+AA0AAAD7/wgAAAA+AA4AAAD7/wkAAAA+AA8AAAD8/wYAAAA/AAwAAAD8/wcAAAA/AA0AAAD8/wgAAAA/AA4AAAD8/wkAAAA/AA8AAAD3//r/AAA5ABEAAAD3//v/AAA5ABIAAAD3//z/AAA5ABMAAAD3//3/AAA5ABQAAAD3//7/AAA5ABUAAAD4//r/AAA6ABEAAAD4//v/AAA6ABIAAAD4//z/AAA6ABMAAAD4//3/AAA6ABQAAAD4//7/AAA6ABUAAAD5//r/AAA7ABEAAAD5//v/AAA7ABIAAAD5//z/AAA7ABMAAAD5//3/AAA7ABQAAAD5//7/AAA7ABUAAAANAPr/AAA9ABEAAAANAPv/AAA9ABIAAAANAPz/AAA9ABMAAAANAP3/AAA9ABQAAAANAP7/AAA9ABUAAAAOAPr/AAA+ABEAAAAOAPv/AAA+ABIAAAAOAPz/AAA+ABMAAAAOAP3/AAA+ABQAAAAOAP7/AAA+ABUAAAAPAPr/AAA/ABEAAAAPAPv/AAA/ABIAAAAPAPz/AAA/ABMAAAAPAP3/AAA/ABQAAAAPAP7/AAA/ABUAAAA=")
 tile_set = ExtResource("4_74lek")
 
-[node name="Player" type="CharacterBody2D" parent="." unique_id=776996558]
-script = ExtResource("1_bl13t")
-
-[node name="Camera2D" type="Camera2D" parent="Player" unique_id=1834182867]
-
-[node name="PlayerIcon" type="Sprite2D" parent="Player" unique_id=1087939548]
-texture = ExtResource("2_iyx0m")
-
-[node name="Weapon" parent="Player" unique_id=784183095 instance=ExtResource("3_iyx0m")]
-position = Vector2(91.99999, -1.9999999)
+[node name="Player" parent="." unique_id=1896878719 instance=ExtResource("2_74lek")]

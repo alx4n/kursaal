@@ -1,7 +1,7 @@
 class_name Player extends CharacterBody2D
 
 @export var speed = 200
-@export var health_component : HealthComponent
+@onready var health_component : HealthComponent = %HealthComponent
 
 func getInput():
 	var input_direction = Input.get_vector("left","right","up","down")
