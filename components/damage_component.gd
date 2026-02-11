@@ -2,7 +2,7 @@ class_name DamageComponent extends Node
 
 @export var damage_type: damage_types
 
-signal damage_dealt(damage_amount: int)
+signal damage_dealt(damage_amount: int, body: Node2D)
 
 enum damage_types {
 	REGULAR,
@@ -14,5 +14,5 @@ enum damage_types {
 func _ready() -> void:
 	pass # Replace with function body.
 
-func deal_damage(damage_amount: int) -> void:
-	damage_dealt.emit(damage_amount)
+func deal_damage(damage_amount: int, body: Node2D) -> void:
+	damage_dealt.emit(damage_amount, body)

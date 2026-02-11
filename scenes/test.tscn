@@ -1,7 +1,10 @@
 [gd_scene format=4 uid="uid://6kky4deya1xo"]
 
 [ext_resource type="PackedScene" uid="uid://bfnbt7umlbdky" path="res://scenes/player.tscn" id="2_74lek"]
+[ext_resource type="PackedScene" uid="uid://d272p15cdivia" path="res://scenes/player.tscn" id="2_74lek"]
+[ext_resource type="PackedScene" uid="uid://v1m5xbie07pb" path="res://scenes/enemy_chaser.tscn" id="3_j5jx5"]
 [ext_resource type="TileSet" uid="uid://ccof0irhc7y62" path="res://resources/casino_tile_set_pixel.tres" id="4_74lek"]
+[ext_resource type="PackedScene" uid="uid://dh4glgejrhsib" path="res://scenes/enemy_sentry.tscn" id="4_lpvoh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bl13t"]
 size = Vector2(1057, 292)
@@ -110,3 +113,10 @@ shape = SubResource("RectangleShape2D_j5jx5")
 [node name="CollisionShape2D5" type="CollisionShape2D" parent="StaticBody2D" unique_id=1928490176]
 position = Vector2(3244.5, 219.5)
 shape = SubResource("RectangleShape2D_lpvoh")
+[node name="Player" parent="." unique_id=1896878719 groups=["player"] instance=ExtResource("2_74lek")]
+
+[node name="Sentry" parent="." unique_id=1686908263 groups=["enemy"] instance=ExtResource("4_lpvoh")]
+position = Vector2(-544, -243)
+
+[node name="Chaser" parent="." unique_id=749136513 groups=["enemy"] instance=ExtResource("3_j5jx5")]
+position = Vector2(-515, 495)

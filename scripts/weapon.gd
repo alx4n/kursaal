@@ -5,6 +5,7 @@ var mouse_delta: Vector2
 const BULLET = preload("res://scenes/bullet.tscn")
 
 @onready var muzzle: Marker2D = $Marker2D
+@onready var damage_component : DamageComponent = %DamageComponent
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -27,3 +28,10 @@ func _process(delta: float) -> void:
 			bullet_instance.global_position = muzzle.global_position
 			bullet_instance.rotation = rotation
 	pass
+
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	if body.is_in_group("enemy"):
+		damage_component.deal_damage(5, body)
+		print("dealing damage")
+	pass # Replace with function body.

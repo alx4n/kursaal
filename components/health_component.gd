@@ -15,6 +15,7 @@ func _ready() -> void:
 	
 func _process(_delta: float) -> void:
 	if current_health <= 0:
+		is_dead = true
 		died.emit()
 	
 func heal(amount: int) -> void:
@@ -27,7 +28,3 @@ func take_damage(damage: int) -> void:
 	
 func set_max_health(max_health: int) -> void:
 	self._max_health = max_health
-
-func _on_damage_component_damage_dealt(damage_amount: int) -> void:
-	take_damage(damage_amount)
-	pass # Replace with function body.
