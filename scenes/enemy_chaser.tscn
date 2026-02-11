@@ -24,6 +24,7 @@ texture = ExtResource("2_wuvmb")
 [node name="HealthComponent" type="Node" parent="Components" unique_id=159164047]
 unique_name_in_owner = true
 script = ExtResource("3_3ddd7")
+_max_health = 15
 metadata/_custom_type_script = "uid://c6t1f7314lva8"
 
 [node name="DamageComponent" type="Node" parent="Components" unique_id=603674217]
@@ -31,4 +32,5 @@ unique_name_in_owner = true
 script = ExtResource("4_xdwg6")
 metadata/_custom_type_script = "uid://bnn4d42eggoye"
 
-[connection signal="damage_dealt" from="Components/DamageComponent" to="Components/HealthComponent" method="_on_damage_component_damage_dealt"]
+[connection signal="died" from="Components/HealthComponent" to="." method="_on_health_component_died"]
+[connection signal="damage_dealt" from="Components/DamageComponent" to="." method="_on_damage_component_damage_dealt"]

@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://bfnbt7umlbdky"]
+[gd_scene format=3 uid="uid://d272p15cdivia"]
 
 [ext_resource type="Script" uid="uid://mrb6thsl00f5" path="res://scripts/player.gd" id="1_qhqgy"]
 [ext_resource type="Texture2D" uid="uid://dcohnl73tntjb" path="res://icon.svg" id="2_dqkch"]
@@ -9,9 +9,8 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qlg0r"]
 size = Vector2(129, 129)
 
-[node name="Player" type="CharacterBody2D" unique_id=1896878719 node_paths=PackedStringArray("health_component")]
+[node name="Player" type="CharacterBody2D" unique_id=1896878719]
 script = ExtResource("1_qhqgy")
-health_component = NodePath("Components/HealthComponent")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1042029701]
 
@@ -30,6 +29,7 @@ shape = SubResource("RectangleShape2D_qlg0r")
 [node name="HealthComponent" type="Node" parent="Components" unique_id=226746594]
 unique_name_in_owner = true
 script = ExtResource("4_qlg0r")
+_max_health = 100
 metadata/_custom_type_script = "uid://c6t1f7314lva8"
 
 [node name="DamageComponent" type="Node" parent="Components" unique_id=111239730]
@@ -37,4 +37,5 @@ unique_name_in_owner = true
 script = ExtResource("5_tuyoq")
 metadata/_custom_type_script = "uid://bnn4d42eggoye"
 
-[connection signal="damage_dealt" from="Components/DamageComponent" to="Components/HealthComponent" method="_on_damage_component_damage_dealt"]
+[connection signal="died" from="Components/HealthComponent" to="." method="_on_health_component_died"]
+[connection signal="damage_dealt" from="Components/DamageComponent" to="." method="_on_damage_component_damage_dealt"]

@@ -13,3 +13,10 @@ scale = Vector2(5, 5)
 texture = SubResource("AtlasTexture_bmw2d")
 hframes = 2
 script = ExtResource("2_uxn4k")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1819735458]
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="Area2D" unique_id=508359987]
+polygon = PackedVector2Array(-7.9999995, 4.3999996, -7.9999995, 4.2, 13.999999, 4.9999995, 13.999999, 8.2, -8.999999, 7.9999995, -10.999999, 6.9999995, -12.999999, 3.9999998, -13.999999, 1.9999999, -13.999999, -1.9999999, -11.999999, -5.9999995, -7.7999997, -7.9999995, -3.9999998, -7.9999995, -3.9999998, -3.9999998, -7.9999995, -2.9999998, -9.999999, -0.79999995, -9.999999, 1.8, -7.9999995, 4.2, -8.2, 4.9999995)
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

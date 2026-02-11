@@ -17,3 +17,13 @@ func _on_projectile_timer_timeout() -> void:
 	get_tree().get_root().add_child(new_projectile)
 	new_projectile.global_position = self.global_position
 	new_projectile.linear_velocity = Vector2(player_dir.x * projectile_speed, player_dir.y * projectile_speed)
+
+
+func _on_damage_component_damage_dealt(amount: int, body: Node2D) -> void:
+	body.health_component.take_damage(amount)
+	pass # Replace with function body.
+
+
+func _on_health_component_died() -> void:
+	self.queue_free()
+	pass # Replace with function body.
