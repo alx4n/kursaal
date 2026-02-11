@@ -3,6 +3,8 @@
 [ext_resource type="Script" uid="uid://5twqmvb3mjx1" path="res://scripts/enemy_sentry.gd" id="1_h2a1c"]
 [ext_resource type="PackedScene" uid="uid://dwr4klohlv328" path="res://scenes/projectile_sentry.tscn" id="2_ifqkb"]
 [ext_resource type="Texture2D" uid="uid://8ujlw621tiu6" path="res://sprites/enemyTestSentry.png" id="3_r4oi2"]
+[ext_resource type="Script" uid="uid://bnn4d42eggoye" path="res://components/damage_component.gd" id="4_r4oi2"]
+[ext_resource type="Script" uid="uid://c6t1f7314lva8" path="res://components/health_component.gd" id="5_yvw6x"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gv20t"]
 radius = 32.0
@@ -21,4 +23,17 @@ texture = ExtResource("3_r4oi2")
 
 [node name="ProjectileTimer" type="Timer" parent="." unique_id=734222290]
 
+[node name="Components" type="Node" parent="." unique_id=736204563]
+
+[node name="HealthComponent" type="Node" parent="Components" unique_id=2102623751]
+unique_name_in_owner = true
+script = ExtResource("5_yvw6x")
+metadata/_custom_type_script = "uid://c6t1f7314lva8"
+
+[node name="DamageComponent" type="Node" parent="Components" unique_id=1950474701]
+unique_name_in_owner = true
+script = ExtResource("4_r4oi2")
+metadata/_custom_type_script = "uid://bnn4d42eggoye"
+
 [connection signal="timeout" from="ProjectileTimer" to="." method="_on_projectile_timer_timeout"]
+[connection signal="damage_dealt" from="Components/DamageComponent" to="Components/HealthComponent" method="_on_damage_component_damage_dealt"]
