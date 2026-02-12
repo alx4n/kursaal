@@ -2,7 +2,7 @@ extends Sprite2D
 
 const MOUSE_SENSITIVITY = .01
 var mouse_delta: Vector2
-const BULLET = preload("res://bullet.tscn")
+const BULLET = preload("res://scenes/bullet.tscn")
 
 @onready var muzzle: Marker2D = $Marker2D
 

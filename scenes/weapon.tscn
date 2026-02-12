@@ -15,4 +15,4 @@ hframes = 2
 script = ExtResource("2_uxn4k")
 
 [node name="Marker2D" type="Marker2D" parent="." unique_id=124473112]
-position = Vector2(16, 6.4)
+position = Vector2(16, 6.2)
