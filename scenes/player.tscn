@@ -9,9 +9,9 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qlg0r"]
 size = Vector2(129, 129)
 
-[node name="Player" type="CharacterBody2D" unique_id=1896878719 node_paths=PackedStringArray("health_component")]
+[node name="Player" type="CharacterBody2D" unique_id=1896878719]
+collision_layer = 5
 script = ExtResource("1_qhqgy")
-health_component = NodePath("Components/HealthComponent")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1042029701]
 
