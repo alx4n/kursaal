@@ -18,6 +18,10 @@ config/name="Kursaal"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+events="*uid://dblvqjqy5biuu"
+
 [display]
 
 window/size/viewport_width=1280
