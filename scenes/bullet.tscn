@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://b0elmu2iikol3"]
+
+[ext_resource type="Script" uid="uid://df1mtpjfxk86v" path="res://scripts/bullet.gd" id="1_y25gk"]
+[ext_resource type="Texture2D" uid="uid://cj8hdwcshieo8" path="res://sprites/Cane frames 2.png" id="2_l5glv"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t4vbm"]
+atlas = ExtResource("2_l5glv")
+region = Rect2(77.00928, 15.014632, 5.9105225, 3.151969)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y25gk"]
+size = Vector2(4, 6)
+
+[node name="bullet" type="Area2D" unique_id=48607352]
+rotation = 1.5560329
+disable_mode = 2
+collision_layer = 2
+script = ExtResource("1_y25gk")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2143724469]
+rotation = 1.5707964
+texture = SubResource("AtlasTexture_t4vbm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1023567196]
+shape = SubResource("RectangleShape2D_y25gk")
