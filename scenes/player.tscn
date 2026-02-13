@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://d272p15cdivia"]
 
 [ext_resource type="Script" uid="uid://mrb6thsl00f5" path="res://scripts/player.gd" id="1_qhqgy"]
+[ext_resource type="Shader" path="res://scripts/new_shader.gdshader" id="1_tuyoq"]
 [ext_resource type="Texture2D" uid="uid://dcohnl73tntjb" path="res://icon.svg" id="2_dqkch"]
 [ext_resource type="PackedScene" uid="uid://c00hnh3le7e7l" path="res://scenes/weapon.tscn" id="3_qlg0r"]
 [ext_resource type="Script" uid="uid://c6t1f7314lva8" path="res://components/health_component.gd" id="4_qlg0r"]
@@ -8,6 +9,9 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qlg0r"]
 size = Vector2(129, 129)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tuyoq"]
+shader = ExtResource("1_tuyoq")
 
 [node name="Player" type="CharacterBody2D" unique_id=1896878719]
 script = ExtResource("1_qhqgy")
@@ -36,6 +40,9 @@ metadata/_custom_type_script = "uid://c6t1f7314lva8"
 unique_name_in_owner = true
 script = ExtResource("5_tuyoq")
 metadata/_custom_type_script = "uid://bnn4d42eggoye"
+
+[node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1230642190]
+material = SubResource("ShaderMaterial_tuyoq")
 
 [connection signal="died" from="Components/HealthComponent" to="." method="_on_health_component_died"]
 [connection signal="damage_dealt" from="Components/DamageComponent" to="." method="_on_damage_component_damage_dealt"]

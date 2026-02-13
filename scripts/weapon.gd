@@ -32,6 +32,6 @@ func _process(delta: float) -> void:
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("enemy"):
-		damage_component.deal_damage(5, body)
+		damage_component.deal_damage(15, body)
 		print("dealing damage")
 	pass # Replace with function body.
