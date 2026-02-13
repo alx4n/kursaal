@@ -10,6 +10,7 @@
 radius = 32.0
 
 [node name="Sentry" type="CharacterBody2D" unique_id=1686908263]
+motion_mode = 1
 script = ExtResource("1_h2a1c")
 projectile_scene = ExtResource("2_ifqkb")
 metadata/_edit_group_ = true

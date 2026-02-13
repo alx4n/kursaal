@@ -11,6 +11,8 @@ size = Vector2(129, 129)
 
 [node name="Player" type="CharacterBody2D" unique_id=1896878719]
 collision_layer = 5
+motion_mode = 1
+slide_on_ceiling = false
 script = ExtResource("1_qhqgy")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1042029701]

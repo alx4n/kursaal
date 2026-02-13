@@ -12,6 +12,7 @@ radius = 32.0
 radius = 32.140316
 
 [node name="Chaser" type="CharacterBody2D" unique_id=749136513]
+motion_mode = 1
 script = ExtResource("1_wuvmb")
 damage_amount = 10
 metadata/_edit_group_ = true
