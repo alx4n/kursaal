@@ -21,10 +21,6 @@ func _input(event: InputEvent) -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if mouse_delta > Vector2(0.1, 0.1):
-		self.frame = 1
-		await get_tree().create_timer(0.5).timeout
-		self.frame = 0
 	if Input.is_action_just_pressed("shoot"):
 			var bullet_instance = BULLET.instantiate()
 			get_tree().root.add_child(bullet_instance)
