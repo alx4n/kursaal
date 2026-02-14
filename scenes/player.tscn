@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://mrb6thsl00f5" path="res://scripts/player.gd" id="1_qhqgy"]
 [ext_resource type="Texture2D" uid="uid://dcohnl73tntjb" path="res://icon.svg" id="2_dqkch"]
+[ext_resource type="Script" uid="uid://c6t2hqgrhrmw2" path="res://scripts/camera_2d.gd" id="2_tuyoq"]
 [ext_resource type="PackedScene" uid="uid://c00hnh3le7e7l" path="res://scenes/weapon.tscn" id="3_qlg0r"]
 [ext_resource type="Script" uid="uid://c6t1f7314lva8" path="res://components/health_component.gd" id="4_qlg0r"]
 [ext_resource type="Script" uid="uid://bnn4d42eggoye" path="res://components/damage_component.gd" id="5_tuyoq"]
@@ -9,11 +10,13 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qlg0r"]
 size = Vector2(129, 129)
 
-[node name="Player" type="CharacterBody2D" unique_id=1896878719 node_paths=PackedStringArray("health_component")]
+[node name="Player" type="CharacterBody2D" unique_id=1896878719]
 script = ExtResource("1_qhqgy")
-health_component = NodePath("Components/HealthComponent")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1042029701]
+position_smoothing_enabled = true
+position_smoothing_speed = 10.0
+script = ExtResource("2_tuyoq")
 
 [node name="PlayerIcon" type="Sprite2D" parent="." unique_id=1545704745]
 texture = ExtResource("2_dqkch")
