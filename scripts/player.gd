@@ -1,5 +1,5 @@
 extends CharacterBody2D
-@export var speed = 100
+@export var speed = 300
 
 @onready var health_component : HealthComponent = %HealthComponent
 
@@ -9,7 +9,7 @@ func getInput():
 
 	
 	
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	getInput()
 	move_and_slide()
 	
