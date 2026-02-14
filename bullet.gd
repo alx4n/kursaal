@@ -1,6 +1,10 @@
-extends RigidBody2D
+extends Area2D
 
 @export var shot_speed = 150
+const speed : int = 100
 
 func _ready() -> void:
-	self.apply_impulse(Vector2(0,-shot_speed))
+	pass
+	
+func _process(delta: float) -> void:
+	position += transform.x * speed * delta
