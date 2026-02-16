@@ -5,11 +5,13 @@
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bmw2d"]
 atlas = ExtResource("1_uxn4k")
-region = Rect2(0, 0, 64, 24)
+region = Rect2(0, 0, 32, 24)
 
 [node name="Weapon" type="Sprite2D" unique_id=784183095]
 texture_filter = 1
 scale = Vector2(5, 5)
 texture = SubResource("AtlasTexture_bmw2d")
-hframes = 2
 script = ExtResource("2_uxn4k")
+
+[node name="Marker2D" type="Marker2D" parent="." unique_id=124473112]
+position = Vector2(16, 6.2)
