@@ -17,6 +17,8 @@ func _process(_delta: float) -> void:
 	if current_health <= 0:
 		is_dead = true
 		died.emit()
+	if current_health > _max_health:
+		current_health = _max_health
 	
 func heal(amount: int) -> void:
 	current_health += amount

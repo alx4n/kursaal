@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" uid="uid://t43k0kvfqm4e" path="res://scripts/Dungeon.gd" id="1_iyx0m"]
 [ext_resource type="PackedScene" uid="uid://bfnbt7umlbdky" path="res://scenes/player.tscn" id="2_74lek"]
+[ext_resource type="PackedScene" uid="uid://v1m5xbie07pb" path="res://scenes/enemy_chaser.tscn" id="3_j5jx5"]
+[ext_resource type="PackedScene" uid="uid://dh4glgejrhsib" path="res://scenes/enemy_sentry.tscn" id="4_lpvoh"]
 [ext_resource type="PackedScene" uid="uid://bb73umpiy1jjn" path="res://scenes/door.tscn" id="3_j5jx5"]
 [ext_resource type="TileSet" uid="uid://ccof0irhc7y62" path="res://resources/casino_tile_set_pixel.tres" id="4_74lek"]
 [ext_resource type="Script" uid="uid://2th3ay6gqql6" path="res://scripts/door.gd" id="4_j5jx5"]
@@ -17,6 +19,9 @@ size = Vector2(1062, 286)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qickv"]
 size = Vector2(81, 921)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lpvoh"]
+size = Vector2(95, 935)
 
 [node name="Dungeon" type="Node2D" unique_id=1282095804]
 script = ExtResource("1_iyx0m")
