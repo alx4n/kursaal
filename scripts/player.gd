@@ -21,6 +21,8 @@ func _physics_process(_delta: float) -> void:
 	
 func _process(_delta: float) -> void:
 	health_component.set_max_health(100)
+	#if Input.is_action_just_pressed("dash"):
+		#damage_component.deal_damage(15, self)
 	pass
 
 
@@ -31,4 +33,10 @@ func _on_damage_component_damage_dealt(amount: int, body: Node2D) -> void:
 
 func _on_health_component_died() -> void:
 	self.queue_free()
+	pass # Replace with function body.
+
+
+func _on_health_component_health_changed(current: int, max_health: int, amount: int) -> void:
+	if amount < 0:
+		$AnimationPlayer.play("damage_taken")
 	pass # Replace with function body.
