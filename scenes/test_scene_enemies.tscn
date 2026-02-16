@@ -7,7 +7,7 @@
 [node name="TestSceneEnemies" type="Node2D" unique_id=544048373]
 
 [node name="Chaser" parent="." unique_id=749136513 instance=ExtResource("1_5fqt2")]
-position = Vector2(762, 285)
+position = Vector2(1073, 548)
 
 [node name="Sentry" parent="." unique_id=1686908263 instance=ExtResource("2_p6jae")]
 position = Vector2(1083, 121)

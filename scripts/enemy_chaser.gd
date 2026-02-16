@@ -4,7 +4,6 @@ var speed = 120
 @export var damage_amount: int
 @onready var health_component: HealthComponent = %HealthComponent
 @onready var damage_component: DamageComponent = %DamageComponent
-var collider
 enum States {IDLE, CHASING}
 var state = States.CHASING
 
@@ -21,7 +20,7 @@ func _physics_process(_delta: float) -> void:
 
 func _on_attack_detector_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
-		print("YEOWCH!")
+		body.health_component.take_damage(damage_amount)
 		state = States.IDLE
 		$AttackCooldown.start()
 
