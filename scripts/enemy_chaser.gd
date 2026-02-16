@@ -18,9 +18,6 @@ func _physics_process(_delta: float) -> void:
 		self.velocity = Vector2(0,0)
 		$AttackDetector.position = self.position
 	move_and_slide()
-	
-func _process(_delta: float) -> void:
-	pass
 
 func _on_attack_detector_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
