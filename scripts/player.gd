@@ -23,6 +23,12 @@ func _process(_delta: float) -> void:
 	health_component.set_max_health(100)
 	#if Input.is_action_just_pressed("dash"):
 		#damage_component.deal_damage(15, self)
+func _ready() -> void:
+	health_component.set_max_health(100)
+	# $Camera2D/HealthBar.value = health_component.current_health
+
+func _on_health_component_health_changed(current: int, _max: int) -> void:
+	# $Camera2D/HealthBar.value = current
 	pass
 
 

@@ -51,12 +51,21 @@ _data = {
 }
 
 [node name="Player" type="CharacterBody2D" unique_id=1896878719]
+collision_layer = 5
 script = ExtResource("1_qhqgy")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1042029701]
 position_smoothing_enabled = true
 position_smoothing_speed = 10.0
 script = ExtResource("2_tuyoq")
+
+[node name="HealthBar" type="ProgressBar" parent="Camera2D" unique_id=249187159]
+offset_left = -613.0
+offset_top = -337.0
+offset_right = -260.0
+offset_bottom = -270.0
+theme_override_font_sizes/font_size = 40
+step = 1.0
 
 [node name="PlayerIcon" type="Sprite2D" parent="." unique_id=1545704745]
 texture = ExtResource("2_dqkch")
@@ -90,3 +99,5 @@ libraries/ = SubResource("AnimationLibrary_ur7pv")
 [connection signal="died" from="Components/HealthComponent" to="." method="_on_health_component_died"]
 [connection signal="health_changed" from="Components/HealthComponent" to="." method="_on_health_component_health_changed"]
 [connection signal="damage_dealt" from="Components/DamageComponent" to="." method="_on_damage_component_damage_dealt"]
+[connection signal="health_changed" from="Components/HealthComponent" to="." method="_on_health_component_health_changed"]
+[connection signal="damage_dealt" from="Components/DamageComponent" to="Components/HealthComponent" method="_on_damage_component_damage_dealt"]

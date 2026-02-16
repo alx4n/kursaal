@@ -6,10 +6,15 @@
 [ext_resource type="Script" uid="uid://bnn4d42eggoye" path="res://components/damage_component.gd" id="4_xdwg6"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lbcmp"]
-radius = 16.0
+radius = 32.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3ddd7"]
+radius = 32.140316
 
 [node name="Chaser" type="CharacterBody2D" unique_id=749136513]
+motion_mode = 1
 script = ExtResource("1_wuvmb")
+damage_amount = 10
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1939701309]
@@ -18,6 +23,14 @@ shape = SubResource("CircleShape2D_lbcmp")
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1759677447]
 scale = Vector2(2, 2)
 texture = ExtResource("2_wuvmb")
+
+[node name="AttackDetector" type="Area2D" parent="." unique_id=1489077814]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackDetector" unique_id=29822751]
+shape = SubResource("CircleShape2D_3ddd7")
+
+[node name="AttackCooldown" type="Timer" parent="." unique_id=1395081352]
+one_shot = true
 
 [node name="Components" type="Node" parent="." unique_id=326964973]
 
@@ -34,3 +47,6 @@ metadata/_custom_type_script = "uid://bnn4d42eggoye"
 
 [connection signal="died" from="Components/HealthComponent" to="." method="_on_health_component_died"]
 [connection signal="damage_dealt" from="Components/DamageComponent" to="." method="_on_damage_component_damage_dealt"]
+[connection signal="body_entered" from="AttackDetector" to="." method="_on_attack_detector_body_entered"]
+[connection signal="timeout" from="AttackCooldown" to="." method="_on_attack_cooldown_timeout"]
+[connection signal="damage_dealt" from="Components/DamageComponent" to="Components/HealthComponent" method="_on_damage_component_damage_dealt"]
