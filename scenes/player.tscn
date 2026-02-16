@@ -25,7 +25,9 @@ offset_top = -337.0
 offset_right = -260.0
 offset_bottom = -270.0
 theme_override_font_sizes/font_size = 40
-step = 1.0
+rounded = true
+allow_greater = true
+allow_lesser = true
 
 [node name="PlayerIcon" type="Sprite2D" parent="." unique_id=1545704745]
 texture = ExtResource("2_dqkch")
@@ -42,6 +44,7 @@ shape = SubResource("RectangleShape2D_qlg0r")
 [node name="HealthComponent" type="Node" parent="Components" unique_id=226746594]
 unique_name_in_owner = true
 script = ExtResource("4_qlg0r")
+_max_health = 100
 metadata/_custom_type_script = "uid://c6t1f7314lva8"
 
 [node name="DamageComponent" type="Node" parent="Components" unique_id=111239730]
@@ -49,5 +52,6 @@ unique_name_in_owner = true
 script = ExtResource("5_tuyoq")
 metadata/_custom_type_script = "uid://bnn4d42eggoye"
 
+[connection signal="died" from="Components/HealthComponent" to="." method="_on_health_component_died"]
 [connection signal="health_changed" from="Components/HealthComponent" to="." method="_on_health_component_health_changed"]
 [connection signal="damage_dealt" from="Components/DamageComponent" to="Components/HealthComponent" method="_on_damage_component_damage_dealt"]
