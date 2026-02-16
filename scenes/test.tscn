@@ -1,12 +1,12 @@
 [gd_scene format=4 uid="uid://6kky4deya1xo"]
 
 [ext_resource type="Script" uid="uid://t43k0kvfqm4e" path="res://scripts/Dungeon.gd" id="1_iyx0m"]
-[ext_resource type="PackedScene" uid="uid://bfnbt7umlbdky" path="res://scenes/player.tscn" id="2_74lek"]
-[ext_resource type="PackedScene" uid="uid://v1m5xbie07pb" path="res://scenes/enemy_chaser.tscn" id="3_j5jx5"]
-[ext_resource type="PackedScene" uid="uid://dh4glgejrhsib" path="res://scenes/enemy_sentry.tscn" id="4_lpvoh"]
+[ext_resource type="PackedScene" uid="uid://d272p15cdivia" path="res://scenes/player.tscn" id="2_74lek"]
 [ext_resource type="PackedScene" uid="uid://bb73umpiy1jjn" path="res://scenes/door.tscn" id="3_j5jx5"]
 [ext_resource type="TileSet" uid="uid://ccof0irhc7y62" path="res://resources/casino_tile_set_pixel.tres" id="4_74lek"]
 [ext_resource type="Script" uid="uid://2th3ay6gqql6" path="res://scripts/door.gd" id="4_j5jx5"]
+[ext_resource type="PackedScene" uid="uid://dh4glgejrhsib" path="res://scenes/enemy_sentry.tscn" id="4_lpvoh"]
+[ext_resource type="PackedScene" uid="uid://v1m5xbie07pb" path="res://scenes/enemy_chaser.tscn" id="7_at5dv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bl13t"]
 size = Vector2(135.5, 135.5)
@@ -59,11 +59,13 @@ shape = SubResource("RectangleShape2D_bl13t")
 [node name="Marker2D" type="Marker2D" parent="door2" unique_id=1299553099]
 position = Vector2(-548, -15)
 
-[node name="Player" parent="." unique_id=1896878719 instance=ExtResource("2_74lek")]
+[node name="Player" parent="." unique_id=1896878719 groups=["player"] instance=ExtResource("2_74lek")]
 collision_layer = 2
 collision_mask = 2
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=404684116]
+collision_layer = 2
+collision_mask = 2
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D" unique_id=385409005]
 build_mode = 1
@@ -139,6 +141,7 @@ shape = SubResource("RectangleShape2D_lpvoh")
 [node name="Sentry" parent="." unique_id=1686908263 groups=["enemy"] instance=ExtResource("4_lpvoh")]
 position = Vector2(-544, -243)
 
-[node name="Chaser" parent="." unique_id=749136513 groups=["enemy"] instance=ExtResource("3_j5jx5")]
-position = Vector2(-515, 495)
+[node name="Chaser" parent="." unique_id=749136513 groups=["enemy"] instance=ExtResource("7_at5dv")]
+position = Vector2(-489, 519)
+
 [connection signal="body_entered" from="door2" to="door2" method="_on_body_entered"]

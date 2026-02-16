@@ -1,5 +1,5 @@
 extends CharacterBody2D
-@export var speed = 100
+@export var speed = 300
 @export var dash_speed = 300
 
 @onready var health_component : HealthComponent = %HealthComponent
@@ -11,7 +11,7 @@ func getInput():
 	self.velocity = input_direction * speed
 	if Input.is_action_just_pressed("dash"):
 		speed += dash_speed
-		await get_tree().create_timer(0.25).timeout
+		await get_tree().create_timer(0.275).timeout
 		speed -= dash_speed
 	
 	
