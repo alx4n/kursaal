@@ -17,9 +17,6 @@ func _input(event: InputEvent) -> void:
 		self.look_at(get_global_mouse_position())
 		mouse_delta = event.relative
 		
-		
-
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("shoot"):

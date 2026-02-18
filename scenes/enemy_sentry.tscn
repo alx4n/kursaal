@@ -37,6 +37,14 @@ unique_name_in_owner = true
 script = ExtResource("4_r4oi2")
 metadata/_custom_type_script = "uid://bnn4d42eggoye"
 
+[node name="ProgressBar" type="ProgressBar" parent="." unique_id=1195396270]
+offset_left = -47.0
+offset_top = -81.0
+offset_right = 54.0
+offset_bottom = -54.0
+step = 1.0
+value = 100.0
+
 [connection signal="timeout" from="ProjectileTimer" to="." method="_on_projectile_timer_timeout"]
 [connection signal="died" from="Components/HealthComponent" to="." method="_on_health_component_died"]
-[connection signal="damage_dealt" from="Components/DamageComponent" to="." method="_on_damage_component_damage_dealt"]
+[connection signal="health_changed" from="Components/HealthComponent" to="." method="_on_health_component_health_changed"]

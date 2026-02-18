@@ -1,7 +1,8 @@
 [gd_scene format=3 uid="uid://b0elmu2iikol3"]
 
-[ext_resource type="Script" uid="uid://df1mtpjfxk86v" path="res://bullet.gd" id="1_y25gk"]
+[ext_resource type="Script" uid="uid://df1mtpjfxk86v" path="res://scripts/bullet.gd" id="1_l5glv"]
 [ext_resource type="Texture2D" uid="uid://cj8hdwcshieo8" path="res://sprites/Cane frames 2.png" id="2_l5glv"]
+[ext_resource type="Script" uid="uid://bnn4d42eggoye" path="res://components/damage_component.gd" id="3_l5glv"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_t4vbm"]
 atlas = ExtResource("2_l5glv")
@@ -14,8 +15,7 @@ size = Vector2(4, 6)
 rotation = 1.5560329
 scale = Vector2(5, 5)
 disable_mode = 2
-collision_layer = 2
-script = ExtResource("1_y25gk")
+script = ExtResource("1_l5glv")
 metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=2143724469]
@@ -24,3 +24,10 @@ texture = SubResource("AtlasTexture_t4vbm")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1023567196]
 shape = SubResource("RectangleShape2D_y25gk")
+
+[node name="DamageComponent" type="Node" parent="." unique_id=58288089]
+unique_name_in_owner = true
+script = ExtResource("3_l5glv")
+metadata/_custom_type_script = "uid://bnn4d42eggoye"
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
