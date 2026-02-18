@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://b0elmu2iikol3"]
 
-[ext_resource type="Script" uid="uid://df1mtpjfxk86v" path="res://bullet.gd" id="1_y25gk"]
+[ext_resource type="Script" uid="uid://df1mtpjfxk86v" path="res://scripts/bullet.gd" id="1_y25gk"]
 [ext_resource type="Texture2D" uid="uid://cj8hdwcshieo8" path="res://sprites/Cane frames 2.png" id="2_l5glv"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_t4vbm"]
