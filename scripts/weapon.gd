@@ -7,6 +7,8 @@ const BULLET = preload("res://scenes/bullet.tscn")
 @onready var muzzle: Marker2D = $Marker2D
 @onready var damage_component : DamageComponent = %DamageComponent
 
+@export var damage_amount := 15
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -29,6 +31,5 @@ func _process(delta: float) -> void:
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("enemy"):
-		damage_component.deal_damage(15, body)
-		print("dealing damage")
+		damage_component.deal_damage(damage_amount, body)
 	pass # Replace with function body.

@@ -27,6 +27,8 @@ func _ready() -> void:
 	health_bar.value = health_component.current_health
 
 func _on_health_component_died() -> void:
+	if self.get_parent().has_node("CanvasLayer"):
+		health_bar.reparent(self.get_parent().get_node("CanvasLayer"), false)
 	self.queue_free()
 	pass # Replace with function body.
 

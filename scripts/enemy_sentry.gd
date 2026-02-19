@@ -25,6 +25,6 @@ func _on_health_component_died() -> void:
 	pass # Replace with function body.
 
 
-func _on_health_component_health_changed(current: int, max: int, amount: int) -> void:
+func _on_health_component_health_changed(current: int, _max: int, _amount: int) -> void:
 	health_bar.value = current
 	pass # Replace with function body.
