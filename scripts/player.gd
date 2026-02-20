@@ -2,6 +2,7 @@ extends CharacterBody2D
 @export var speed = 300
 @export var dash_speed = 300
 
+@export var speed = 300
 @onready var health_component : HealthComponent = %HealthComponent
 @onready var damage_component : DamageComponent = %DamageComponent
 @onready var health_bar : ProgressBar = $CanvasLayer/HealthBar
