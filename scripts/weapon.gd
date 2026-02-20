@@ -1,4 +1,4 @@
-extends Sprite2D
+extends Area2D
 
 const MOUSE_SENSITIVITY = .01
 var mouse_delta: Vector2
@@ -6,11 +6,13 @@ const BULLET = preload("res://scenes/bullet.tscn")
 
 @onready var muzzle: Marker2D = $Marker2D
 @onready var damage_component : DamageComponent = %DamageComponent
+@onready var melee_collision_shape : CollisionPolygon2D = $MeleeAttack/CollisionPolygon2D
 
 @export var damage_amount := 15
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	melee_collision_shape.disabled = true
 	pass # Replace with function body.
 
 
@@ -18,6 +20,12 @@ func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
 		self.look_at(get_global_mouse_position())
 		mouse_delta = event.relative
+	if event is InputEventMouseButton:
+		if Input.is_action_just_pressed("melee"):
+			$AnimationPlayer.play("melee_attack")
+			melee_collision_shape.disabled = false
+		else:
+			melee_collision_shape.disabled = true
 		
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
