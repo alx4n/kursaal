@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://bb73umpiy1jjn" path="res://scenes/door.tscn" id="3_j5jx5"]
 [ext_resource type="TileSet" uid="uid://ccof0irhc7y62" path="res://resources/casino_tile_set_pixel.tres" id="4_74lek"]
 [ext_resource type="Script" uid="uid://2th3ay6gqql6" path="res://scripts/door.gd" id="4_j5jx5"]
+[ext_resource type="PackedScene" uid="uid://c5orkpno8peky" path="res://scenes/item.tscn" id="6_lpvoh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bl13t"]
 size = Vector2(135.5, 135.5)
@@ -17,6 +18,9 @@ size = Vector2(1062, 286)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qickv"]
 size = Vector2(81, 921)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j5jx5"]
+size = Vector2(163, 110)
 
 [node name="Dungeon" type="Node2D" unique_id=1282095804]
 script = ExtResource("1_iyx0m")
@@ -54,7 +58,7 @@ shape = SubResource("RectangleShape2D_bl13t")
 [node name="Marker2D" type="Marker2D" parent="door2" unique_id=1299553099]
 position = Vector2(-548, -15)
 
-[node name="Player" parent="." unique_id=1896878719 instance=ExtResource("2_74lek")]
+[node name="Player" parent="." unique_id=1896878719 groups=["player"] instance=ExtResource("2_74lek")]
 collision_layer = 2
 collision_mask = 2
 
@@ -126,5 +130,16 @@ shape = SubResource("RectangleShape2D_k83k5")
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D" unique_id=1362480448]
 position = Vector2(3257.5, 208.5)
 shape = SubResource("RectangleShape2D_qickv")
+
+[node name="itemHolder" type="Area2D" parent="." unique_id=1200290694]
+position = Vector2(940, -25)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="itemHolder" unique_id=2047903419]
+position = Vector2(-24.5, -17)
+shape = SubResource("RectangleShape2D_j5jx5")
+
+[node name="Item" parent="." unique_id=31963809 instance=ExtResource("6_lpvoh")]
+position = Vector2(379, -103)
+needs_update = true
 
 [connection signal="body_entered" from="door2" to="door2" method="_on_body_entered"]

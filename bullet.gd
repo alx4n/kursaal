@@ -1,4 +1,4 @@
-extends Area2D
+extends RigidBody2D
 
 @export var shot_speed = 150
 const speed : int = 100

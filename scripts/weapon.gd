@@ -5,6 +5,7 @@ var mouse_delta: Vector2
 const BULLET = preload("res://scenes/bullet.tscn")
 
 @onready var muzzle: Marker2D = $Marker2D
+@onready var player : Player = get_owner()
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -26,4 +27,8 @@ func _process(delta: float) -> void:
 			get_tree().root.add_child(bullet_instance)
 			bullet_instance.global_position = muzzle.global_position
 			bullet_instance.rotation = rotation
-	pass
+			
+			for upgrade in player.upgrades:
+				upgrade.apply_upgrade(bullet_instance)
+	
+	

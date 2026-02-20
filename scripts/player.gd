@@ -1,5 +1,8 @@
+class_name Player
 extends CharacterBody2D
 @export var speed = 300
+
+var upgrades : Array[BulletUpgrade] = []
 
 @onready var health_component : HealthComponent = %HealthComponent
 
