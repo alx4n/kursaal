@@ -1,7 +1,7 @@
 class_name Bullet
 extends Area2D
 
-@export var speed := 10
+@export var speed := 100
 
 func _process(delta: float) -> void:
 	position += transform.x * speed * delta 
