@@ -13,4 +13,23 @@ offset_bottom = 487.0
 theme_override_font_sizes/font_size = 48
 text = "Start"
 
+[node name="OptionsButton" type="Button" parent="." unique_id=481609331]
+visible = false
+offset_left = 464.0
+offset_top = 505.0
+offset_right = 766.0
+offset_bottom = 583.0
+theme_override_font_sizes/font_size = 48
+text = "Options"
+
+[node name="QuitButton" type="Button" parent="." unique_id=1324152293]
+offset_left = 464.0
+offset_top = 601.0
+offset_right = 766.0
+offset_bottom = 679.0
+theme_override_font_sizes/font_size = 48
+text = "Quit"
+
 [connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="OptionsButton" to="." method="_on_options_button_pressed"]
+[connection signal="pressed" from="QuitButton" to="." method="_on_quit_button_pressed"]

@@ -19,12 +19,13 @@ func _on_projectile_timer_timeout() -> void:
 		get_tree().get_root().add_child(new_projectile)
 		new_projectile.global_position = self.global_position
 		new_projectile.linear_velocity = Vector2(player_dir.x * projectile_speed, player_dir.y * projectile_speed)
+		$SFX/SFXEnemyShoot.play()
 
 func _on_health_component_died() -> void:
+	$SFX/SFXEnemyDeath.play()
+	$SFX/SFXEnemyDeath.reparent(self.get_parent().get_node("SFX"), false)
 	self.queue_free()
-	pass # Replace with function body.
-
 
 func _on_health_component_health_changed(current: int, _max: int, _amount: int) -> void:
 	health_bar.value = current
-	pass # Replace with function body.
+	$SFX/SFXEnemyHurt.play()

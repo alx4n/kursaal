@@ -23,6 +23,7 @@ func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
 		if Input.is_action_just_pressed("melee"):
 			$AnimationPlayer.play("melee_attack")
+			$SFX/SFXMelee.play()
 			melee_collision_shape.disabled = false
 		else:
 			melee_collision_shape.disabled = true
@@ -34,6 +35,7 @@ func _process(delta: float) -> void:
 			get_tree().root.add_child(bullet_instance)
 			bullet_instance.global_position = muzzle.global_position
 			bullet_instance.rotation = rotation
+			$SFX/SFXShoot.play()
 	pass
 
 
