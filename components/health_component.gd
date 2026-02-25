@@ -1,6 +1,6 @@
 class_name HealthComponent extends Node
 
-signal health_changed(current: int, max: int)
+signal health_changed(current: int, max: int, amount: int)
 signal died
 
 @export var _max_health : int
@@ -15,19 +15,18 @@ func _ready() -> void:
 	
 func _process(_delta: float) -> void:
 	if current_health <= 0:
+		is_dead = true
 		died.emit()
+	if current_health > _max_health:
+		current_health = _max_health
 	
 func heal(amount: int) -> void:
 	current_health += amount
-	health_changed.emit(current_health, _max_health)
+	health_changed.emit(current_health, _max_health, amount)
 
 func take_damage(damage: int) -> void:
 	current_health -= damage
-	health_changed.emit(current_health, _max_health)
+	health_changed.emit(current_health, _max_health, -damage)
 	
 func set_max_health(max_health: int) -> void:
 	self._max_health = max_health
-
-func _on_damage_component_damage_dealt(damage_amount: int) -> void:
-	take_damage(damage_amount)
-	pass # Replace with function body.

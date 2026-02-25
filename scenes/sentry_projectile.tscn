@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://thi3oyffph67"]
+
+[ext_resource type="Script" path="res://scripts/sentry_projectile.gd" id="1_m8evk"]
+[ext_resource type="Texture2D" uid="uid://8ujlw621tiu6" path="res://sprites/enemyTestSentry.png" id="2_jpwhe"]
+[ext_resource type="Script" uid="uid://bnn4d42eggoye" path="res://components/damage_component.gd" id="3_icvl4"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5fqt2"]
+
+[node name="SentryProjectile" type="RigidBody2D" unique_id=264381670]
+gravity_scale = 0.0
+contact_monitor = true
+max_contacts_reported = 1
+linear_damp_mode = 1
+angular_damp_mode = 1
+script = ExtResource("1_m8evk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1106228779]
+shape = SubResource("CircleShape2D_5fqt2")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1853344308]
+position = Vector2(-4.7683716e-07, 4.7683716e-07)
+scale = Vector2(0.640625, 0.640625)
+texture = ExtResource("2_jpwhe")
+
+[node name="DamageComponent" type="Node" parent="." unique_id=1550981079]
+unique_name_in_owner = true
+script = ExtResource("3_icvl4")
+metadata/_custom_type_script = "uid://bnn4d42eggoye"
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

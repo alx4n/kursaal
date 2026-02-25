@@ -6,6 +6,9 @@
 [ext_resource type="Script" uid="uid://2th3ay6gqql6" path="res://scripts/door.gd" id="4_j5jx5"]
 [ext_resource type="PackedScene" uid="uid://bt8esmj63k6s7" path="res://scenes/blacksquare.tscn" id="5_j5jx5"]
 [ext_resource type="Script" uid="uid://blwm36sahn10l" path="res://scripts/blacksquare.gd" id="6_lpvoh"]
+[ext_resource type="PackedScene" uid="uid://dh4glgejrhsib" path="res://scenes/enemy_sentry.tscn" id="4_lpvoh"]
+[ext_resource type="PackedScene" uid="uid://v1m5xbie07pb" path="res://scenes/enemy_chaser.tscn" id="7_at5dv"]
+[ext_resource type="Script" uid="uid://40itrop66v1r" path="res://components/camera_component.gd" id="8_jcd4p"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bl13t"]
 size = Vector2(135.5, 135.5)
@@ -82,6 +85,8 @@ collision_layer = 2
 collision_mask = 2
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=404684116]
+collision_layer = 2
+collision_mask = 2
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D" unique_id=385409005]
 build_mode = 1
@@ -111,7 +116,7 @@ position = Vector2(1127, 1132)
 polygon = PackedVector2Array(-725, -296, -720, -727, -583, -727, -567, -286)
 
 [node name="CollisionPolygon2D8" type="CollisionPolygon2D" parent="StaticBody2D" unique_id=268482633]
-position = Vector2(558, 1138)
+position = Vector2(569, 1126)
 polygon = PackedVector2Array(-725, -296, -720, -727, -583, -727, -567, -286)
 
 [node name="CollisionPolygon2D9" type="CollisionPolygon2D" parent="StaticBody2D" unique_id=1862167012]
@@ -348,6 +353,21 @@ position = Vector2(2226, -890.00006)
 scale = Vector2(1.158783, 1.6323441)
 
 [connection signal="body_entered" from="door" to="door" method="_on_body_entered"]
+[node name="Sentry" parent="." unique_id=1686908263 groups=["enemy"] instance=ExtResource("4_lpvoh")]
+position = Vector2(-544, -243)
+
+[node name="Chaser" parent="." unique_id=749136513 groups=["enemy"] instance=ExtResource("7_at5dv")]
+position = Vector2(-489, 519)
+
+[node name="CameraComponent" type="Camera2D" parent="." unique_id=1464906790 node_paths=PackedStringArray("parent")]
+unique_name_in_owner = true
+script = ExtResource("8_jcd4p")
+parent = NodePath("..")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1044159921]
+
+[node name="SFX" type="Node" parent="." unique_id=720416108]
+
 [connection signal="body_entered" from="door2" to="door2" method="_on_body_entered"]
 [connection signal="body_entered" from="door3" to="door3" method="_on_body_entered"]
 [connection signal="body_entered" from="door4" to="door4" method="_on_body_entered"]

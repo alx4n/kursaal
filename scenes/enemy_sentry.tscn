@@ -1,17 +1,22 @@
 [gd_scene format=3 uid="uid://dh4glgejrhsib"]
 
 [ext_resource type="Script" uid="uid://5twqmvb3mjx1" path="res://scripts/enemy_sentry.gd" id="1_h2a1c"]
-[ext_resource type="PackedScene" uid="uid://dwr4klohlv328" path="res://scenes/projectile_sentry.tscn" id="2_ifqkb"]
+[ext_resource type="PackedScene" uid="uid://thi3oyffph67" path="res://scenes/sentry_projectile.tscn" id="2_r4oi2"]
 [ext_resource type="Texture2D" uid="uid://8ujlw621tiu6" path="res://sprites/enemyTestSentry.png" id="3_r4oi2"]
 [ext_resource type="Script" uid="uid://bnn4d42eggoye" path="res://components/damage_component.gd" id="4_r4oi2"]
 [ext_resource type="Script" uid="uid://c6t1f7314lva8" path="res://components/health_component.gd" id="5_yvw6x"]
+[ext_resource type="AudioStream" uid="uid://dvc58upauj4ii" path="res://sfx/temp_enemy_sentry_shoot.wav" id="6_u6owr"]
+[ext_resource type="AudioStream" uid="uid://x3v4akrtrci3" path="res://sfx/temp_enemy_hurt.wav" id="7_rxgyh"]
+[ext_resource type="Script" uid="uid://cjtf0ndkc1qw5" path="res://scripts/sfx_enemy_death.gd" id="8_u6owr"]
+[ext_resource type="AudioStream" uid="uid://bsahj37yoqh4s" path="res://sfx/temp_enemy_death.wav" id="8_xotbq"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gv20t"]
 radius = 32.0
 
 [node name="Sentry" type="CharacterBody2D" unique_id=1686908263]
+motion_mode = 1
 script = ExtResource("1_h2a1c")
-projectile_scene = ExtResource("2_ifqkb")
+projectile_scene = ExtResource("2_r4oi2")
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1001205478]
@@ -28,6 +33,7 @@ texture = ExtResource("3_r4oi2")
 [node name="HealthComponent" type="Node" parent="Components" unique_id=2102623751]
 unique_name_in_owner = true
 script = ExtResource("5_yvw6x")
+_max_health = 100
 metadata/_custom_type_script = "uid://c6t1f7314lva8"
 
 [node name="DamageComponent" type="Node" parent="Components" unique_id=1950474701]
@@ -35,5 +41,27 @@ unique_name_in_owner = true
 script = ExtResource("4_r4oi2")
 metadata/_custom_type_script = "uid://bnn4d42eggoye"
 
+[node name="ProgressBar" type="ProgressBar" parent="." unique_id=1195396270]
+offset_left = -47.0
+offset_top = -81.0
+offset_right = 54.0
+offset_bottom = -54.0
+step = 1.0
+value = 100.0
+
+[node name="SFX" type="Node" parent="." unique_id=633267964]
+
+[node name="SFXEnemyShoot" type="AudioStreamPlayer2D" parent="SFX" unique_id=1512019864]
+stream = ExtResource("6_u6owr")
+
+[node name="SFXEnemyHurt" type="AudioStreamPlayer2D" parent="SFX" unique_id=621078355]
+stream = ExtResource("7_rxgyh")
+
+[node name="SFXEnemyDeath" type="AudioStreamPlayer2D" parent="SFX" unique_id=72206355]
+stream = ExtResource("8_xotbq")
+script = ExtResource("8_u6owr")
+
 [connection signal="timeout" from="ProjectileTimer" to="." method="_on_projectile_timer_timeout"]
-[connection signal="damage_dealt" from="Components/DamageComponent" to="Components/HealthComponent" method="_on_damage_component_damage_dealt"]
+[connection signal="died" from="Components/HealthComponent" to="." method="_on_health_component_died"]
+[connection signal="health_changed" from="Components/HealthComponent" to="." method="_on_health_component_health_changed"]
+[connection signal="finished" from="SFX/SFXEnemyDeath" to="SFX/SFXEnemyDeath" method="_on_finished"]

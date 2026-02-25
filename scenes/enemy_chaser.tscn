@@ -4,12 +4,20 @@
 [ext_resource type="Texture2D" uid="uid://duoyy7rla4wgm" path="res://sprites/enemyTestChaser.png" id="2_wuvmb"]
 [ext_resource type="Script" uid="uid://c6t1f7314lva8" path="res://components/health_component.gd" id="3_3ddd7"]
 [ext_resource type="Script" uid="uid://bnn4d42eggoye" path="res://components/damage_component.gd" id="4_xdwg6"]
+[ext_resource type="AudioStream" uid="uid://x3v4akrtrci3" path="res://sfx/temp_enemy_hurt.wav" id="5_xdwg6"]
+[ext_resource type="AudioStream" uid="uid://bsahj37yoqh4s" path="res://sfx/temp_enemy_death.wav" id="6_4ifjj"]
+[ext_resource type="Script" uid="uid://cjtf0ndkc1qw5" path="res://scripts/sfx_enemy_death.gd" id="7_s6v6k"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lbcmp"]
-radius = 16.0
+radius = 32.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3ddd7"]
+radius = 32.140316
 
 [node name="Chaser" type="CharacterBody2D" unique_id=749136513]
+motion_mode = 1
 script = ExtResource("1_wuvmb")
+damage_amount = 20
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1939701309]
@@ -19,11 +27,21 @@ shape = SubResource("CircleShape2D_lbcmp")
 scale = Vector2(2, 2)
 texture = ExtResource("2_wuvmb")
 
+[node name="AttackDetector" type="Area2D" parent="." unique_id=1489077814]
+scale = Vector2(1.52, 1.48)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackDetector" unique_id=29822751]
+shape = SubResource("CircleShape2D_3ddd7")
+
+[node name="AttackCooldown" type="Timer" parent="." unique_id=1395081352]
+one_shot = true
+
 [node name="Components" type="Node" parent="." unique_id=326964973]
 
 [node name="HealthComponent" type="Node" parent="Components" unique_id=159164047]
 unique_name_in_owner = true
 script = ExtResource("3_3ddd7")
+_max_health = 15
 metadata/_custom_type_script = "uid://c6t1f7314lva8"
 
 [node name="DamageComponent" type="Node" parent="Components" unique_id=603674217]
@@ -31,4 +49,25 @@ unique_name_in_owner = true
 script = ExtResource("4_xdwg6")
 metadata/_custom_type_script = "uid://bnn4d42eggoye"
 
-[connection signal="damage_dealt" from="Components/DamageComponent" to="Components/HealthComponent" method="_on_damage_component_damage_dealt"]
+[node name="ProgressBar" type="ProgressBar" parent="." unique_id=857125917]
+offset_left = -47.0
+offset_top = -81.0
+offset_right = 54.0
+offset_bottom = -54.0
+step = 1.0
+value = 100.0
+
+[node name="SFX" type="Node" parent="." unique_id=846445687]
+
+[node name="SFXEnemyHurt" type="AudioStreamPlayer2D" parent="SFX" unique_id=1971468053]
+stream = ExtResource("5_xdwg6")
+
+[node name="SFXEnemyDeath" type="AudioStreamPlayer2D" parent="SFX" unique_id=1019858928]
+stream = ExtResource("6_4ifjj")
+script = ExtResource("7_s6v6k")
+
+[connection signal="body_entered" from="AttackDetector" to="." method="_on_attack_detector_body_entered"]
+[connection signal="timeout" from="AttackCooldown" to="." method="_on_attack_cooldown_timeout"]
+[connection signal="died" from="Components/HealthComponent" to="." method="_on_health_component_died"]
+[connection signal="health_changed" from="Components/HealthComponent" to="." method="_on_health_component_health_changed"]
+[connection signal="finished" from="SFX/SFXEnemyDeath" to="SFX/SFXEnemyDeath" method="_on_finished"]

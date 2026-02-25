@@ -2,16 +2,109 @@
 
 [ext_resource type="Texture2D" uid="uid://d0mv7yqiowpb2" path="res://sprites/Cane frames 1.png" id="1_uxn4k"]
 [ext_resource type="Script" uid="uid://by7dn30hrpqv3" path="res://scripts/weapon.gd" id="2_uxn4k"]
+[ext_resource type="AudioStream" uid="uid://c3m3veith54f8" path="res://sfx/temp_player_shoot.wav" id="3_8fp1k"]
+[ext_resource type="AudioStream" uid="uid://48gp74yuct8b" path="res://sfx/temp_player_melee.wav" id="4_cjr6y"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_bmw2d"]
+[sub_resource type="Animation" id="Animation_uxn4k"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_bmw2d"]
+resource_name = "melee_attack"
+length = 0.35
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.01, 0.02, 0.03, 0.04, 0.05, 0.06, 0.07, 0.08, 0.09, 0.1, 0.11, 0.12, 0.13, 0.14, 0.15, 0.16, 0.17, 0.18, 0.19, 0.2, 0.21, 0.22, 0.23, 0.24, 0.25, 0.26, 0.27, 0.28, 0.29, 0.3, 0.31, 0.32, 0.33, 0.34, 0.35),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, -0.1308997, -0.2617994, -0.3926991, -0.5235988, -0.65449846, -0.7853982, -0.91629785, -1.0471976, -1.1780972, -1.0471976, -0.91629785, -0.7853982, -0.65449846, -0.5235988, -0.3926991, -0.2617994, -0.1308997, 0.0, 0.1308996938995747, 0.1308996938995747, 0.2617994, 0.3926991, 0.5235988, 0.65449846, 0.7853982, 0.91629785, 1.0471976, 0.91629785, 0.7853982, 0.65449846, 0.5235988, 0.3926991, 0.2617994, 0.1308997, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.17, 0.28),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8fp1k"]
+_data = {
+&"RESET": SubResource("Animation_uxn4k"),
+&"melee_attack": SubResource("Animation_bmw2d")
+}
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cjr6y"]
 atlas = ExtResource("1_uxn4k")
-region = Rect2(0, 0, 32, 24)
+region = Rect2(0, 0, 64, 24)
 
-[node name="Weapon" type="Sprite2D" unique_id=784183095]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_uxn4k"]
+height = 22.607197
+
+[node name="Weapon" type="Area2D" unique_id=1664905218]
 texture_filter = 1
 scale = Vector2(5, 5)
-texture = SubResource("AtlasTexture_bmw2d")
 script = ExtResource("2_uxn4k")
 
 [node name="Marker2D" type="Marker2D" parent="." unique_id=124473112]
 position = Vector2(16, 6.2)
+
+[node name="MeleeAttack" type="Area2D" parent="." unique_id=1819735458]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="MeleeAttack" unique_id=1429815426]
+scale = Vector2(0.9999998, 0.9999998)
+polygon = PackedVector2Array(-8.799999, 4.2, 14.599999, -12.799999, 13.999999, 24.199999, -8.799999, 7.9999995)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1858732844]
+libraries/ = SubResource("AnimationLibrary_8fp1k")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=695904437]
+texture = SubResource("AtlasTexture_cjr6y")
+hframes = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2135682836]
+rotation = 1.5707964
+scale = Vector2(0.96137846, 1.4647324)
+shape = SubResource("CapsuleShape2D_uxn4k")
+
+[node name="SFX" type="Node" parent="." unique_id=2044982335]
+
+[node name="SFXShoot" type="AudioStreamPlayer2D" parent="SFX" unique_id=66771604]
+stream = ExtResource("3_8fp1k")
+
+[node name="SFXMelee" type="AudioStreamPlayer2D" parent="SFX" unique_id=795246365]
+stream = ExtResource("4_cjr6y")
+
+[connection signal="body_entered" from="MeleeAttack" to="." method="_on_area_2d_body_entered"]
