@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://bt8esmj63k6s7"]
+
+[ext_resource type="Script" uid="uid://blwm36sahn10l" path="res://scripts/blacksquare.gd" id="1_t8276"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j5jx5"]
+size = Vector2(2173, 1077)
+
+[node name="blacksquare" type="Area2D" unique_id=2069085296]
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("1_t8276")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1585123573]
+offset_left = -2769.0002
+offset_top = 1101.0
+offset_right = -2729.0002
+offset_bottom = 1141.0
+scale = Vector2(52.28824, -26.812737)
+color = Color(0.0056611504, 0.0056611514, 0.00566115, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=186718202]
+position = Vector2(-1773.5, 550.5)
+shape = SubResource("RectangleShape2D_j5jx5")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
