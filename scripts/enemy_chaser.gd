@@ -27,27 +27,23 @@ func _physics_process(_delta: float) -> void:
 func _process(_delta: float) -> void:
 	pass
 
-
 func _on_damage_component_damage_dealt(amount: int, body: Node2D) -> void:
 	body.health_component.take_damage(amount)
-	pass # Replace with function body.
-
 
 func _on_health_component_died() -> void:
+	$SFX/SFXEnemyDeath.play()
+	$SFX/SFXEnemyDeath.reparent(self.get_parent().get_node("SFX"), false)
 	self.queue_free()
-	pass # Replace with function body.
 
 func _on_attack_detector_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
 		damage_component.deal_damage(damage_amount, body)
-		print("YEOWCH")
 		state = States.IDLE
 		$AttackCooldown.start()
 
 func _on_attack_cooldown_timeout() -> void:
 	state = States.CHASING
 
-
-func _on_health_component_health_changed(current: int, max: int, amount: int) -> void:
+func _on_health_component_health_changed(current: int, _max: int, _amount: int) -> void:
 	health_bar.value = current
-	pass # Replace with function body.
+	$SFX/SFXEnemyHurt.play()

@@ -7,7 +7,7 @@
 [ext_resource type="Script" uid="uid://2th3ay6gqql6" path="res://scripts/door.gd" id="4_j5jx5"]
 [ext_resource type="PackedScene" uid="uid://dh4glgejrhsib" path="res://scenes/enemy_sentry.tscn" id="4_lpvoh"]
 [ext_resource type="PackedScene" uid="uid://v1m5xbie07pb" path="res://scenes/enemy_chaser.tscn" id="7_at5dv"]
-[ext_resource type="Script" path="res://components/camera_component.gd" id="8_jcd4p"]
+[ext_resource type="Script" uid="uid://40itrop66v1r" path="res://components/camera_component.gd" id="8_jcd4p"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bl13t"]
 size = Vector2(135.5, 135.5)
@@ -143,5 +143,7 @@ script = ExtResource("8_jcd4p")
 parent = NodePath("..")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1044159921]
+
+[node name="SFX" type="Node" parent="." unique_id=720416108]
 
 [connection signal="body_entered" from="door2" to="door2" method="_on_body_entered"]
