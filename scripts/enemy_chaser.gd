@@ -40,7 +40,6 @@ func _on_health_component_died() -> void:
 func _on_attack_detector_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
 		damage_component.deal_damage(damage_amount, body)
-		print("YEOWCH")
 		state = States.IDLE
 		$AttackCooldown.start()
 

@@ -15,5 +15,6 @@ func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
 
 
 func _on_body_entered(body: Node2D) -> void:
-	damage_comp.deal_damage(shot_damage, body)
+	if !body.is_in_group("player"):
+		damage_comp.deal_damage(shot_damage, body)
 	pass # Replace with function body.

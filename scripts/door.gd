@@ -5,4 +5,3 @@ extends Area2D
 
 func _on_body_entered(body: Node2D) -> void:
 	body.global_position = marker_2d.global_position
-	print("AAAAAAAAA")
