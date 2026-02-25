@@ -147,5 +147,6 @@ parent = NodePath("..")
 
 [node name="Boss" parent="." unique_id=1467479596 instance=ExtResource("9_uacia")]
 position = Vector2(-2061, 533)
+[node name="SFX" type="Node" parent="." unique_id=720416108]
 
 [connection signal="body_entered" from="door2" to="door2" method="_on_body_entered"]

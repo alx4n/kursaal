@@ -29,17 +29,17 @@ func _ready() -> void:
 func _on_health_component_died() -> void:
 	if self.get_parent().has_node("CanvasLayer"):
 		health_bar.reparent(self.get_parent().get_node("CanvasLayer"), false)
+		$SFX/SFXPlayerDeath.play()
+		$SFX/SFXPlayerHurt.reparent(self.get_parent().get_node("SFX"), false)
+		$SFX/SFXPlayerDeath.reparent(self.get_parent().get_node("SFX"), false)
 	self.queue_free()
-	pass # Replace with function body.
 
 # Changes value of health bar, if damage is taken, play invicibility frames
 func _on_health_component_health_changed(current: int, _max_health: int, amount: int) -> void:
 	health_bar.value = current
 	if amount < 0:
 		$AnimationPlayer.play("damage_taken")
+		$SFX/SFXPlayerHurt.play()
 		invincible = true
-		print(invincible)
 		await get_tree().create_timer(3.0).timeout
 		invincible = false
-		
-	pass # Replace with function body.
