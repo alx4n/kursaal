@@ -4,6 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://bfnbt7umlbdky" path="res://scenes/player.tscn" id="2_74lek"]
 [ext_resource type="TileSet" uid="uid://ccof0irhc7y62" path="res://resources/casino_tile_set_pixel.tres" id="4_74lek"]
 [ext_resource type="Script" uid="uid://2th3ay6gqql6" path="res://scripts/door.gd" id="4_j5jx5"]
+[ext_resource type="PackedScene" uid="uid://bt8esmj63k6s7" path="res://scenes/blacksquare.tscn" id="5_j5jx5"]
+[ext_resource type="Script" uid="uid://blwm36sahn10l" path="res://scripts/blacksquare.gd" id="6_lpvoh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bl13t"]
 size = Vector2(135.5, 135.5)
@@ -20,7 +22,11 @@ size = Vector2(1062, 286)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qickv"]
 size = Vector2(81, 921)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j5jx5"]
+size = Vector2(2173, 1077)
+
 [node name="Dungeon" type="Node2D" unique_id=1282095804]
+position = Vector2(1, 0)
 script = ExtResource("1_iyx0m")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=780906196]
@@ -206,9 +212,152 @@ shape = SubResource("RectangleShape2D_74lek")
 [node name="Marker2D" type="Marker2D" parent="door6" unique_id=749601643]
 position = Vector2(-473.90045, -15.439274)
 
+[node name="door7" type="Area2D" parent="." unique_id=1419145114]
+position = Vector2(192, 4658)
+rotation = 1.5635397
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("4_j5jx5")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="door7" unique_id=825033830]
+position = Vector2(40, 3)
+rotation = 1.5707964
+shape = SubResource("RectangleShape2D_bl13t")
+
+[node name="Marker2D" type="Marker2D" parent="door7" unique_id=1254248111]
+position = Vector2(342.0274, -2.5181346)
+
+[node name="door8" type="Area2D" parent="." unique_id=1377675459]
+position = Vector2(179, 4830)
+rotation = 1.5635397
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("4_j5jx5")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="door8" unique_id=1718330791]
+position = Vector2(40, 3)
+rotation = 1.5707964
+shape = SubResource("RectangleShape2D_74lek")
+
+[node name="Marker2D" type="Marker2D" parent="door8" unique_id=434953135]
+position = Vector2(-266.9567, -6.937358)
+
+[node name="door9" type="Area2D" parent="." unique_id=1529787475]
+position = Vector2(-1076, 7083)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("4_j5jx5")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="door9" unique_id=1513118492]
+position = Vector2(40, 3)
+rotation = 1.5707964
+shape = SubResource("RectangleShape2D_bl13t")
+
+[node name="Marker2D" type="Marker2D" parent="door9" unique_id=1476973118]
+position = Vector2(352, -2)
+
+[node name="door10" type="Area2D" parent="." unique_id=1505922793]
+position = Vector2(-917, 7087)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("4_j5jx5")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="door10" unique_id=961033504]
+position = Vector2(40, 3)
+rotation = 1.5707964
+shape = SubResource("RectangleShape2D_74lek")
+
+[node name="Marker2D" type="Marker2D" parent="door10" unique_id=353992144]
+position = Vector2(-263, -15)
+
+[node name="door11" type="Area2D" parent="." unique_id=1527893791]
+position = Vector2(1449, 6988)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("4_j5jx5")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="door11" unique_id=331184400]
+position = Vector2(40, 3)
+rotation = 1.5707964
+shape = SubResource("RectangleShape2D_bl13t")
+
+[node name="Marker2D" type="Marker2D" parent="door11" unique_id=582047296]
+position = Vector2(352, -2)
+
+[node name="door12" type="Area2D" parent="." unique_id=944029763]
+position = Vector2(1608, 6992)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("4_j5jx5")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="door12" unique_id=836105735]
+position = Vector2(40, 3)
+rotation = 1.5707964
+shape = SubResource("RectangleShape2D_74lek")
+
+[node name="Marker2D" type="Marker2D" parent="door12" unique_id=1333440368]
+position = Vector2(-263, -15)
+
+[node name="blacksquare" parent="." unique_id=2069085296 instance=ExtResource("5_j5jx5")]
+position = Vector2(-287, -19)
+
+[node name="blacksquare2" type="Area2D" parent="." unique_id=2088405207]
+position = Vector2(4064.0005, -433)
+scale = Vector2(0.92045784, 1.1490319)
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("6_lpvoh")
+
+[node name="ColorRect" type="ColorRect" parent="blacksquare2" unique_id=1585123573]
+offset_left = -2769.0002
+offset_top = 1101.0
+offset_right = -2729.0002
+offset_bottom = 1141.0
+scale = Vector2(52.28824, -26.812737)
+color = Color(0.0056611504, 0.0056611514, 0.00566115, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="blacksquare2" unique_id=186718202]
+position = Vector2(-1773.5, 550.5)
+shape = SubResource("RectangleShape2D_j5jx5")
+
+[node name="blacksquare3" parent="." unique_id=136018051 instance=ExtResource("5_j5jx5")]
+position = Vector2(2200, 1163)
+scale = Vector2(1.107453, 3.166018)
+
+[node name="blacksquare4" parent="." unique_id=1209852391 instance=ExtResource("5_j5jx5")]
+position = Vector2(2178, 4810.9995)
+scale = Vector2(1.1205739, 3.2793767)
+
+[node name="blacksquare5" parent="." unique_id=997091627 instance=ExtResource("5_j5jx5")]
+position = Vector2(1054.0005, 4345)
+scale = Vector2(3.1125038, 4.851814)
+
+[node name="blacksquare6" parent="." unique_id=1035258663 instance=ExtResource("5_j5jx5")]
+position = Vector2(4271, 6722)
+scale = Vector2(1.022328, 1.581073)
+
+[node name="blacksquare7" parent="." unique_id=1058780399 instance=ExtResource("5_j5jx5")]
+position = Vector2(2226, -890.00006)
+scale = Vector2(1.158783, 1.6323441)
+
 [connection signal="body_entered" from="door" to="door" method="_on_body_entered"]
 [connection signal="body_entered" from="door2" to="door2" method="_on_body_entered"]
 [connection signal="body_entered" from="door3" to="door3" method="_on_body_entered"]
 [connection signal="body_entered" from="door4" to="door4" method="_on_body_entered"]
 [connection signal="body_entered" from="door5" to="door5" method="_on_body_entered"]
 [connection signal="body_entered" from="door6" to="door6" method="_on_body_entered"]
+[connection signal="body_entered" from="door7" to="door7" method="_on_body_entered"]
+[connection signal="body_entered" from="door8" to="door8" method="_on_body_entered"]
+[connection signal="body_entered" from="door9" to="door9" method="_on_body_entered"]
+[connection signal="body_entered" from="door10" to="door10" method="_on_body_entered"]
+[connection signal="body_entered" from="door11" to="door11" method="_on_body_entered"]
+[connection signal="body_entered" from="door12" to="door12" method="_on_body_entered"]
+[connection signal="body_entered" from="blacksquare2" to="blacksquare2" method="_on_body_entered"]
+[connection signal="body_exited" from="blacksquare2" to="blacksquare2" method="_on_body_exited"]
