@@ -4,9 +4,9 @@
 [ext_resource type="PackedScene" uid="uid://bfnbt7umlbdky" path="res://scenes/player.tscn" id="2_74lek"]
 [ext_resource type="TileSet" uid="uid://ccof0irhc7y62" path="res://resources/casino_tile_set_pixel.tres" id="4_74lek"]
 [ext_resource type="Script" uid="uid://2th3ay6gqql6" path="res://scripts/door.gd" id="4_j5jx5"]
+[ext_resource type="PackedScene" uid="uid://dh4glgejrhsib" path="res://scenes/enemy_sentry.tscn" id="4_lpvoh"]
 [ext_resource type="PackedScene" uid="uid://bt8esmj63k6s7" path="res://scenes/blacksquare.tscn" id="5_j5jx5"]
 [ext_resource type="Script" uid="uid://blwm36sahn10l" path="res://scripts/blacksquare.gd" id="6_lpvoh"]
-[ext_resource type="PackedScene" uid="uid://dh4glgejrhsib" path="res://scenes/enemy_sentry.tscn" id="4_lpvoh"]
 [ext_resource type="PackedScene" uid="uid://v1m5xbie07pb" path="res://scenes/enemy_chaser.tscn" id="7_at5dv"]
 [ext_resource type="Script" uid="uid://40itrop66v1r" path="res://components/camera_component.gd" id="8_jcd4p"]
 
@@ -29,7 +29,6 @@ size = Vector2(81, 921)
 size = Vector2(2173, 1077)
 
 [node name="Dungeon" type="Node2D" unique_id=1282095804]
-position = Vector2(1, 0)
 script = ExtResource("1_iyx0m")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=780906196]
@@ -352,7 +351,6 @@ scale = Vector2(1.022328, 1.581073)
 position = Vector2(2226, -890.00006)
 scale = Vector2(1.158783, 1.6323441)
 
-[connection signal="body_entered" from="door" to="door" method="_on_body_entered"]
 [node name="Sentry" parent="." unique_id=1686908263 groups=["enemy"] instance=ExtResource("4_lpvoh")]
 position = Vector2(-544, -243)
 
@@ -368,6 +366,7 @@ parent = NodePath("..")
 
 [node name="SFX" type="Node" parent="." unique_id=720416108]
 
+[connection signal="body_entered" from="door" to="door" method="_on_body_entered"]
 [connection signal="body_entered" from="door2" to="door2" method="_on_body_entered"]
 [connection signal="body_entered" from="door3" to="door3" method="_on_body_entered"]
 [connection signal="body_entered" from="door4" to="door4" method="_on_body_entered"]
