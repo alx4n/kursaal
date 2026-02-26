@@ -1,7 +1,7 @@
 class_name BulletUpgrade
 extends Resource
 
-@export var texture : Texture2D = preload("res://icon.svg")
+@export var texture : Texture2D = preload("res://sprites/Cane - shade.png")
 
 
 
