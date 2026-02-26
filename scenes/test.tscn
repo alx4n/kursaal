@@ -9,7 +9,7 @@
 [ext_resource type="Script" uid="uid://blwm36sahn10l" path="res://scripts/blacksquare.gd" id="6_lpvoh"]
 [ext_resource type="PackedScene" uid="uid://v1m5xbie07pb" path="res://scenes/enemy_chaser.tscn" id="7_at5dv"]
 [ext_resource type="Script" path="res://components/camera_component.gd" id="8_jcd4p"]
-[ext_resource type="PackedScene" uid="uid://cdyg7e3kkobw0" path="res://scenes/item.tscn" id="10_yk7ts"]
+[ext_resource type="PackedScene" uid="uid://c5orkpno8peky" path="res://scenes/item.tscn" id="10_yk7ts"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bl13t"]
 size = Vector2(135.5, 135.5)
@@ -368,7 +368,7 @@ parent = NodePath("..")
 [node name="SFX" type="Node" parent="." unique_id=720416108]
 
 [node name="Item" parent="." unique_id=31963809 instance=ExtResource("10_yk7ts")]
-position = Vector2(527, 106)
+position = Vector2(-2148, 270)
 collision_layer = 2
 collision_mask = 2
 
