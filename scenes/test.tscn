@@ -358,11 +358,9 @@ shape = SubResource("RectangleShape2D_74lek")
 position = Vector2(-263, -15)
 
 [node name="blacksquare" parent="." unique_id=2069085296 instance=ExtResource("5_j5jx5")]
-visible = false
 position = Vector2(-287, -19)
 
 [node name="blacksquare2" type="Area2D" parent="." unique_id=2088405207]
-visible = false
 position = Vector2(4064.0005, -433)
 scale = Vector2(0.92045784, 1.1490319)
 collision_layer = 3
@@ -383,27 +381,22 @@ position = Vector2(-1773.5, 550.5)
 shape = SubResource("RectangleShape2D_j5jx5")
 
 [node name="blacksquare3" parent="." unique_id=136018051 instance=ExtResource("5_j5jx5")]
-visible = false
 position = Vector2(2200, 1163)
 scale = Vector2(1.107453, 3.166018)
 
 [node name="blacksquare4" parent="." unique_id=1209852391 instance=ExtResource("5_j5jx5")]
-visible = false
 position = Vector2(2178, 4810.9995)
 scale = Vector2(1.1205739, 3.2793767)
 
 [node name="blacksquare5" parent="." unique_id=997091627 instance=ExtResource("5_j5jx5")]
-visible = false
 position = Vector2(1054.0005, 4345)
 scale = Vector2(3.1125038, 4.851814)
 
 [node name="blacksquare6" parent="." unique_id=1035258663 instance=ExtResource("5_j5jx5")]
-visible = false
 position = Vector2(4271, 6722)
 scale = Vector2(1.022328, 1.581073)
 
 [node name="blacksquare7" parent="." unique_id=1058780399 instance=ExtResource("5_j5jx5")]
-visible = false
 position = Vector2(2226, -890.00006)
 scale = Vector2(1.158783, 1.6323441)
 

@@ -2,7 +2,6 @@
 
 [ext_resource type="Texture2D" uid="uid://d0mv7yqiowpb2" path="res://sprites/Cane frames 1.png" id="1_uxn4k"]
 [ext_resource type="Script" uid="uid://by7dn30hrpqv3" path="res://scripts/weapon.gd" id="2_uxn4k"]
-[ext_resource type="AudioStream" uid="uid://c3m3veith54f8" path="res://sfx/temp_player_shoot.wav" id="3_8fp1k"]
 [ext_resource type="AudioStream" uid="uid://48gp74yuct8b" path="res://sfx/temp_player_melee.wav" id="4_cjr6y"]
 
 [sub_resource type="Animation" id="Animation_uxn4k"]
@@ -104,9 +103,6 @@ scale = Vector2(0.96137846, 1.4647324)
 shape = SubResource("CapsuleShape2D_uxn4k")
 
 [node name="SFX" type="Node" parent="." unique_id=2044982335]
-
-[node name="SFXShoot" type="AudioStreamPlayer2D" parent="SFX" unique_id=66771604]
-stream = ExtResource("3_8fp1k")
 
 [node name="SFXMelee" type="AudioStreamPlayer2D" parent="SFX" unique_id=795246365]
 stream = ExtResource("4_cjr6y")

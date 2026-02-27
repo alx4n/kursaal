@@ -1,6 +1,6 @@
-[gd_scene format=3 uid="uid://drwp26w7em4ab"]
+[gd_scene format=3 uid="uid://cbqfudahiweyj"]
 
-[ext_resource type="Script" uid="uid://cxkf6k2xcjagh" path="res://scripts/main_menu.gd" id="1_l6cm7"]
+[ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_l6cm7"]
 
 [node name="MainMenu" type="Node2D" unique_id=363777953]
 script = ExtResource("1_l6cm7")
@@ -29,6 +29,16 @@ offset_right = 766.0
 offset_bottom = 679.0
 theme_override_font_sizes/font_size = 48
 text = "Quit"
+
+[node name="Label" type="Label" parent="." unique_id=1193341704]
+offset_left = 318.0
+offset_top = 8.0
+offset_right = 920.0
+offset_bottom = 350.0
+theme_override_font_sizes/font_size = 100
+text = "Kursaal"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="OptionsButton" to="." method="_on_options_button_pressed"]

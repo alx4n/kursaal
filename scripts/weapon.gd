@@ -43,7 +43,7 @@ func _process(delta: float) -> void:
 				upgrade.apply_upgrade(bullet_instance)
 	
 	
-			$SFX/SFXShoot.play()
+			
 	pass
 
 
