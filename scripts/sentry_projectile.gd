@@ -4,7 +4,18 @@ extends RigidBody2D
 
 @export var damage_amount := 20
 
+func _ready() -> void:
+	$Timer.one_shot = true
+	$Timer.wait_time = 5
+	$Timer.start()
+
 func _on_body_entered(body: Node) -> void:
 	if body.is_in_group("player"):
 		damage_component.deal_damage(damage_amount, body)
 		self.queue_free()
+	else:
+		queue_free()
+
+
+func _on_timer_timeout() -> void:
+	queue_free()
