@@ -5,7 +5,7 @@ extends Area2D
 
 @export var shot_damage = 10
 
-const speed: int = 100
+var speed: int = 100
 
 func _process(delta: float) -> void:
 	position += transform.x * speed * delta 

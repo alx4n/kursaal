@@ -9,15 +9,11 @@ extends CharacterBody2D
 var projectile_speed = 250
 
 func _ready() -> void:
-	$ProjectileTimer.start()
 	health_component.set_max_health(300)
+	health_bar.max_value = 300
+	health_bar.value = health_bar.max_value
 	pass
 	
-func _process(_delta: float) -> void:
-	#if get_tree().get_first_node_in_group("player") != null:
-	pass
-
-
 func _on_health_component_died() -> void:
 	self.queue_free()
 	pass # Replace with function body.
@@ -38,4 +34,6 @@ func _on_projectile_timer_timeout() -> void:
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
+	if body.is_in_group("player"):
+		$ProjectileTimer.start()
 	pass # Replace with function body.

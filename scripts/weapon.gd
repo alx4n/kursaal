@@ -36,11 +36,8 @@ func _process(delta: float) -> void:
 			get_tree().root.add_child(bullet_instance)
 			bullet_instance.global_position = muzzle.global_position
 			bullet_instance.rotation = rotation
-			
 			for upgrade in player.upgrades:
 				upgrade.apply_upgrade(bullet_instance)
-	
-	
 			$SFX/SFXShoot.play()
 	pass
 

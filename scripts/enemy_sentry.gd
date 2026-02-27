@@ -12,17 +12,13 @@ var projectile_speed = 250
 func _ready() -> void:
 	$ProjectileTimer.start()
 	health_component.set_max_health(100)
-	
-func _process(delta: float) -> void:
-	if player != null:
-		self.look_at(player.position)
 
 func _on_projectile_timer_timeout() -> void:
-	if get_tree().get_first_node_in_group("player") != null:
+	if player != null:
 		var new_projectile = projectile_scene.instantiate()
 		get_tree().get_root().add_child(new_projectile)
 		new_projectile.global_position = self.global_position
-		new_projectile.rotation = self.rotation
+		new_projectile.look_at(player.position)
 		$SFX/SFXEnemyShoot.play()
 
 func _on_health_component_died() -> void:
