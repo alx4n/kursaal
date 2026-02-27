@@ -15,6 +15,8 @@ const BULLET = preload("res://scenes/bullet.tscn")
 func _ready() -> void:
 	melee_collision_shape.disabled = true
 	pass # Replace with function body.
+	
+
 
 
 func _input(event: InputEvent) -> void:
@@ -41,7 +43,7 @@ func _process(delta: float) -> void:
 				upgrade.apply_upgrade(bullet_instance)
 	
 	
-			$SFX/SFXShoot.play()
+			
 	pass
 
 

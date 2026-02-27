@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://df1mtpjfxk86v" path="res://scripts/bullet.gd" id="1_l5glv"]
 [ext_resource type="Texture2D" uid="uid://cj8hdwcshieo8" path="res://sprites/Cane frames 2.png" id="2_l5glv"]
 [ext_resource type="Script" uid="uid://bnn4d42eggoye" path="res://components/damage_component.gd" id="3_l5glv"]
+[ext_resource type="AudioStream" uid="uid://c3m3veith54f8" path="res://sfx/temp_player_shoot.wav" id="4_eoqba"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_t4vbm"]
 atlas = ExtResource("2_l5glv")
@@ -29,5 +30,8 @@ shape = SubResource("RectangleShape2D_y25gk")
 unique_name_in_owner = true
 script = ExtResource("3_l5glv")
 metadata/_custom_type_script = "uid://bnn4d42eggoye"
+
+[node name="SFXShoot" type="AudioStreamPlayer2D" parent="." unique_id=527658806]
+stream = ExtResource("4_eoqba")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
