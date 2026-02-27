@@ -5,6 +5,8 @@ extends RigidBody2D
 @export var damage_amount := 20
 
 func _ready() -> void:
+	$SFXEnemyShoot.play()
+
 	$Timer.one_shot = true
 	$Timer.wait_time = 5
 	$Timer.start()

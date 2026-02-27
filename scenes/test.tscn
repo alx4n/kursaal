@@ -1,24 +1,15 @@
 [gd_scene format=4 uid="uid://b17pu6lljc17k"]
 
 [ext_resource type="Script" uid="uid://t43k0kvfqm4e" path="res://scripts/Dungeon.gd" id="1_iyx0m"]
-[ext_resource type="PackedScene" path="res://scenes/player.tscn" id="2_74lek"]
+[ext_resource type="PackedScene" uid="uid://bacvwbmrcdokl" path="res://scenes/player.tscn" id="2_74lek"]
 [ext_resource type="TileSet" uid="uid://ccof0irhc7y62" path="res://resources/casino_tile_set_pixel.tres" id="4_74lek"]
 [ext_resource type="Script" uid="uid://2th3ay6gqql6" path="res://scripts/door.gd" id="4_j5jx5"]
 [ext_resource type="PackedScene" uid="uid://dh4glgejrhsib" path="res://scenes/enemy_sentry.tscn" id="4_lpvoh"]
 [ext_resource type="PackedScene" path="res://scenes/blacksquare.tscn" id="5_j5jx5"]
 [ext_resource type="Script" uid="uid://blwm36sahn10l" path="res://scripts/blacksquare.gd" id="6_lpvoh"]
 [ext_resource type="PackedScene" uid="uid://v1m5xbie07pb" path="res://scenes/enemy_chaser.tscn" id="7_at5dv"]
-[ext_resource type="Script" uid="uid://5twqmvb3mjx1" path="res://scripts/enemy_sentry.gd" id="7_xrtyr"]
-[ext_resource type="PackedScene" uid="uid://thi3oyffph67" path="res://scenes/sentry_projectile.tscn" id="8_daiq8"]
 [ext_resource type="Script" uid="uid://40itrop66v1r" path="res://components/camera_component.gd" id="8_jcd4p"]
-[ext_resource type="Texture2D" uid="uid://8ujlw621tiu6" path="res://sprites/enemyTestSentry.png" id="9_c6rvn"]
-[ext_resource type="Script" uid="uid://c6t1f7314lva8" path="res://components/health_component.gd" id="10_n74k2"]
 [ext_resource type="PackedScene" uid="uid://c5orkpno8peky" path="res://scenes/item.tscn" id="10_yk7ts"]
-[ext_resource type="Script" uid="uid://bnn4d42eggoye" path="res://components/damage_component.gd" id="11_si7kk"]
-[ext_resource type="AudioStream" uid="uid://dvc58upauj4ii" path="res://sfx/temp_enemy_sentry_shoot.wav" id="12_pn65j"]
-[ext_resource type="AudioStream" uid="uid://x3v4akrtrci3" path="res://sfx/temp_enemy_hurt.wav" id="13_5f8cm"]
-[ext_resource type="AudioStream" uid="uid://bsahj37yoqh4s" path="res://sfx/temp_enemy_death.wav" id="14_gm488"]
-[ext_resource type="Script" path="res://scripts/sfx_enemy_death.gd" id="15_kay4s"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bl13t"]
 size = Vector2(135.5, 135.5)
@@ -35,11 +26,26 @@ size = Vector2(1062, 286)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qickv"]
 size = Vector2(81, 921)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yk7ts"]
+size = Vector2(1128, 235)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ajshl"]
+size = Vector2(20.526276, 5582)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ghpyy"]
+size = Vector2(877, 249)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_44saj"]
+size = Vector2(961, 254)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7mbro"]
+size = Vector2(956, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ff6ho"]
+size = Vector2(83, 1119)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j5jx5"]
 size = Vector2(2173, 1077)
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_gv20t"]
-radius = 32.0
 
 [node name="Dungeon" type="Node2D" unique_id=1282095804]
 script = ExtResource("1_iyx0m")
@@ -97,6 +103,7 @@ collision_layer = 2
 collision_mask = 2
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=404684116]
+position = Vector2(-6, -3)
 collision_layer = 3
 collision_mask = 3
 
@@ -166,6 +173,35 @@ shape = SubResource("RectangleShape2D_k83k5")
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D" unique_id=1362480448]
 position = Vector2(3257.5, 208.5)
 shape = SubResource("RectangleShape2D_qickv")
+
+[node name="CollisionPolygon2D14" type="CollisionPolygon2D" parent="StaticBody2D" unique_id=335930103]
+position = Vector2(7, 942)
+polygon = PackedVector2Array(0, 18, -963, 20, -958, 3709, -85, 3700, -85, 3723, -989, 3723, -980, -10, -3, -2)
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="StaticBody2D" unique_id=1352305529]
+position = Vector2(968, 1081.5)
+shape = SubResource("RectangleShape2D_yk7ts")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="StaticBody2D" unique_id=1332427735]
+position = Vector2(1487, 3994)
+scale = Vector2(3.8, 1)
+shape = SubResource("RectangleShape2D_ajshl")
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="StaticBody2D" unique_id=1645690714]
+position = Vector2(-514.5, 4829.5)
+shape = SubResource("RectangleShape2D_ghpyy")
+
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="StaticBody2D" unique_id=1087384219]
+position = Vector2(967.5, 4833)
+shape = SubResource("RectangleShape2D_44saj")
+
+[node name="CollisionShape2D9" type="CollisionShape2D" parent="StaticBody2D" unique_id=2005329345]
+position = Vector2(967, 4654)
+shape = SubResource("RectangleShape2D_7mbro")
+
+[node name="CollisionShape2D10" type="CollisionShape2D" parent="StaticBody2D" unique_id=566863164]
+position = Vector2(1488.5, 7843.5)
+shape = SubResource("RectangleShape2D_ff6ho")
 
 [node name="door3" type="Area2D" parent="." unique_id=270512297]
 position = Vector2(-1076, 358)
@@ -371,58 +407,6 @@ visible = false
 position = Vector2(2226, -890.00006)
 scale = Vector2(1.158783, 1.6323441)
 
-[node name="Sentry" type="CharacterBody2D" parent="." unique_id=1686908263 groups=["enemy"]]
-position = Vector2(-544, -243)
-motion_mode = 1
-script = ExtResource("7_xrtyr")
-projectile_scene = ExtResource("8_daiq8")
-metadata/_edit_group_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Sentry" unique_id=1001205478]
-shape = SubResource("CircleShape2D_gv20t")
-
-[node name="Sprite2D" type="Sprite2D" parent="Sentry" unique_id=1516912798]
-scale = Vector2(2, 2)
-texture = ExtResource("9_c6rvn")
-
-[node name="ProjectileTimer" type="Timer" parent="Sentry" unique_id=734222290]
-
-[node name="Components" type="Node" parent="Sentry" unique_id=736204563]
-
-[node name="HealthComponent" type="Node" parent="Sentry/Components" unique_id=2102623751]
-unique_name_in_owner = true
-script = ExtResource("10_n74k2")
-_max_health = 100
-metadata/_custom_type_script = "uid://c6t1f7314lva8"
-
-[node name="DamageComponent" type="Node" parent="Sentry/Components" unique_id=1950474701]
-unique_name_in_owner = true
-script = ExtResource("11_si7kk")
-metadata/_custom_type_script = "uid://bnn4d42eggoye"
-
-[node name="ProgressBar" type="ProgressBar" parent="Sentry" unique_id=1195396270]
-offset_left = -47.0
-offset_top = -81.0
-offset_right = 54.0
-offset_bottom = -54.0
-step = 1.0
-value = 100.0
-
-[node name="SFX" type="Node" parent="Sentry" unique_id=633267964]
-
-[node name="SFXEnemyShoot" type="AudioStreamPlayer2D" parent="Sentry/SFX" unique_id=1512019864]
-stream = ExtResource("12_pn65j")
-
-[node name="SFXEnemyHurt" type="AudioStreamPlayer2D" parent="Sentry/SFX" unique_id=621078355]
-stream = ExtResource("13_5f8cm")
-
-[node name="SFXEnemyDeath" type="AudioStreamPlayer2D" parent="Sentry/SFX" unique_id=72206355]
-stream = ExtResource("14_gm488")
-script = ExtResource("15_kay4s")
-
-[node name="Chaser" parent="." unique_id=749136513 groups=["enemy"] instance=ExtResource("7_at5dv")]
-position = Vector2(-489, 519)
-
 [node name="CameraComponent" type="Camera2D" parent="." unique_id=1464906790 node_paths=PackedStringArray("parent")]
 unique_name_in_owner = true
 script = ExtResource("8_jcd4p")
@@ -472,13 +456,19 @@ position = Vector2(1176, 5296)
 position = Vector2(169, 7042)
 
 [node name="Sentry8" parent="." unique_id=133788097 instance=ExtResource("4_lpvoh")]
-position = Vector2(-2976, 575)
+position = Vector2(-2627, 716)
 
 [node name="Sentry9" parent="." unique_id=611004237 instance=ExtResource("4_lpvoh")]
-position = Vector2(-2653, 54)
+position = Vector2(-2668, 422)
 
 [node name="Sentry10" parent="." unique_id=1538464097 instance=ExtResource("4_lpvoh")]
-position = Vector2(-1461, 50)
+position = Vector2(-1841, 388)
+
+[node name="Chaser" parent="." unique_id=749136513 instance=ExtResource("7_at5dv")]
+position = Vector2(2990, -47)
+
+[node name="Chaser7" parent="." unique_id=2060379347 instance=ExtResource("7_at5dv")]
+position = Vector2(3030, 540)
 
 [connection signal="body_entered" from="door" to="door" method="_on_body_entered"]
 [connection signal="body_entered" from="door2" to="door2" method="_on_body_entered"]
@@ -494,7 +484,3 @@ position = Vector2(-1461, 50)
 [connection signal="body_entered" from="door12" to="door12" method="_on_body_entered"]
 [connection signal="body_entered" from="blacksquare2" to="blacksquare2" method="_on_body_entered"]
 [connection signal="body_exited" from="blacksquare2" to="blacksquare2" method="_on_body_exited"]
-[connection signal="timeout" from="Sentry/ProjectileTimer" to="Sentry" method="_on_projectile_timer_timeout"]
-[connection signal="died" from="Sentry/Components/HealthComponent" to="Sentry" method="_on_health_component_died"]
-[connection signal="health_changed" from="Sentry/Components/HealthComponent" to="Sentry" method="_on_health_component_health_changed"]
-[connection signal="finished" from="Sentry/SFX/SFXEnemyDeath" to="Sentry/SFX/SFXEnemyDeath" method="_on_finished"]
