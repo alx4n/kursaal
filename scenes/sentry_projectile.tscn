@@ -1,8 +1,9 @@
 [gd_scene format=3 uid="uid://thi3oyffph67"]
 
-[ext_resource type="Script" path="res://scripts/sentry_projectile.gd" id="1_m8evk"]
+[ext_resource type="Script" uid="uid://bajgi1m56c1k3" path="res://scripts/sentry_projectile.gd" id="1_m8evk"]
 [ext_resource type="Texture2D" uid="uid://8ujlw621tiu6" path="res://sprites/enemyTestSentry.png" id="2_jpwhe"]
 [ext_resource type="Script" uid="uid://bnn4d42eggoye" path="res://components/damage_component.gd" id="3_icvl4"]
+[ext_resource type="AudioStream" uid="uid://dvc58upauj4ii" path="res://sfx/temp_enemy_sentry_shoot.wav" id="4_jpwhe"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5fqt2"]
 
@@ -22,4 +23,10 @@ unique_name_in_owner = true
 script = ExtResource("3_icvl4")
 metadata/_custom_type_script = "uid://bnn4d42eggoye"
 
+[node name="Timer" type="Timer" parent="." unique_id=1916824752]
+
+[node name="SFXEnemyShoot" type="AudioStreamPlayer2D" parent="." unique_id=1602396549]
+stream = ExtResource("4_jpwhe")
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

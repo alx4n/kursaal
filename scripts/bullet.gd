@@ -7,6 +7,11 @@ extends Area2D
 
 var speed: int = 100
 
+
+func _ready() -> void:
+	$SFXShoot.play()
+
+
 func _process(delta: float) -> void:
 	position += transform.x * speed * delta 
 	
@@ -19,3 +24,7 @@ func _on_body_entered(body: Node2D) -> void:
 	if !body.is_in_group("player"):
 		damage_comp.deal_damage(shot_damage, body)
 	pass # Replace with function body.
+
+
+func _on_timer_timeout() -> void:
+	queue_free()
