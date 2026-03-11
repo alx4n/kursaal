@@ -74,7 +74,7 @@ height = 22.607197
 
 [node name="Weapon" type="Area2D" unique_id=1664905218]
 texture_filter = 1
-scale = Vector2(5, 5)
+scale = Vector2(4, 4)
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("2_uxn4k")
@@ -83,6 +83,7 @@ script = ExtResource("2_uxn4k")
 position = Vector2(16, 6.2)
 
 [node name="MeleeAttack" type="Area2D" parent="." unique_id=1819735458]
+position = Vector2(5.75, 0.25)
 collision_layer = 2
 collision_mask = 2
 
@@ -94,10 +95,12 @@ polygon = PackedVector2Array(-8.799999, 4.2, 14.599999, -12.799999, 13.999999, 2
 libraries/ = SubResource("AnimationLibrary_8fp1k")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=695904437]
+position = Vector2(6, -0.5)
 texture = SubResource("AtlasTexture_cjr6y")
 hframes = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2135682836]
+position = Vector2(6.75, -5.9604645e-08)
 rotation = 1.5707964
 scale = Vector2(0.96137846, 1.4647324)
 shape = SubResource("CapsuleShape2D_uxn4k")

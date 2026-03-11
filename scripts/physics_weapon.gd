@@ -1,4 +1,4 @@
-extends Area2D
+extends CharacterBody2D
 
 const MOUSE_SENSITIVITY = .01
 var mouse_delta: Vector2
@@ -16,8 +16,6 @@ func _ready() -> void:
 	melee_collision_shape.disabled = true
 	pass # Replace with function body.
 	
-
-
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:

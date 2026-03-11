@@ -20,6 +20,10 @@ func getInput():
 		speed += dash_speed
 		await get_tree().create_timer(0.275).timeout
 		speed -= dash_speed
+	if self.velocity.x < 0 && !$PlayerIcon.flip_h:
+		$PlayerIcon.flip_h = true
+	elif self.velocity.x > 0 && $PlayerIcon.flip_h:
+		$PlayerIcon.flip_h = false
 	
 	
 func _physics_process(_delta: float) -> void:

@@ -1,4 +1,4 @@
-[gd_scene format=4 uid="uid://b17pu6lljc17k"]
+[gd_scene format=4 uid="uid://6kky4deya1xo"]
 
 [ext_resource type="Script" uid="uid://t43k0kvfqm4e" path="res://scripts/Dungeon.gd" id="1_iyx0m"]
 [ext_resource type="PackedScene" uid="uid://bacvwbmrcdokl" path="res://scenes/player.tscn" id="2_74lek"]
@@ -9,7 +9,7 @@
 [ext_resource type="Script" uid="uid://blwm36sahn10l" path="res://scripts/blacksquare.gd" id="6_lpvoh"]
 [ext_resource type="PackedScene" uid="uid://v1m5xbie07pb" path="res://scenes/enemy_chaser.tscn" id="7_at5dv"]
 [ext_resource type="Script" uid="uid://40itrop66v1r" path="res://components/camera_component.gd" id="8_jcd4p"]
-[ext_resource type="PackedScene" uid="uid://bo83w52aq07os" path="res://scenes/boss.tscn" id="9_uacia"]
+[ext_resource type="PackedScene" path="res://scenes/boss.tscn" id="9_uacia"]
 [ext_resource type="PackedScene" uid="uid://c5orkpno8peky" path="res://scenes/item.tscn" id="10_yk7ts"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bl13t"]
@@ -501,10 +501,10 @@ position = Vector2(-2668, 422)
 [node name="Sentry10" parent="." unique_id=1538464097 instance=ExtResource("4_lpvoh")]
 position = Vector2(-1841, 388)
 
-[node name="Chaser" parent="." unique_id=749136513 instance=ExtResource("7_at5dv")]
+[node name="Chaser7" parent="." unique_id=1005200352 instance=ExtResource("7_at5dv")]
 position = Vector2(2990, -47)
 
-[node name="Chaser7" parent="." unique_id=2060379347 instance=ExtResource("7_at5dv")]
+[node name="Chaser8" parent="." unique_id=2060379347 instance=ExtResource("7_at5dv")]
 position = Vector2(3030, 540)
 
 [connection signal="body_entered" from="door" to="door" method="_on_body_entered"]

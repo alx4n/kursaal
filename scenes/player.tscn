@@ -205,7 +205,7 @@ autoplay = "run_cycle"
 
 [node name="Weapon" parent="." unique_id=784183095 instance=ExtResource("3_qlg0r")]
 material = SubResource("ShaderMaterial_fjrip")
-position = Vector2(91.99999, -1.9999999)
+position = Vector2(70, 14)
 collision_layer = 3
 collision_mask = 3
 
