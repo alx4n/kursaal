@@ -7,10 +7,14 @@
 size = Vector2(240.5, 128)
 
 [node name="Blackjack" type="Node2D" unique_id=1230102517]
+light_mask = 2
+visibility_layer = 2
 script = ExtResource("1_ofa5y")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1932976715]
 position = Vector2(673, 349)
+collision_layer = 2
+collision_mask = 2
 
 [node name="Icon" type="Sprite2D" parent="Area2D" unique_id=1805819660]
 position = Vector2(-14, 0)
@@ -26,9 +30,13 @@ offset_left = -131.0
 offset_top = -157.0
 offset_right = -47.0
 offset_bottom = -93.0
+theme_override_font_sizes/font_size = 50
 
 [node name="dealerNumber" type="Label" parent="Area2D" unique_id=1835957765]
 offset_left = 13.0
 offset_top = -162.0
 offset_right = 96.0
 offset_bottom = -82.0
+theme_override_font_sizes/font_size = 50
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
