@@ -1,0 +1,92 @@
+[gd_scene format=3 uid="uid://b36teh6ours1y"]
+
+[ext_resource type="Texture2D" uid="uid://rkxhxhd1usbf" path="res://sprites/Weapon_Arm_Animation_sheet/Weapon_Arm_Animation_sheet/Forearm_cycle.png" id="1_q8oh2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vg7iv"]
+atlas = ExtResource("1_q8oh2")
+region = Rect2(0, 0, 7200, 800)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qjdn1"]
+radius = 29.068441
+height = 106.16722
+
+[sub_resource type="Animation" id="Animation_q8oh2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CollisionShape2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(40, -4)]
+}
+
+[sub_resource type="Animation" id="Animation_muf2m"]
+resource_name = "arm_mvmt"
+length = 0.8000067
+loop_mode = 1
+step = 0.06666667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.06666667, 0.13333334, 0.20000002, 0.26666668, 0.33333334, 0.40000004, 0.4666667, 0.53333336, 0.6, 0.6666667, 0.73333335),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CollisionShape2D:position")
+tracks/1/interp = 0
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.06666667, 0.13333334, 0.2, 0.26666668, 0.33333334, 0.4, 0.46666667, 0.53333336, 0.6, 0.6666667, 0.73333335),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(40, -4), Vector2(52, 60.000004), Vector2(-32.000004, 28), Vector2(-16, 12), Vector2(16, -40), Vector2(44.000004, -36.000004), Vector2(36, 16), Vector2(36, 60), Vector2(-24, 28), Vector2(-12.000002, 8.000001), Vector2(20, -36), Vector2(52.000004, -44)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dy6di"]
+_data = {
+&"RESET": SubResource("Animation_q8oh2"),
+&"arm_mvmt": SubResource("Animation_muf2m")
+}
+
+[node name="Arm" type="CharacterBody2D" unique_id=1232609863]
+scale = Vector2(0.25, 0.25)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=516638691]
+position = Vector2(5, 0)
+texture = SubResource("AtlasTexture_vg7iv")
+offset = Vector2(83, -152)
+hframes = 12
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=503780004]
+position = Vector2(40, -4)
+rotation = 1.5074518
+shape = SubResource("CapsuleShape2D_qjdn1")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1900753426]
+libraries/ = SubResource("AnimationLibrary_dy6di")
+autoplay = &"arm_mvmt"

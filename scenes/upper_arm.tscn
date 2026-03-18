@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://bmm7bb8fkxnnv"]
+
+[ext_resource type="Texture2D" uid="uid://d0eiaek6f3qwk" path="res://sprites/Weapon_Arm_Animation_sheet/Weapon_Arm_Animation_sheet/upperarm_cycle.png" id="1_2a220"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sp56w"]
+atlas = ExtResource("1_2a220")
+region = Rect2(51, 333, 305, 331)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rfflt"]
+radius = 40.0
+height = 136.0
+
+[node name="UpperArm" type="CharacterBody2D" unique_id=1443716295]
+scale = Vector2(0.25, 0.25)
+
+[node name="AnimatedSprite2D" type="Sprite2D" parent="." unique_id=2031457591]
+texture = SubResource("AtlasTexture_sp56w")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1340786464]
+shape = SubResource("CapsuleShape2D_rfflt")
