@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dwbsip0lgudne"]
 
-[ext_resource type="Script" uid="uid://bkevryrs6d82l" path="res://scenes/blackjack.gd" id="1_ofa5y"]
+[ext_resource type="Script" uid="uid://bkevryrs6d82l" path="res://scripts/blackjack.gd" id="1_ofa5y"]
 [ext_resource type="Texture2D" uid="uid://dcohnl73tntjb" path="res://icon.svg" id="2_m87r6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nmocc"]

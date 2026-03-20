@@ -1,7 +1,7 @@
 [gd_scene format=4 uid="uid://6kky4deya1xo"]
 
 [ext_resource type="Script" uid="uid://t43k0kvfqm4e" path="res://scripts/Dungeon.gd" id="1_iyx0m"]
-[ext_resource type="PackedScene" uid="uid://bfnbt7umlbdky" path="res://scenes/player.tscn" id="2_74lek"]
+[ext_resource type="PackedScene" uid="uid://bacvwbmrcdokl" path="res://scenes/player.tscn" id="2_74lek"]
 [ext_resource type="TileSet" uid="uid://ccof0irhc7y62" path="res://resources/casino_tile_set_pixel.tres" id="4_74lek"]
 [ext_resource type="Script" uid="uid://2th3ay6gqql6" path="res://scripts/door.gd" id="4_j5jx5"]
 [ext_resource type="PackedScene" uid="uid://dh4glgejrhsib" path="res://scenes/enemy_sentry.tscn" id="4_lpvoh"]
@@ -9,9 +9,10 @@
 [ext_resource type="Script" uid="uid://blwm36sahn10l" path="res://scripts/blacksquare.gd" id="6_lpvoh"]
 [ext_resource type="PackedScene" uid="uid://v1m5xbie07pb" path="res://scenes/enemy_chaser.tscn" id="7_at5dv"]
 [ext_resource type="Script" path="res://components/camera_component.gd" id="8_jcd4p"]
-[ext_resource type="PackedScene" uid="uid://cdyg7e3kkobw0" path="res://scenes/item.tscn" id="10_yk7ts"]
+[ext_resource type="PackedScene" uid="uid://c765s0dlx0oyj" path="res://scenes/item.tscn" id="10_yk7ts"]
 [ext_resource type="Texture2D" uid="uid://cso600rtkgqli" path="res://sprites/Casinotileset1.png" id="11_ghpyy"]
 [ext_resource type="PackedScene" uid="uid://dwbsip0lgudne" path="res://scenes/Blackjack.tscn" id="12_44saj"]
+[ext_resource type="PackedScene" uid="uid://bidew0yokdax5" path="res://scenes/spikes.tscn" id="13_44saj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bl13t"]
 size = Vector2(135.5, 135.5)
@@ -650,9 +651,11 @@ shape = SubResource("RectangleShape2D_74lek")
 position = Vector2(-263, -15)
 
 [node name="blacksquare" parent="." unique_id=2069085296 instance=ExtResource("5_j5jx5")]
+visible = false
 position = Vector2(-287, -19)
 
 [node name="blacksquare2" type="Area2D" parent="." unique_id=2088405207]
+visible = false
 position = Vector2(4064.0005, -433)
 scale = Vector2(0.92045784, 1.1490319)
 collision_layer = 3
@@ -673,22 +676,27 @@ position = Vector2(-1773.5, 550.5)
 shape = SubResource("RectangleShape2D_j5jx5")
 
 [node name="blacksquare3" parent="." unique_id=136018051 instance=ExtResource("5_j5jx5")]
+visible = false
 position = Vector2(2157, 847.99994)
 scale = Vector2(1.107453, 3.4460187)
 
 [node name="blacksquare4" parent="." unique_id=1209852391 instance=ExtResource("5_j5jx5")]
-position = Vector2(2178, 4810.9995)
+visible = false
+position = Vector2(2140, 4614)
 scale = Vector2(1.1205739, 3.2793767)
 
 [node name="blacksquare5" parent="." unique_id=997091627 instance=ExtResource("5_j5jx5")]
+visible = false
 position = Vector2(1054.0005, 4345)
 scale = Vector2(3.1125038, 4.851814)
 
 [node name="blacksquare6" parent="." unique_id=1035258663 instance=ExtResource("5_j5jx5")]
+visible = false
 position = Vector2(4271, 6722)
 scale = Vector2(1.022328, 1.581073)
 
 [node name="blacksquare7" parent="." unique_id=1058780399 instance=ExtResource("5_j5jx5")]
+visible = false
 position = Vector2(2226, -890.00006)
 scale = Vector2(1.158783, 1.6323441)
 
@@ -760,6 +768,9 @@ tile_set = SubResource("TileSet_ff6ho")
 
 [node name="Blackjack" parent="." unique_id=1230102517 instance=ExtResource("12_44saj")]
 position = Vector2(-105, -286)
+
+[node name="Spikes" parent="." unique_id=1095001856 instance=ExtResource("13_44saj")]
+position = Vector2(301, -308)
 
 [connection signal="body_entered" from="door" to="door" method="_on_body_entered"]
 [connection signal="body_entered" from="door2" to="door2" method="_on_body_entered"]
