@@ -1,4 +1,5 @@
 extends CharacterBody2D
+class_name Arm
 
 var mouse_delta: Vector2
 
