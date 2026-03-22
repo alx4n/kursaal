@@ -22,7 +22,8 @@ func _on_projectile_timer_timeout() -> void:
 		
 func _on_health_component_died() -> void:
 	$SFX/SFXEnemyDeath.play()
-	$SFX/SFXEnemyDeath.reparent(self.get_parent().get_node("SFX"), false)
+	$SFX/SFXEnemyHurt.reparent(self.get_parent().get_node("SFX"), true)
+	$SFX/SFXEnemyDeath.reparent(self.get_parent().get_node("SFX"), true)
 	self.queue_free()
 
 func _on_health_component_health_changed(current: int, _max: int, _amount: int) -> void:

@@ -34,8 +34,9 @@ func _on_health_component_died() -> void:
 	if self.get_parent().has_node("CanvasLayer"):
 		health_bar.reparent(self.get_parent().get_node("CanvasLayer"), false)
 		$SFX/SFXPlayerDeath.play()
-		$SFX/SFXPlayerHurt.reparent(self.get_parent().get_node("SFX"), false)
-		$SFX/SFXPlayerDeath.reparent(self.get_parent().get_node("SFX"), false)
+		$SFX/SFXPlayerHurt.reparent(self.get_parent().get_node("SFX"), true)
+		$SFX/SFXPlayerDeath.reparent(self.get_parent().get_node("SFX"), true)
+		$AudioListener2D.reparent(self.get_parent().get_node("SFX"), true)
 	self.queue_free()
 
 # Changes value of health bar, if damage is taken, play invicibility frames
