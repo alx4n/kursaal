@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://v1m5xbie07pb" path="res://scenes/enemy_chaser.tscn" id="7_at5dv"]
 [ext_resource type="Script" uid="uid://40itrop66v1r" path="res://components/camera_component.gd" id="8_jcd4p"]
 [ext_resource type="PackedScene" uid="uid://c765s0dlx0oyj" path="res://scenes/item.tscn" id="10_yk7ts"]
+[ext_resource type="AudioStream" uid="uid://301cbvc674oq" path="res://music/mus_maincasino.wav" id="11_ajshl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bl13t"]
 size = Vector2(135.5, 135.5)
@@ -442,8 +443,6 @@ parent = NodePath("..")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1044159921]
 
-[node name="SFX" type="Node" parent="." unique_id=720416108]
-
 [node name="Item" parent="." unique_id=31963809 instance=ExtResource("10_yk7ts")]
 position = Vector2(2423, 7769)
 collision_layer = 2
@@ -497,6 +496,11 @@ position = Vector2(2990, -47)
 
 [node name="Chaser7" parent="." unique_id=2060379347 groups=["enemies"] instance=ExtResource("7_at5dv")]
 position = Vector2(3030, 540)
+
+[node name="BGM" type="AudioStreamPlayer" parent="." unique_id=8923512]
+stream = ExtResource("11_ajshl")
+volume_db = -12.0
+autoplay = true
 
 [connection signal="body_entered" from="door" to="door" method="_on_body_entered"]
 [connection signal="body_entered" from="door2" to="door2" method="_on_body_entered"]
