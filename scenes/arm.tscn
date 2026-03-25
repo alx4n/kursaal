@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://b36teh6ours1y"]
 
+[ext_resource type="Script" path="res://scripts/arm.gd" id="1_muf2m"]
 [ext_resource type="Texture2D" uid="uid://rkxhxhd1usbf" path="res://sprites/Weapon_Arm_Animation_sheet/Weapon_Arm_Animation_sheet/Forearm_cycle.png" id="1_q8oh2"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vg7iv"]
@@ -75,6 +76,7 @@ _data = {
 
 [node name="Arm" type="CharacterBody2D" unique_id=1232609863]
 scale = Vector2(0.25, 0.25)
+script = ExtResource("1_muf2m")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=516638691]
 position = Vector2(5, 0)

@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://b2j28bf50h702"]
+
+[ext_resource type="Script" uid="uid://b22j03ji84h7v" path="res://scripts/coin_bullet.gd" id="1_qibdv"]
+[ext_resource type="Texture2D" uid="uid://py4kasii71lq" path="res://sprites/Weapons Animations/Gold Coin.png" id="1_utfai"]
+[ext_resource type="Script" uid="uid://bnn4d42eggoye" path="res://components/damage_component.gd" id="3_w4kev"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qibdv"]
+atlas = ExtResource("1_utfai")
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_w4kev"]
+radius = 24.0
+height = 82.0
+
+[node name="CoinBullet" type="Area2D" unique_id=1968461616]
+scale = Vector2(0.15, 0.15)
+script = ExtResource("1_qibdv")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1663697685]
+position = Vector2(24, -9)
+texture = SubResource("AtlasTexture_qibdv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=59030771]
+position = Vector2(-2, 1)
+shape = SubResource("CapsuleShape2D_w4kev")
+
+[node name="DamageComponent" type="Node" parent="." unique_id=1207721943]
+script = ExtResource("3_w4kev")
+metadata/_custom_type_script = "uid://bnn4d42eggoye"
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

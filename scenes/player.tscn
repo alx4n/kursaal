@@ -2,10 +2,8 @@
 
 [ext_resource type="Script" uid="uid://mrb6thsl00f5" path="res://scripts/player.gd" id="1_qhqgy"]
 [ext_resource type="Script" uid="uid://40itrop66v1r" path="res://components/camera_component.gd" id="2_tuyoq"]
-[ext_resource type="PackedScene" uid="uid://bumaiyelhn5vq" path="res://scenes/empty_body.tscn" id="3_d2wvv"]
-[ext_resource type="PackedScene" uid="uid://cqn12u1ryvv8h" path="res://scenes/weapon.tscn" id="3_qlg0r"]
 [ext_resource type="Texture2D" uid="uid://qv7bvlxq5chf" path="res://sprites/Run_Cycle_Fix.png" id="3_tuyoq"]
-[ext_resource type="PackedScene" uid="uid://bmm7bb8fkxnnv" path="res://scenes/upper_arm.tscn" id="4_3v2ag"]
+[ext_resource type="PackedScene" uid="uid://b36teh6ours1y" path="res://scenes/arm.tscn" id="4_d2wvv"]
 [ext_resource type="Script" uid="uid://c6t1f7314lva8" path="res://components/health_component.gd" id="4_qlg0r"]
 [ext_resource type="Texture2D" uid="uid://7dhwwr31dwgw" path="res://sprites/Weapon_Arm_Animation_sheet/Weapon_Arm_Animation_sheet/Armless_run.png" id="5_3v2ag"]
 [ext_resource type="Script" uid="uid://bnn4d42eggoye" path="res://components/damage_component.gd" id="5_tuyoq"]
@@ -235,18 +233,6 @@ tracks/0/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
 }
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Weapon:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
 
 [sub_resource type="Animation" id="Animation_smehm"]
 resource_name = "damage_taken"
@@ -263,18 +249,6 @@ tracks/0/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Weapon:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0.0333333, 0.2, 0.4, 0.6, 0.8, 1, 1.2),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ur7pv"]
 _data = {
@@ -284,6 +258,7 @@ _data = {
 
 [node name="Player" type="CharacterBody2D" unique_id=1896878719]
 collision_layer = 5
+motion_mode = 1
 script = ExtResource("1_qhqgy")
 metadata/_edit_group_ = true
 
@@ -291,19 +266,6 @@ metadata/_edit_group_ = true
 script = ExtResource("2_tuyoq")
 parent = NodePath("..")
 metadata/_custom_type_script = "uid://40itrop66v1r"
-
-[node name="PlayerRig" type="Node2D" parent="." unique_id=702141687]
-visible = false
-
-[node name="EmptyBody" parent="PlayerRig" unique_id=809535482 instance=ExtResource("3_d2wvv")]
-
-[node name="BodyArmJoint" type="PinJoint2D" parent="PlayerRig" unique_id=29422534]
-position = Vector2(-24, 24)
-node_a = NodePath("../EmptyBody")
-node_b = NodePath("../UpperArm")
-
-[node name="UpperArm" parent="PlayerRig" unique_id=1443716295 instance=ExtResource("4_3v2ag")]
-position = Vector2(-20, 34)
 
 [node name="Body" type="Node2D" parent="." unique_id=1336252127]
 position = Vector2(12, -22)
@@ -313,6 +275,22 @@ scale = Vector2(0.25, 0.25)
 sprite_frames = SubResource("SpriteFrames_wnwbv")
 autoplay = "default"
 
+[node name="Arm" parent="Body" unique_id=1232609863 instance=ExtResource("4_d2wvv")]
+z_index = 1
+position = Vector2(-96, 120)
+scale = Vector2(1, 1)
+collision_layer = 0
+collision_mask = 0
+
+[node name="PhysicsWeapon" parent="Body/Arm" unique_id=812287762 node_paths=PackedStringArray("arm", "player") instance=ExtResource("9_ur7pv")]
+z_index = -1
+position = Vector2(76, -16)
+scale = Vector2(16, 16)
+collision_layer = 0
+collision_mask = 0
+arm = NodePath("..")
+player = NodePath("../../..")
+
 [node name="PlayerIcon" type="AnimatedSprite2D" parent="." unique_id=201365392]
 visible = false
 material = SubResource("ShaderMaterial_fjrip")
@@ -320,17 +298,6 @@ scale = Vector2(0.25, 0.25)
 sprite_frames = SubResource("SpriteFrames_4r5pv")
 animation = &"run_cycle"
 autoplay = "run_cycle"
-
-[node name="PhysicsWeapon" parent="." unique_id=812287762 instance=ExtResource("9_ur7pv")]
-visible = false
-position = Vector2(63, 12)
-
-[node name="Weapon" parent="." unique_id=784183095 instance=ExtResource("3_qlg0r")]
-visible = false
-material = SubResource("ShaderMaterial_fjrip")
-position = Vector2(70, 14)
-collision_layer = 3
-collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1059489626]
 position = Vector2(-0.5, -0.5)

@@ -1,6 +1,6 @@
 [gd_scene format=4 uid="uid://6kky4deya1xo"]
 
-[ext_resource type="Script" uid="uid://t43k0kvfqm4e" path="res://scripts/Dungeon.gd" id="1_iyx0m"]
+[ext_resource type="Script" uid="uid://t43k0kvfqm4e" path="res://scripts/dungeon.gd" id="1_iyx0m"]
 [ext_resource type="PackedScene" uid="uid://bacvwbmrcdokl" path="res://scenes/player.tscn" id="2_74lek"]
 [ext_resource type="TileSet" uid="uid://ccof0irhc7y62" path="res://resources/casino_tile_set_pixel.tres" id="4_74lek"]
 [ext_resource type="Script" uid="uid://2th3ay6gqql6" path="res://scripts/door.gd" id="4_j5jx5"]
@@ -9,8 +9,8 @@
 [ext_resource type="Script" uid="uid://blwm36sahn10l" path="res://scripts/blacksquare.gd" id="6_lpvoh"]
 [ext_resource type="PackedScene" uid="uid://v1m5xbie07pb" path="res://scenes/enemy_chaser.tscn" id="7_at5dv"]
 [ext_resource type="Script" uid="uid://40itrop66v1r" path="res://components/camera_component.gd" id="8_jcd4p"]
-[ext_resource type="PackedScene" path="res://scenes/boss.tscn" id="9_uacia"]
-[ext_resource type="PackedScene" uid="uid://c5orkpno8peky" path="res://scenes/item.tscn" id="10_yk7ts"]
+[ext_resource type="PackedScene" uid="uid://bo83w52aq07os" path="res://scenes/boss.tscn" id="9_uacia"]
+[ext_resource type="PackedScene" uid="uid://c765s0dlx0oyj" path="res://scenes/item.tscn" id="10_yk7ts"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bl13t"]
 size = Vector2(135.5, 135.5)

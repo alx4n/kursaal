@@ -3,31 +3,31 @@
 [ext_resource type="PackedScene" uid="uid://bacvwbmrcdokl" path="res://scenes/player.tscn" id="1_hggro"]
 [ext_resource type="PackedScene" uid="uid://cqn12u1ryvv8h" path="res://scenes/weapon.tscn" id="2_5017i"]
 [ext_resource type="PackedScene" uid="uid://b36teh6ours1y" path="res://scenes/arm.tscn" id="2_nqgr0"]
-[ext_resource type="Script" uid="uid://cydlglqmcyej8" path="res://scripts/arm.gd" id="3_4wwbj"]
+[ext_resource type="Script" path="res://scripts/arm.gd" id="3_4wwbj"]
 [ext_resource type="PackedScene" uid="uid://by3smicyoqhfe" path="res://scenes/physics_weapon.tscn" id="4_4wwbj"]
 
 [node name="PlayerFullBody" type="Node2D" unique_id=242588269]
 
 [node name="Player" parent="." unique_id=1896878719 instance=ExtResource("1_hggro")]
 
-[node name="Arm" parent="Player" unique_id=1232609863 instance=ExtResource("2_nqgr0")]
+[node name="Arm2" parent="Player" unique_id=1232609863 instance=ExtResource("2_nqgr0")]
 z_index = 2
 position = Vector2(-15, 4)
 scale = Vector2(0.28, 0.28)
 script = ExtResource("3_4wwbj")
 
-[node name="PhysicsWeapon" parent="Player/Arm" unique_id=812287762 instance=ExtResource("4_4wwbj")]
+[node name="PhysicsWeapon" parent="Player/Arm2" unique_id=812287762 instance=ExtResource("4_4wwbj")]
 z_index = -1
 position = Vector2(85.71428, -9.536743e-07)
 scale = Vector2(10, 10)
 
-[node name="PinJoint2D" type="PinJoint2D" parent="Player/Arm" unique_id=1626872295]
+[node name="PinJoint2D" type="PinJoint2D" parent="Player/Arm2" unique_id=1626872295]
 position = Vector2(67.85715, -3.5714264)
 scale = Vector2(0.9999999, 0.9999999)
 node_a = NodePath("..")
 node_b = NodePath("../PhysicsWeapon")
 
-[node name="Weapon" parent="Player/Arm" unique_id=1664905218 instance=ExtResource("2_5017i")]
+[node name="Weapon" parent="Player/Arm2" unique_id=1664905218 instance=ExtResource("2_5017i")]
 visible = false
 z_index = -1
 position = Vector2(67.85715, -3.5714285)

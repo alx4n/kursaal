@@ -12,7 +12,7 @@ region = Rect2(77.00928, 15.014632, 5.9105225, 3.151969)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y25gk"]
 size = Vector2(4, 6)
 
-[node name="bullet" type="Area2D" unique_id=48607352]
+[node name="Bullet" type="Area2D" unique_id=48607352]
 rotation = 1.5560329
 scale = Vector2(5, 5)
 disable_mode = 2
