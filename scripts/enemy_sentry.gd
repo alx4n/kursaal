@@ -32,4 +32,4 @@ func _on_health_component_health_changed(current: int, _max: int, _amount: int) 
 
 
 func _on_range_body_entered(body: Node2D) -> void:
-	
+	pass
