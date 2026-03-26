@@ -55,10 +55,10 @@ script = ExtResource("4_xdwg6")
 metadata/_custom_type_script = "uid://bnn4d42eggoye"
 
 [node name="ProgressBar" type="ProgressBar" parent="." unique_id=857125917]
-offset_left = -47.0
-offset_top = -81.0
-offset_right = 54.0
-offset_bottom = -54.0
+offset_left = -65.30855
+offset_top = -477.255
+offset_right = 35.691452
+offset_bottom = -450.255
 step = 1.0
 value = 100.0
 
@@ -70,6 +70,8 @@ stream = ExtResource("5_xdwg6")
 [node name="SFXEnemyDeath" type="AudioStreamPlayer2D" parent="SFX" unique_id=1019858928]
 stream = ExtResource("6_4ifjj")
 script = ExtResource("7_s6v6k")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=1158026655]
 
 [connection signal="body_entered" from="AttackDetector" to="." method="_on_attack_detector_body_entered"]
 [connection signal="timeout" from="AttackCooldown" to="." method="_on_attack_cooldown_timeout"]

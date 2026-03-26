@@ -5,6 +5,10 @@ var speed = 120
 @onready var health_component: HealthComponent = %HealthComponent
 @onready var damage_component: DamageComponent = %DamageComponent
 @onready var health_bar: ProgressBar = $ProgressBar
+@onready var agent = $NavigationAgent2D
+var targ : Vector2
+
+@onready var target : Node2D
 
 var collider
 enum States {IDLE, CHASING}
@@ -12,6 +16,7 @@ var state = States.CHASING
 
 func _ready() -> void:
 	health_component.set_max_health(100)
+
 
 func _physics_process(_delta: float) -> void:
 	if state == States.CHASING:
@@ -22,6 +27,7 @@ func _physics_process(_delta: float) -> void:
 	else:
 		self.velocity = Vector2(0,0)
 		$AttackDetector.position = self.position
+	
 	move_and_slide()
 	
 func _process(_delta: float) -> void:
