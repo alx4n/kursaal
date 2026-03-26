@@ -24,6 +24,7 @@ position = Vector2(-2, 1)
 shape = SubResource("CapsuleShape2D_w4kev")
 
 [node name="DamageComponent" type="Node" parent="." unique_id=1207721943]
+unique_name_in_owner = true
 script = ExtResource("3_w4kev")
 metadata/_custom_type_script = "uid://bnn4d42eggoye"
 

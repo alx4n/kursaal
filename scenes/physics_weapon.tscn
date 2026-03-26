@@ -3,7 +3,6 @@
 [ext_resource type="Script" uid="uid://ewk3kwmqs2ox" path="res://scripts/physics_weapon.gd" id="1_fkf6q"]
 [ext_resource type="Texture2D" uid="uid://d0mv7yqiowpb2" path="res://sprites/Cane frames 1.png" id="2_mvfva"]
 [ext_resource type="AudioStream" uid="uid://48gp74yuct8b" path="res://sfx/temp_player_melee.wav" id="3_moxxs"]
-[ext_resource type="PackedScene" uid="uid://b0c6wnbu6od26" path="res://scenes/dice_launcher.tscn" id="4_mvfva"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rup6x"]
 atlas = ExtResource("2_mvfva")
@@ -73,7 +72,7 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_moxxs"]
 size = Vector2(21.843636, 18.995731)
 
-[node name="PhysicsWeapon" type="CharacterBody2D" unique_id=812287762]
+[node name="PhysicsWeapon" type="Area2D" unique_id=1592725378]
 scale = Vector2(4, 4)
 script = ExtResource("1_fkf6q")
 
@@ -104,12 +103,10 @@ libraries/ = SubResource("AnimationLibrary_3ima4")
 [node name="SFXMelee" type="AudioStreamPlayer2D" parent="SFX" unique_id=1404231751]
 stream = ExtResource("3_moxxs")
 
-[node name="DiceLauncher" parent="." unique_id=174988528 instance=ExtResource("4_mvfva")]
-position = Vector2(3.7499995, -0.99999994)
-scale = Vector2(0.08, 0.08)
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=612770199]
 position = Vector2(5.33817, -2.5000002)
 rotation = 1.5707964
 scale = Vector2(0.96137846, 1.4647324)
 shape = SubResource("RectangleShape2D_moxxs")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

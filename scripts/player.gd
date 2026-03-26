@@ -10,6 +10,8 @@ var upgrades : Array[BulletUpgrade] = []
 @onready var damage_component : DamageComponent = %DamageComponent
 @onready var health_bar : ProgressBar = $CanvasLayer/HealthBar
 @onready var is_dashing := false
+@onready var arm := $Body/Arm
+@onready var weapon := $Body/Arm/PhysicsWeapon
 
 var invincible = false
 
@@ -51,3 +53,8 @@ func _on_health_component_health_changed(current: int, _max_health: int, amount:
 		invincible = true
 		await get_tree().create_timer(3.0).timeout
 		invincible = false
+		
+func switch_weapon(weapon_name: String) -> void:
+	weapon.equip_weapon(weapon_name)
+	weapon.can_fire = true
+	pass

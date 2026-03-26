@@ -256,7 +256,7 @@ _data = {
 &"damage_taken": SubResource("Animation_smehm")
 }
 
-[node name="Player" type="CharacterBody2D" unique_id=1896878719]
+[node name="Player" type="CharacterBody2D" unique_id=1896878719 groups=["player"]]
 collision_layer = 5
 motion_mode = 1
 script = ExtResource("1_qhqgy")
@@ -290,6 +290,7 @@ collision_layer = 0
 collision_mask = 0
 arm = NodePath("..")
 player = NodePath("../../..")
+weapon_name = "dice_launcher"
 
 [node name="PlayerIcon" type="AnimatedSprite2D" parent="." unique_id=201365392]
 visible = false

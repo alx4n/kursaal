@@ -1,8 +1,10 @@
 [gd_scene format=4 uid="uid://dofq57sk0dlv7"]
 
 [ext_resource type="TileSet" uid="uid://c5h03as65hrx" path="res://resources/jacob_tile_set.tres" id="1_0tsjr"]
+[ext_resource type="PackedScene" uid="uid://bacvwbmrcdokl" path="res://scenes/player.tscn" id="4_0akh5"]
 [ext_resource type="PackedScene" uid="uid://c500ytwhn6gf4" path="res://scenes/tree_obstacle.tscn" id="4_irjyx"]
 [ext_resource type="PackedScene" uid="uid://dh4glgejrhsib" path="res://scenes/enemy_sentry.tscn" id="4_xhekj"]
+[ext_resource type="PackedScene" uid="uid://dli8lduqasv1a" path="res://scenes/revolver.tscn" id="5_irjyx"]
 
 [node name="Room1" type="Node2D" unique_id=2125693867]
 
@@ -46,3 +48,10 @@ position = Vector2(1984, 632)
 
 [node name="Sentry4" parent="." unique_id=1979451565 instance=ExtResource("4_xhekj")]
 position = Vector2(1984, 888)
+
+[node name="Player" parent="." unique_id=1896878719 instance=ExtResource("4_0akh5")]
+position = Vector2(430, 927)
+
+[node name="Revolver" parent="." unique_id=2047187523 instance=ExtResource("5_irjyx")]
+position = Vector2(873, 942)
+scale = Vector2(0.25, 0.25)

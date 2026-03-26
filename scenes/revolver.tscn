@@ -46,13 +46,17 @@ _data = {
 &"shoot": SubResource("Animation_4k0e7")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4k0e7"]
+size = Vector2(400, 175)
+
 [node name="Revolver" type="Node2D" unique_id=2047187523]
+scale = Vector2(0.08, 0.08)
 script = ExtResource("1_4k0e7")
 
 [node name="Marker2D" type="Marker2D" parent="." unique_id=1719589238]
+position = Vector2(15, -3)
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1968903471]
-scale = Vector2(0.08, 0.08)
 texture = SubResource("AtlasTexture_rlopr")
 hframes = 5
 
@@ -68,3 +72,11 @@ metadata/_custom_type_script = "uid://bnn4d42eggoye"
 unique_name_in_owner = true
 script = ExtResource("4_glgif")
 metadata/_custom_type_script = "uid://u3sdvu5eb1q5"
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1919412381]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1952752571]
+position = Vector2(0, 12.5)
+shape = SubResource("RectangleShape2D_4k0e7")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
