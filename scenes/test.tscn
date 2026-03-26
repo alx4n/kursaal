@@ -5,10 +5,10 @@
 [ext_resource type="Texture2D" uid="uid://do5yh1vgjg6if" path="res://sprites/Tile Set Map_03_props.png" id="3_44saj"]
 [ext_resource type="Script" uid="uid://2th3ay6gqql6" path="res://scripts/door.gd" id="4_j5jx5"]
 [ext_resource type="PackedScene" uid="uid://dh4glgejrhsib" path="res://scenes/enemy_sentry.tscn" id="4_lpvoh"]
-[ext_resource type="PackedScene" path="res://scenes/blacksquare.tscn" id="5_j5jx5"]
+[ext_resource type="PackedScene" uid="uid://bt8esmj63k6s7" path="res://scenes/blacksquare.tscn" id="5_j5jx5"]
 [ext_resource type="Script" uid="uid://blwm36sahn10l" path="res://scripts/blacksquare.gd" id="6_lpvoh"]
 [ext_resource type="PackedScene" uid="uid://v1m5xbie07pb" path="res://scenes/enemy_chaser.tscn" id="7_at5dv"]
-[ext_resource type="Script" uid="uid://40itrop66v1r" path="res://components/camera_component.gd" id="8_jcd4p"]
+[ext_resource type="Script" path="res://components/camera_component.gd" id="8_jcd4p"]
 [ext_resource type="PackedScene" uid="uid://c765s0dlx0oyj" path="res://scenes/item.tscn" id="10_yk7ts"]
 [ext_resource type="PackedScene" uid="uid://dwbsip0lgudne" path="res://scenes/Blackjack.tscn" id="12_44saj"]
 [ext_resource type="Texture2D" uid="uid://brc0leqj8jkgy" path="res://sprites/Tile_Set_2_rework_1px_spacing_Margin.png" id="13_7mbro"]
@@ -12002,10 +12002,10 @@ texture_region_size = Vector2i(133, 133)
 
 [sub_resource type="TileSet" id="TileSet_7yos8"]
 tile_size = Vector2i(133, 133)
-physics_layer_0/collision_layer = 2
-physics_layer_0/collision_mask = 2
-physics_layer_1/collision_layer = 2
-physics_layer_1/collision_mask = 2
+physics_layer_0/collision_layer = 3
+physics_layer_0/collision_mask = 3
+physics_layer_1/collision_layer = 3
+physics_layer_1/collision_mask = 3
 sources/0 = SubResource("TileSetAtlasSource_ff6ho")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7mbro"]
