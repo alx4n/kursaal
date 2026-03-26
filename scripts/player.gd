@@ -11,6 +11,7 @@ var upgrades : Array[BulletUpgrade] = []
 @onready var health_bar : ProgressBar = $CanvasLayer/HealthBar
 @onready var is_dashing := false
 @onready var animation = $PlayerIcon
+@onready var weapon = $Weapon
 
 var invincible = false
 

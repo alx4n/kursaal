@@ -196,7 +196,6 @@ _data = {
 }
 
 [node name="Player" type="CharacterBody2D" unique_id=1896878719]
-position = Vector2(2, -14)
 collision_layer = 5
 script = ExtResource("1_qhqgy")
 metadata/_edit_group_ = true
@@ -208,10 +207,10 @@ metadata/_custom_type_script = "uid://40itrop66v1r"
 
 [node name="PlayerIcon" type="AnimatedSprite2D" parent="." unique_id=201365392]
 material = SubResource("ShaderMaterial_fjrip")
-position = Vector2(1, 13)
-scale = Vector2(0.315, 0.315)
+position = Vector2(-8.000002, 7.1260905)
+scale = Vector2(0.285, 0.23295653)
 sprite_frames = SubResource("SpriteFrames_4r5pv")
-animation = &"idle"
+animation = &"run_cycle"
 autoplay = "run_cycle"
 
 [node name="Weapon" parent="." unique_id=784183095 instance=ExtResource("3_qlg0r")]

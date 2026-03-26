@@ -6,6 +6,7 @@ extends CharacterBody2D
 @onready var damage_component: DamageComponent = %DamageComponent
 @onready var health_bar : ProgressBar = $ProgressBar
 @onready var range : Area2D = $Range
+@onready var animation = $Sprite2D
 
 var projectile_speed = 250
 
@@ -15,6 +16,7 @@ func _ready() -> void:
 
 func _on_projectile_timer_timeout() -> void:
 		if get_tree().get_first_node_in_group("player") != null:
+			animation.play("shooting")
 			var player_dir = (get_tree().get_first_node_in_group("player").position - self.position).normalized()
 			var new_projectile = projectile_scene.instantiate()
 			get_tree().get_root().add_child(new_projectile)

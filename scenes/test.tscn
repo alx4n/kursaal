@@ -12568,16 +12568,15 @@ collision_mask = 2
 
 [node name="Sentry2" parent="." unique_id=937325923 instance=ExtResource("4_lpvoh")]
 position = Vector2(1833, 7869)
-damage_amount = 0
+scale = Vector2(0.40570226, 0.40570226)
 
 [node name="Sentry3" parent="." unique_id=551785014 instance=ExtResource("4_lpvoh")]
 position = Vector2(3058, 7882)
-damage_amount = 0
+scale = Vector2(0.33809894, 0.33809894)
 
 [node name="Sentry4" parent="." unique_id=852040509 instance=ExtResource("4_lpvoh")]
-position = Vector2(-4579.9995, 7177.9995)
-scale = Vector2(12.239995, 12.239995)
-damage_amount = 0
+position = Vector2(-5752, 6478.0005)
+scale = Vector2(2.7385643, 2.7385643)
 
 [node name="Chaser2" parent="." unique_id=599043227 instance=ExtResource("7_at5dv")]
 position = Vector2(-402, 2371)
@@ -12593,30 +12592,30 @@ position = Vector2(870, 3134)
 
 [node name="Sentry5" parent="." unique_id=1620278714 instance=ExtResource("4_lpvoh")]
 position = Vector2(177, 2732)
-damage_amount = 0
+scale = Vector2(0.29602045, 0.29602045)
 
 [node name="Sentry6" parent="." unique_id=9525920 instance=ExtResource("4_lpvoh")]
 position = Vector2(-743, 5324)
-damage_amount = 0
+scale = Vector2(0.5319538, 0.5319538)
 
 [node name="Sentry7" parent="." unique_id=1185321543 instance=ExtResource("4_lpvoh")]
 position = Vector2(1176, 5296)
-damage_amount = 0
+scale = Vector2(0.552864, 0.552864)
 
 [node name="Chaser6" parent="." unique_id=859490539 instance=ExtResource("7_at5dv")]
 position = Vector2(169, 7042)
 
 [node name="Sentry8" parent="." unique_id=133788097 instance=ExtResource("4_lpvoh")]
 position = Vector2(-2627, 716)
-damage_amount = 0
+scale = Vector2(0.31810242, 0.31810242)
 
 [node name="Sentry9" parent="." unique_id=611004237 instance=ExtResource("4_lpvoh")]
-position = Vector2(-2668, 422)
-damage_amount = 0
+position = Vector2(-2751, 154)
+scale = Vector2(0.24654664, 0.24654664)
 
 [node name="Sentry10" parent="." unique_id=1538464097 instance=ExtResource("4_lpvoh")]
 position = Vector2(-1841, 388)
-damage_amount = 0
+scale = Vector2(0.31190646, 0.31190646)
 
 [node name="Chaser" parent="." unique_id=749136513 instance=ExtResource("7_at5dv")]
 position = Vector2(3045, -109)
