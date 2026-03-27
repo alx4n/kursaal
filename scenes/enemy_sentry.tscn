@@ -33,7 +33,7 @@ texture = ExtResource("3_r4oi2")
 [node name="HealthComponent" type="Node" parent="Components" unique_id=2102623751]
 unique_name_in_owner = true
 script = ExtResource("5_yvw6x")
-_max_health = 100
+_max_health = 300
 metadata/_custom_type_script = "uid://c6t1f7314lva8"
 
 [node name="DamageComponent" type="Node" parent="Components" unique_id=1950474701]

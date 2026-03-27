@@ -5,6 +5,7 @@ extends CharacterBody2D
 @onready var health_component: HealthComponent = %HealthComponent
 @onready var damage_component: DamageComponent = %DamageComponent
 @onready var health_bar : ProgressBar = $ProgressBar
+@onready var player := get_tree().root.get_node("/root/Dungeon/Player")
 
 var projectile_speed = 250
 
@@ -13,13 +14,13 @@ func _ready() -> void:
 	health_component.set_max_health(100)
 
 func _on_projectile_timer_timeout() -> void:
-	if get_tree().get_first_node_in_group("player") != null:
-		var player_dir = (get_tree().get_first_node_in_group("player").position - self.position).normalized()
+	if player != null:
 		var new_projectile = projectile_scene.instantiate()
 		get_tree().get_root().add_child(new_projectile)
 		new_projectile.global_position = self.global_position
-		new_projectile.linear_velocity = Vector2(player_dir.x * projectile_speed, player_dir.y * projectile_speed)
-		
+		new_projectile.look_at(player.position)
+		$SFX/SFXEnemyShoot.play()
+
 func _on_health_component_died() -> void:
 	$SFX/SFXEnemyDeath.play()
 	$SFX/SFXEnemyHurt.reparent(self.get_parent().get_node("SFX"), true)
