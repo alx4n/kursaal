@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://nfda815shi23"]
+
+[ext_resource type="Script" path="res://scripts/spikes.gd" id="1_xbcdo"]
+[ext_resource type="Texture2D" uid="uid://do5yh1vgjg6if" path="res://sprites/Tile Set Map_03_props.png" id="2_bflj7"]
+[ext_resource type="Script" uid="uid://bnn4d42eggoye" path="res://components/damage_component.gd" id="4_kd5gq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kd5gq"]
+atlas = ExtResource("2_bflj7")
+region = Rect2(103.63281, 69.954834, 228.7351, 272.46387)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kd5gq"]
+size = Vector2(172, 269)
+
+[node name="Spikes" type="Area2D" unique_id=1095001856]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_xbcdo")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=346313782]
+position = Vector2(614, 301)
+texture = SubResource("AtlasTexture_kd5gq")
+metadata/_edit_group_ = true
+
+[node name="DamageComponent" type="Node" parent="." unique_id=775979977]
+script = ExtResource("4_kd5gq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=169615271]
+position = Vector2(611, 310)
+shape = SubResource("RectangleShape2D_kd5gq")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

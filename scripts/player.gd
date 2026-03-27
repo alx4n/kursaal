@@ -10,6 +10,8 @@ var upgrades : Array[BulletUpgrade] = []
 @onready var damage_component : DamageComponent = %DamageComponent
 @onready var health_bar : ProgressBar = $CanvasLayer/HealthBar
 @onready var is_dashing := false
+@onready var animation = $PlayerIcon
+@onready var weapon = $Weapon
 @onready var arm := $Body/Arm
 @onready var weapon := $Body/Arm/PhysicsWeapon
 
@@ -18,6 +20,16 @@ var invincible = false
 func getInput():
 	var input_direction = Input.get_vector("left","right","up","down")
 	self.velocity = input_direction * speed
+	if input_direction != Vector2.ZERO:
+		animation.play("run_cycle")
+	else: 
+		animation.play("idle")
+		
+	if input_direction.x <0:
+		animation.flip_h = true
+	elif input_direction.x > 0:
+		animation.flip_h = false
+		
 	if Input.is_action_just_pressed("dash"):
 		speed += dash_speed
 		await get_tree().create_timer(0.275).timeout

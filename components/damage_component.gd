@@ -15,5 +15,6 @@ func _ready() -> void:
 	pass # Replace with function body.
 
 func deal_damage(damage_amount: int, body: Node2D) -> void:
+	
 	if body.has_node("Components/HealthComponent"):
 		body.health_component.take_damage(damage_amount)
