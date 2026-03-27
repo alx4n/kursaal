@@ -330,13 +330,16 @@ offset_bottom = 93.0
 theme_override_font_sizes/font_size = 40
 step = 1.0
 
-[node name="SFX" type="Node" parent="." unique_id=800990615]
+[node name="SFX" type="Node2D" parent="." unique_id=563773707]
 
 [node name="SFXPlayerHurt" type="AudioStreamPlayer2D" parent="SFX" unique_id=1143747381]
 stream = ExtResource("9_3v2ag")
 
 [node name="SFXPlayerDeath" type="AudioStreamPlayer2D" parent="SFX" unique_id=2017801158]
 stream = ExtResource("10_jej6c")
+
+[node name="AudioListener2D" type="AudioListener2D" parent="." unique_id=42694796]
+current = true
 
 [connection signal="died" from="Components/HealthComponent" to="." method="_on_health_component_died"]
 [connection signal="health_changed" from="Components/HealthComponent" to="." method="_on_health_component_health_changed"]

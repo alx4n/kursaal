@@ -49,7 +49,7 @@ offset_bottom = -54.0
 step = 1.0
 value = 100.0
 
-[node name="SFX" type="Node" parent="." unique_id=633267964]
+[node name="SFX" type="Node2D" parent="." unique_id=1094816403 groups=["enemies"]]
 
 [node name="SFXEnemyShoot" type="AudioStreamPlayer2D" parent="SFX" unique_id=1512019864]
 stream = ExtResource("6_u6owr")

@@ -103,6 +103,11 @@ shape = SubResource("RectangleShape2D_74lek")
 position = Vector2(-263, -15)
 
 [node name="Player" parent="." unique_id=1896878719 groups=["player"] instance=ExtResource("2_74lek")]
+collision_layer = 2
+collision_mask = 2
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=404684116 groups=["walls"]]
+position = Vector2(-6, -3)
 collision_layer = 3
 collision_mask = 3
 
@@ -458,53 +463,53 @@ position = Vector2(2423, 7769)
 collision_layer = 2
 collision_mask = 2
 
-[node name="Sentry2" parent="." unique_id=937325923 instance=ExtResource("4_lpvoh")]
+[node name="Sentry2" parent="." unique_id=937325923 groups=["enemies"] instance=ExtResource("4_lpvoh")]
 position = Vector2(1833, 7869)
 
-[node name="Sentry3" parent="." unique_id=551785014 instance=ExtResource("4_lpvoh")]
+[node name="Sentry3" parent="." unique_id=551785014 groups=["enemies"] instance=ExtResource("4_lpvoh")]
 position = Vector2(3058, 7882)
 
-[node name="Sentry4" parent="." unique_id=852040509 instance=ExtResource("4_lpvoh")]
+[node name="Sentry4" parent="." unique_id=852040509 groups=["enemies"] instance=ExtResource("4_lpvoh")]
 position = Vector2(-4579.9995, 7177.9995)
 scale = Vector2(12.239995, 12.239995)
 
-[node name="Chaser2" parent="." unique_id=599043227 instance=ExtResource("7_at5dv")]
+[node name="Chaser2" parent="." unique_id=599043227 groups=["enemies"] instance=ExtResource("7_at5dv")]
 position = Vector2(-402, 2371)
 
-[node name="Chaser3" parent="." unique_id=1236177053 instance=ExtResource("7_at5dv")]
+[node name="Chaser3" parent="." unique_id=1236177053 groups=["enemies"] instance=ExtResource("7_at5dv")]
 position = Vector2(819, 2406)
 
-[node name="Chaser4" parent="." unique_id=1135762741 instance=ExtResource("7_at5dv")]
+[node name="Chaser4" parent="." unique_id=1135762741 groups=["enemies"] instance=ExtResource("7_at5dv")]
 position = Vector2(-449, 3151)
 
-[node name="Chaser5" parent="." unique_id=1415328604 instance=ExtResource("7_at5dv")]
+[node name="Chaser5" parent="." unique_id=1415328604 groups=["enemies"] instance=ExtResource("7_at5dv")]
 position = Vector2(870, 3134)
 
-[node name="Sentry5" parent="." unique_id=1620278714 instance=ExtResource("4_lpvoh")]
+[node name="Sentry5" parent="." unique_id=1620278714 groups=["enemies"] instance=ExtResource("4_lpvoh")]
 position = Vector2(177, 2732)
 
-[node name="Sentry6" parent="." unique_id=9525920 instance=ExtResource("4_lpvoh")]
+[node name="Sentry6" parent="." unique_id=9525920 groups=["enemies"] instance=ExtResource("4_lpvoh")]
 position = Vector2(-743, 5324)
 
-[node name="Sentry7" parent="." unique_id=1185321543 instance=ExtResource("4_lpvoh")]
+[node name="Sentry7" parent="." unique_id=1185321543 groups=["enemies"] instance=ExtResource("4_lpvoh")]
 position = Vector2(1176, 5296)
 
-[node name="Chaser6" parent="." unique_id=859490539 instance=ExtResource("7_at5dv")]
+[node name="Chaser6" parent="." unique_id=859490539 groups=["enemies"] instance=ExtResource("7_at5dv")]
 position = Vector2(169, 7042)
 
-[node name="Sentry8" parent="." unique_id=133788097 instance=ExtResource("4_lpvoh")]
+[node name="Sentry8" parent="." unique_id=133788097 groups=["enemies"] instance=ExtResource("4_lpvoh")]
 position = Vector2(-2627, 716)
 
-[node name="Sentry9" parent="." unique_id=611004237 instance=ExtResource("4_lpvoh")]
+[node name="Sentry9" parent="." unique_id=611004237 groups=["enemies"] instance=ExtResource("4_lpvoh")]
 position = Vector2(-2668, 422)
 
-[node name="Sentry10" parent="." unique_id=1538464097 instance=ExtResource("4_lpvoh")]
+[node name="Sentry10" parent="." unique_id=1538464097 groups=["enemies"] instance=ExtResource("4_lpvoh")]
 position = Vector2(-1841, 388)
 
-[node name="Chaser7" parent="." unique_id=1005200352 instance=ExtResource("7_at5dv")]
+[node name="Chaser" parent="." unique_id=749136513 groups=["enemies"] instance=ExtResource("7_at5dv")]
 position = Vector2(2990, -47)
 
-[node name="Chaser8" parent="." unique_id=2060379347 instance=ExtResource("7_at5dv")]
+[node name="Chaser7" parent="." unique_id=2060379347 groups=["enemies"] instance=ExtResource("7_at5dv")]
 position = Vector2(3030, 540)
 
 [connection signal="body_entered" from="door" to="door" method="_on_body_entered"]
