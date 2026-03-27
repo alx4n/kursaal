@@ -5,13 +5,14 @@
 [ext_resource type="Texture2D" uid="uid://do5yh1vgjg6if" path="res://sprites/Tile Set Map_03_props.png" id="3_44saj"]
 [ext_resource type="Script" uid="uid://2th3ay6gqql6" path="res://scripts/door.gd" id="4_j5jx5"]
 [ext_resource type="PackedScene" uid="uid://dh4glgejrhsib" path="res://scenes/enemy_sentry.tscn" id="4_lpvoh"]
-[ext_resource type="PackedScene" uid="uid://bt8esmj63k6s7" path="res://scenes/blacksquare.tscn" id="5_j5jx5"]
+[ext_resource type="PackedScene" path="res://scenes/blacksquare.tscn" id="5_j5jx5"]
 [ext_resource type="Script" uid="uid://blwm36sahn10l" path="res://scripts/blacksquare.gd" id="6_lpvoh"]
 [ext_resource type="PackedScene" uid="uid://v1m5xbie07pb" path="res://scenes/enemy_chaser.tscn" id="7_at5dv"]
-[ext_resource type="Script" path="res://components/camera_component.gd" id="8_jcd4p"]
+[ext_resource type="Script" uid="uid://40itrop66v1r" path="res://components/camera_component.gd" id="8_jcd4p"]
 [ext_resource type="PackedScene" uid="uid://c765s0dlx0oyj" path="res://scenes/item.tscn" id="10_yk7ts"]
 [ext_resource type="Texture2D" uid="uid://brc0leqj8jkgy" path="res://sprites/Tile_Set_2_rework_1px_spacing_Margin.png" id="13_7mbro"]
-[ext_resource type="PackedScene" uid="uid://nfda815shi23" path="res://scenes/spikes.tscn" id="13_44saj"]
+[ext_resource type="PackedScene" path="res://scenes/spikes.tscn" id="13_44saj"]
+[ext_resource type="PackedScene" uid="uid://dtd675251mm6w" path="res://scenes/room_detector.tscn" id="13_ff6ho"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ff6ho"]
 texture = ExtResource("13_7mbro")
@@ -12300,9 +12301,6 @@ size = Vector2(135.5, 135.5)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j5jx5"]
 size = Vector2(2173, 1077)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_44saj"]
-size = Vector2(103.954315, 27.13023)
-
 [node name="Dungeon" type="Node2D" unique_id=1282095804]
 script = ExtResource("1_iyx0m")
 
@@ -12569,72 +12567,87 @@ position = Vector2(2423, 7769)
 collision_layer = 2
 collision_mask = 2
 
-[node name="Sentry2" parent="." unique_id=937325923 groups=["enemy"] instance=ExtResource("4_lpvoh")]
+[node name="Sentry2" parent="." unique_id=937325923 groups=["enemies"] instance=ExtResource("4_lpvoh")]
 position = Vector2(1833, 7869)
 scale = Vector2(0.40570226, 0.40570226)
 
-[node name="Sentry3" parent="." unique_id=551785014 groups=["enemy"] instance=ExtResource("4_lpvoh")]
+[node name="Sentry3" parent="." unique_id=551785014 groups=["enemies"] instance=ExtResource("4_lpvoh")]
 position = Vector2(3058, 7882)
 scale = Vector2(0.33809894, 0.33809894)
 
-[node name="Sentry4" parent="." unique_id=852040509 groups=["enemy"] instance=ExtResource("4_lpvoh")]
+[node name="Sentry4" parent="." unique_id=852040509 groups=["enemies"] instance=ExtResource("4_lpvoh")]
 position = Vector2(-5752, 6478.0005)
 scale = Vector2(2.7385643, 2.7385643)
 
-[node name="Chaser2" parent="." unique_id=599043227 groups=["enemy"] instance=ExtResource("7_at5dv")]
+[node name="Chaser2" parent="." unique_id=599043227 groups=["enemies"] instance=ExtResource("7_at5dv")]
 position = Vector2(-402, 2371)
 
-[node name="Chaser3" parent="." unique_id=1236177053 groups=["enemy"] instance=ExtResource("7_at5dv")]
+[node name="Chaser3" parent="." unique_id=1236177053 groups=["enemies"] instance=ExtResource("7_at5dv")]
 position = Vector2(819, 2406)
 
-[node name="Chaser4" parent="." unique_id=1135762741 groups=["enemy"] instance=ExtResource("7_at5dv")]
+[node name="Chaser4" parent="." unique_id=1135762741 groups=["enemies"] instance=ExtResource("7_at5dv")]
 position = Vector2(-449, 3151)
 
-[node name="Chaser5" parent="." unique_id=1415328604 groups=["enemy"] instance=ExtResource("7_at5dv")]
+[node name="Chaser5" parent="." unique_id=1415328604 groups=["enemies"] instance=ExtResource("7_at5dv")]
 position = Vector2(870, 3134)
 
-[node name="Sentry5" parent="." unique_id=1620278714 groups=["enemy"] instance=ExtResource("4_lpvoh")]
+[node name="Sentry5" parent="." unique_id=1620278714 groups=["enemies"] instance=ExtResource("4_lpvoh")]
 position = Vector2(177, 2732)
 scale = Vector2(0.29602045, 0.29602045)
 
-[node name="Sentry6" parent="." unique_id=9525920 groups=["enemy"] instance=ExtResource("4_lpvoh")]
+[node name="Sentry6" parent="." unique_id=9525920 groups=["enemies"] instance=ExtResource("4_lpvoh")]
 position = Vector2(-743, 5324)
 scale = Vector2(0.5319538, 0.5319538)
 
-[node name="Sentry7" parent="." unique_id=1185321543 groups=["enemy"] instance=ExtResource("4_lpvoh")]
+[node name="Sentry7" parent="." unique_id=1185321543 groups=["enemies"] instance=ExtResource("4_lpvoh")]
 position = Vector2(1176, 5296)
 scale = Vector2(0.552864, 0.552864)
 
-[node name="Chaser6" parent="." unique_id=859490539 groups=["enemy"] instance=ExtResource("7_at5dv")]
+[node name="Chaser6" parent="." unique_id=859490539 groups=["enemies"] instance=ExtResource("7_at5dv")]
 position = Vector2(169, 7042)
 
-[node name="Sentry8" parent="." unique_id=133788097 groups=["enemy"] instance=ExtResource("4_lpvoh")]
+[node name="Sentry8" parent="." unique_id=133788097 groups=["enemies"] instance=ExtResource("4_lpvoh")]
 position = Vector2(-2627, 716)
 scale = Vector2(0.31810242, 0.31810242)
 
-[node name="Sentry9" parent="." unique_id=611004237 groups=["enemy"] instance=ExtResource("4_lpvoh")]
+[node name="Sentry9" parent="." unique_id=611004237 groups=["enemies"] instance=ExtResource("4_lpvoh")]
 position = Vector2(-2751, 154)
 scale = Vector2(0.24654664, 0.24654664)
 
-[node name="Sentry10" parent="." unique_id=1538464097 groups=["enemy"] instance=ExtResource("4_lpvoh")]
+[node name="Sentry10" parent="." unique_id=1538464097 groups=["enemies"] instance=ExtResource("4_lpvoh")]
 position = Vector2(-1841, 388)
 scale = Vector2(0.31190646, 0.31190646)
 
-[node name="Chaser" parent="." unique_id=749136513 groups=["enemy"] instance=ExtResource("7_at5dv")]
-position = Vector2(2383, 518.99994)
+[node name="Chaser" parent="." unique_id=749136513 groups=["enemies"] instance=ExtResource("7_at5dv")]
+position = Vector2(1969, 416)
 
 [node name="Spikes" parent="." unique_id=1095001856 instance=ExtResource("13_44saj")]
 position = Vector2(508, 2256)
 rotation = -1.5839368
 scale = Vector2(0.50262177, 0.47581956)
 
-[node name="room_detector" type="Area2D" parent="." unique_id=818332567]
+[node name="room_detector" parent="." unique_id=453072283 instance=ExtResource("13_ff6ho")]
 position = Vector2(2392, 93)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="room_detector" unique_id=1285727175]
-position = Vector2(2, 142.76917)
-scale = Vector2(15.218219, 40.04616)
-shape = SubResource("RectangleShape2D_44saj")
+[node name="room_detector2" parent="." unique_id=1714257219 instance=ExtResource("13_ff6ho")]
+position = Vector2(251, 2581.0002)
+scale = Vector2(1.5553466, 3.6279907)
+
+[node name="room_detector3" parent="." unique_id=928240017 instance=ExtResource("13_ff6ho")]
+position = Vector2(312, 6062)
+scale = Vector2(-1.6282747, 2.442762)
+
+[node name="room_detector4" parent="." unique_id=208987102 instance=ExtResource("13_ff6ho")]
+position = Vector2(-2088, 378)
+scale = Vector2(1.1894315, 0.95917344)
+
+[node name="room_detector5" parent="." unique_id=741396872 instance=ExtResource("13_ff6ho")]
+position = Vector2(2509, 7193)
+scale = Vector2(-1.182286, 1.6108042)
+
+[node name="room_detector6" parent="." unique_id=194280648 instance=ExtResource("13_ff6ho")]
+position = Vector2(-4542, 6851)
+scale = Vector2(2.4686286, 2.5993898)
 
 [connection signal="body_entered" from="door" to="door" method="_on_body_entered"]
 [connection signal="body_entered" from="door2" to="door2" method="_on_body_entered"]

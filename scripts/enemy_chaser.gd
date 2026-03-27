@@ -5,14 +5,11 @@ var speed = 120
 @onready var health_component: HealthComponent = %HealthComponent
 @onready var damage_component: DamageComponent = %DamageComponent
 @onready var health_bar: ProgressBar = $ProgressBar
-@onready var agent = $NavigationAgent2D
-var targ : Vector2
 
-@onready var target : Node2D
 
 var collider
 enum States {IDLE, CHASING}
-var state = States.CHASING
+var state = States.IDLE
 
 func _ready() -> void:
 	health_component.set_max_health(100)
@@ -53,3 +50,8 @@ func _on_attack_cooldown_timeout() -> void:
 func _on_health_component_health_changed(current: int, _max: int, _amount: int) -> void:
 	health_bar.value = current
 	$SFX/SFXEnemyHurt.play()
+
+func start_chasing():
+	state = States.CHASING
+func start_idle():
+	state = States.IDLE

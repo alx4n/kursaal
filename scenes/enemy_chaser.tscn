@@ -6,7 +6,7 @@
 [ext_resource type="Script" uid="uid://bnn4d42eggoye" path="res://components/damage_component.gd" id="4_xdwg6"]
 [ext_resource type="AudioStream" uid="uid://x3v4akrtrci3" path="res://sfx/temp_enemy_hurt.wav" id="5_xdwg6"]
 [ext_resource type="AudioStream" uid="uid://bsahj37yoqh4s" path="res://sfx/temp_enemy_death.wav" id="6_4ifjj"]
-[ext_resource type="Script" uid="uid://cjtf0ndkc1qw5" path="res://scripts/sfx_enemy_death.gd" id="7_s6v6k"]
+[ext_resource type="Script" path="res://scripts/sfx_enemy_death.gd" id="7_s6v6k"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dqufy"]
 size = Vector2(590, 744)

@@ -11,9 +11,8 @@ extends CharacterBody2D
 var projectile_speed = 250
 
 func _ready() -> void:
-	$ProjectileTimer.start()
+	
 	health_component.set_max_health(100)
-
 func _on_projectile_timer_timeout() -> void:
 		if get_tree().get_first_node_in_group("player") != null:
 			animation.play("shooting")
@@ -33,5 +32,7 @@ func _on_health_component_health_changed(current: int, _max: int, _amount: int) 
 	$SFX/SFXEnemyHurt.play()
 
 
-func _on_range_body_entered(body: Node2D) -> void:
-	pass
+func start_chasing():
+	print("timer started!")
+	if $ProjectileTimer.is_stopped():
+		$ProjectileTimer.start()
