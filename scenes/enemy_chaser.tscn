@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://v1m5xbie07pb"]
 
 [ext_resource type="Script" uid="uid://c1qhk3fl4w4t3" path="res://scripts/enemy_chaser.gd" id="1_wuvmb"]
-[ext_resource type="Texture2D" uid="uid://bll5lk45ynare" path="res://sprites/Old_Man_enemy_Melee_PNG.png" id="2_s6v6k"]
 [ext_resource type="Texture2D" uid="uid://duoyy7rla4wgm" path="res://sprites/enemyTestChaser.png" id="2_wuvmb"]
 [ext_resource type="Script" uid="uid://c6t1f7314lva8" path="res://components/health_component.gd" id="3_3ddd7"]
 [ext_resource type="Script" uid="uid://bnn4d42eggoye" path="res://components/damage_component.gd" id="4_xdwg6"]
@@ -9,27 +8,24 @@
 [ext_resource type="AudioStream" uid="uid://bsahj37yoqh4s" path="res://sfx/temp_enemy_death.wav" id="6_4ifjj"]
 [ext_resource type="Script" uid="uid://cjtf0ndkc1qw5" path="res://scripts/sfx_enemy_death.gd" id="7_s6v6k"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_dqufy"]
-size = Vector2(590, 744)
+[sub_resource type="CircleShape2D" id="CircleShape2D_lbcmp"]
+radius = 32.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3ddd7"]
 radius = 32.140316
 
 [node name="Chaser" type="CharacterBody2D" unique_id=749136513]
-position = Vector2(454, 322)
-scale = Vector2(0.19905503, 0.19905503)
 motion_mode = 1
 script = ExtResource("1_wuvmb")
 damage_amount = 20
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1939701309]
-position = Vector2(-10, 14)
-shape = SubResource("RectangleShape2D_dqufy")
+shape = SubResource("CircleShape2D_lbcmp")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1759677447]
 scale = Vector2(2, 2)
-texture = ExtResource("2_s6v6k")
+texture = ExtResource("2_wuvmb")
 
 [node name="AttackDetector" type="Area2D" parent="." unique_id=1489077814]
 scale = Vector2(1.52, 1.48)
@@ -56,10 +52,10 @@ script = ExtResource("4_xdwg6")
 metadata/_custom_type_script = "uid://bnn4d42eggoye"
 
 [node name="ProgressBar" type="ProgressBar" parent="." unique_id=857125917]
-offset_left = -65.30855
-offset_top = -477.255
-offset_right = 35.691452
-offset_bottom = -450.255
+offset_left = -47.0
+offset_top = -81.0
+offset_right = 54.0
+offset_bottom = -54.0
 step = 1.0
 value = 100.0
 
@@ -71,8 +67,6 @@ stream = ExtResource("5_xdwg6")
 [node name="SFXEnemyDeath" type="AudioStreamPlayer2D" parent="SFX" unique_id=1019858928]
 stream = ExtResource("6_4ifjj")
 script = ExtResource("7_s6v6k")
-
-[node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=1158026655]
 
 [connection signal="body_entered" from="AttackDetector" to="." method="_on_attack_detector_body_entered"]
 [connection signal="timeout" from="AttackCooldown" to="." method="_on_attack_cooldown_timeout"]
