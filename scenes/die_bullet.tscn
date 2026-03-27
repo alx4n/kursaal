@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://41rrqn67llq5"]
+
+[ext_resource type="Script" uid="uid://b6y1qts1qr0h7" path="res://scripts/die_bullet.gd" id="1_7oqqd"]
+[ext_resource type="Script" uid="uid://bnn4d42eggoye" path="res://components/damage_component.gd" id="2_7oqqd"]
+[ext_resource type="Texture2D" uid="uid://c4evrmqvoaep" path="res://sprites/Weapons Animations/DICE_FIX_FOR  REAL THIS TIME.png" id="2_d58y0"]
+[ext_resource type="AudioStream" uid="uid://c3m3veith54f8" path="res://sfx/temp_player_shoot.wav" id="4_d58y0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d58y0"]
+atlas = ExtResource("2_d58y0")
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_f776i"]
+radius = 120.0
+
+[node name="DieBullet" type="Area2D" unique_id=2143904125]
+scale = Vector2(0.2, 0.2)
+script = ExtResource("1_7oqqd")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=813992668]
+position = Vector2(-8, -16)
+texture = SubResource("AtlasTexture_d58y0")
+hframes = 6
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=40579024]
+shape = SubResource("CircleShape2D_f776i")
+
+[node name="DamageComponent" type="Node" parent="." unique_id=111707131]
+unique_name_in_owner = true
+script = ExtResource("2_7oqqd")
+metadata/_custom_type_script = "uid://bnn4d42eggoye"
+
+[node name="SFXShoot" type="AudioStreamPlayer2D" parent="." unique_id=1181235708]
+stream = ExtResource("4_d58y0")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

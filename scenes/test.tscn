@@ -1,11 +1,11 @@
-[gd_scene format=4 uid="uid://b17pu6lljc17k"]
+[gd_scene format=4 uid="uid://6kky4deya1xo"]
 
-[ext_resource type="Script" uid="uid://t43k0kvfqm4e" path="res://scripts/Dungeon.gd" id="1_iyx0m"]
+[ext_resource type="Script" uid="uid://t43k0kvfqm4e" path="res://scripts/dungeon.gd" id="1_iyx0m"]
 [ext_resource type="PackedScene" uid="uid://bacvwbmrcdokl" path="res://scenes/player.tscn" id="2_74lek"]
 [ext_resource type="Texture2D" uid="uid://do5yh1vgjg6if" path="res://sprites/Tile Set Map_03_props.png" id="3_44saj"]
 [ext_resource type="Script" uid="uid://2th3ay6gqql6" path="res://scripts/door.gd" id="4_j5jx5"]
 [ext_resource type="PackedScene" uid="uid://dh4glgejrhsib" path="res://scenes/enemy_sentry.tscn" id="4_lpvoh"]
-[ext_resource type="PackedScene" path="res://scenes/blacksquare.tscn" id="5_j5jx5"]
+[ext_resource type="PackedScene" uid="uid://bt8esmj63k6s7" path="res://scenes/blacksquare.tscn" id="5_j5jx5"]
 [ext_resource type="Script" uid="uid://blwm36sahn10l" path="res://scripts/blacksquare.gd" id="6_lpvoh"]
 [ext_resource type="PackedScene" uid="uid://v1m5xbie07pb" path="res://scenes/enemy_chaser.tscn" id="7_at5dv"]
 [ext_resource type="Script" uid="uid://40itrop66v1r" path="res://components/camera_component.gd" id="8_jcd4p"]
@@ -13,6 +13,8 @@
 [ext_resource type="Texture2D" uid="uid://brc0leqj8jkgy" path="res://sprites/Tile_Set_2_rework_1px_spacing_Margin.png" id="13_7mbro"]
 [ext_resource type="PackedScene" path="res://scenes/spikes.tscn" id="13_44saj"]
 [ext_resource type="PackedScene" uid="uid://dtd675251mm6w" path="res://scenes/room_detector.tscn" id="13_ff6ho"]
+[ext_resource type="PackedScene" uid="uid://bo83w52aq07os" path="res://scenes/boss.tscn" id="9_uacia"]
+[ext_resource type="PackedScene" uid="uid://c765s0dlx0oyj" path="res://scenes/item.tscn" id="10_yk7ts"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ff6ho"]
 texture = ExtResource("13_7mbro")
@@ -12553,7 +12555,7 @@ visible = false
 position = Vector2(2226, -890.00006)
 scale = Vector2(1.158783, 1.6323441)
 
-[node name="CameraComponent" type="Camera2D" parent="." unique_id=1464906790 node_paths=PackedStringArray("parent")]
+[node name="TransitionCamera" type="Camera2D" parent="." unique_id=1464906790 node_paths=PackedStringArray("parent")]
 unique_name_in_owner = true
 script = ExtResource("8_jcd4p")
 parent = NodePath("..")
@@ -12578,6 +12580,8 @@ scale = Vector2(0.33809894, 0.33809894)
 [node name="Sentry4" parent="." unique_id=852040509 groups=["enemies"] instance=ExtResource("4_lpvoh")]
 position = Vector2(-5752, 6478.0005)
 scale = Vector2(2.7385643, 2.7385643)
+position = Vector2(-4579.9995, 7177.9995)
+scale = Vector2(12.239995, 12.239995)
 
 [node name="Chaser2" parent="." unique_id=599043227 groups=["enemies"] instance=ExtResource("7_at5dv")]
 position = Vector2(-402, 2371)
@@ -12613,6 +12617,7 @@ scale = Vector2(0.31810242, 0.31810242)
 [node name="Sentry9" parent="." unique_id=611004237 groups=["enemies"] instance=ExtResource("4_lpvoh")]
 position = Vector2(-2751, 154)
 scale = Vector2(0.24654664, 0.24654664)
+position = Vector2(-2668, 422)
 
 [node name="Sentry10" parent="." unique_id=1538464097 groups=["enemies"] instance=ExtResource("4_lpvoh")]
 position = Vector2(-1841, 388)
@@ -12648,6 +12653,11 @@ scale = Vector2(-1.182286, 1.6108042)
 [node name="room_detector6" parent="." unique_id=194280648 instance=ExtResource("13_ff6ho")]
 position = Vector2(-4542, 6851)
 scale = Vector2(2.4686286, 2.5993898)
+[node name="Chaser" parent="." unique_id=749136513 groups=["enemies"] instance=ExtResource("7_at5dv")]
+position = Vector2(2990, -47)
+
+[node name="Chaser7" parent="." unique_id=2060379347 groups=["enemies"] instance=ExtResource("7_at5dv")]
+position = Vector2(3030, 540)
 
 [connection signal="body_entered" from="door" to="door" method="_on_body_entered"]
 [connection signal="body_entered" from="door2" to="door2" method="_on_body_entered"]

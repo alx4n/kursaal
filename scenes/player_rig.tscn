@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://bw3wt2sjl4umg"]
+
+[ext_resource type="Texture2D" uid="uid://7dhwwr31dwgw" path="res://sprites/Weapon_Arm_Animation_sheet/Weapon_Arm_Animation_sheet/Armless_run.png" id="1_8dq6n"]
+[ext_resource type="Texture2D" uid="uid://5touhiqyl5p7" path="res://sprites/Weapon_Arm_Animation_sheet/Weapon_Arm_Animation_sheet/lefthand_cycle.png" id="2_qnh40"]
+[ext_resource type="Texture2D" uid="uid://d0eiaek6f3qwk" path="res://sprites/Weapon_Arm_Animation_sheet/Weapon_Arm_Animation_sheet/upperarm_cycle.png" id="3_l5bja"]
+[ext_resource type="Texture2D" uid="uid://rkxhxhd1usbf" path="res://sprites/Weapon_Arm_Animation_sheet/Weapon_Arm_Animation_sheet/Forearm_cycle.png" id="4_cs104"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b2q83"]
+atlas = ExtResource("1_8dq6n")
+region = Rect2(0, 0, 7200, 800)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tnwnj"]
+atlas = ExtResource("2_qnh40")
+region = Rect2(0, 0, 7200, 800)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_51u2l"]
+atlas = ExtResource("3_l5bja")
+region = Rect2(0, 0, 7200, 800)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4fybv"]
+atlas = ExtResource("4_cs104")
+region = Rect2(0, 0, 7200, 800)
+
+[node name="PlayerRig" type="Node2D" unique_id=1914974477]
+scale = Vector2(0.25, 0.25)
+
+[node name="CharacterContainer" type="Node2D" parent="." unique_id=1278686064]
+
+[node name="Body" type="Node2D" parent="CharacterContainer" unique_id=207034583]
+
+[node name="EmptyBody" type="Sprite2D" parent="CharacterContainer/Body" unique_id=1482155223]
+texture = SubResource("AtlasTexture_b2q83")
+hframes = 12
+
+[node name="LeftArm" type="Sprite2D" parent="CharacterContainer/Body" unique_id=752883491]
+texture = SubResource("AtlasTexture_tnwnj")
+hframes = 12
+
+[node name="UpperArms" type="Sprite2D" parent="CharacterContainer/Body" unique_id=1489346369]
+position = Vector2(8, 28)
+texture = SubResource("AtlasTexture_51u2l")
+hframes = 12
+
+[node name="Forearm" type="Sprite2D" parent="CharacterContainer/Body" unique_id=618460709]
+position = Vector2(4, 8)
+texture = SubResource("AtlasTexture_4fybv")
+hframes = 12
+
+[node name="Bones" type="Node2D" parent="CharacterContainer" unique_id=2125862810]
+
+[node name="Bone2D" type="Bone2D" parent="CharacterContainer/Bones" unique_id=1759350213]

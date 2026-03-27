@@ -12,6 +12,8 @@ var upgrades : Array[BulletUpgrade] = []
 @onready var is_dashing := false
 @onready var animation = $PlayerIcon
 @onready var weapon = $Weapon
+@onready var arm := $Body/Arm
+@onready var weapon := $Body/Arm/PhysicsWeapon
 
 var invincible = false
 
@@ -32,6 +34,10 @@ func getInput():
 		speed += dash_speed
 		await get_tree().create_timer(0.275).timeout
 		speed -= dash_speed
+	if self.velocity.x < 0 && !$PlayerIcon.flip_h:
+		$PlayerIcon.flip_h = true
+	elif self.velocity.x > 0 && $PlayerIcon.flip_h:
+		$PlayerIcon.flip_h = false
 	
 	
 func _physics_process(_delta: float) -> void:
@@ -46,8 +52,9 @@ func _on_health_component_died() -> void:
 	if self.get_parent().has_node("CanvasLayer"):
 		health_bar.reparent(self.get_parent().get_node("CanvasLayer"), false)
 		$SFX/SFXPlayerDeath.play()
-		$SFX/SFXPlayerHurt.reparent(self.get_parent().get_node("SFX"), false)
-		$SFX/SFXPlayerDeath.reparent(self.get_parent().get_node("SFX"), false)
+		$SFX/SFXPlayerHurt.reparent(self.get_parent().get_node("SFX"), true)
+		$SFX/SFXPlayerDeath.reparent(self.get_parent().get_node("SFX"), true)
+		$AudioListener2D.reparent(self.get_parent().get_node("SFX"), true)
 	self.queue_free()
 
 # Changes value of health bar, if damage is taken, play invicibility frames
@@ -59,3 +66,8 @@ func _on_health_component_health_changed(current: int, _max_health: int, amount:
 		invincible = true
 		await get_tree().create_timer(3.0).timeout
 		invincible = false
+		
+func switch_weapon(weapon_name: String) -> void:
+	weapon.equip_weapon(weapon_name)
+	weapon.can_fire = true
+	pass

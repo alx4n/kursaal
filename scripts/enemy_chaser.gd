@@ -35,7 +35,8 @@ func _on_damage_component_damage_dealt(amount: int, body: Node2D) -> void:
 
 func _on_health_component_died() -> void:
 	$SFX/SFXEnemyDeath.play()
-	$SFX/SFXEnemyDeath.reparent(self.get_parent().get_node("SFX"), false)
+	$SFX/SFXEnemyHurt.reparent(self.get_parent().get_node("SFX"), true)
+	$SFX/SFXEnemyDeath.reparent(self.get_parent().get_node("SFX"), true)
 	self.queue_free()
 
 func _on_attack_detector_body_entered(body: Node2D) -> void:

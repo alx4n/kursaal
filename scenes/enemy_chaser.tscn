@@ -2,11 +2,12 @@
 
 [ext_resource type="Script" uid="uid://c1qhk3fl4w4t3" path="res://scripts/enemy_chaser.gd" id="1_wuvmb"]
 [ext_resource type="Texture2D" uid="uid://bll5lk45ynare" path="res://sprites/Old_Man_enemy_Melee_PNG.png" id="2_s6v6k"]
+[ext_resource type="Texture2D" uid="uid://duoyy7rla4wgm" path="res://sprites/enemyTestChaser.png" id="2_wuvmb"]
 [ext_resource type="Script" uid="uid://c6t1f7314lva8" path="res://components/health_component.gd" id="3_3ddd7"]
 [ext_resource type="Script" uid="uid://bnn4d42eggoye" path="res://components/damage_component.gd" id="4_xdwg6"]
 [ext_resource type="AudioStream" uid="uid://x3v4akrtrci3" path="res://sfx/temp_enemy_hurt.wav" id="5_xdwg6"]
 [ext_resource type="AudioStream" uid="uid://bsahj37yoqh4s" path="res://sfx/temp_enemy_death.wav" id="6_4ifjj"]
-[ext_resource type="Script" path="res://scripts/sfx_enemy_death.gd" id="7_s6v6k"]
+[ext_resource type="Script" uid="uid://cjtf0ndkc1qw5" path="res://scripts/sfx_enemy_death.gd" id="7_s6v6k"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dqufy"]
 size = Vector2(590, 744)
@@ -62,7 +63,7 @@ offset_bottom = -450.255
 step = 1.0
 value = 100.0
 
-[node name="SFX" type="Node" parent="." unique_id=846445687]
+[node name="SFX" type="Node2D" parent="." unique_id=237508779]
 
 [node name="SFXEnemyHurt" type="AudioStreamPlayer2D" parent="SFX" unique_id=1971468053]
 stream = ExtResource("5_xdwg6")

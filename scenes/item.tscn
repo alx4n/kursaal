@@ -1,8 +1,9 @@
 [gd_scene format=3 uid="uid://c765s0dlx0oyj"]
 
-[ext_resource type="Script" path="res://scripts/Item.gd" id="1_s8enn"]
-[ext_resource type="Script" path="res://scripts/BulletSpeedItem.gd" id="2_vljjh"]
+[ext_resource type="Script" uid="uid://bkewpm8lp5jvq" path="res://scripts/Item.gd" id="1_s8enn"]
+[ext_resource type="Script" uid="uid://bjmrej0bwbps8" path="res://scripts/bullet_speed_item.gd" id="2_vljjh"]
 [ext_resource type="Texture2D" uid="uid://md1s33ul2qgu" path="res://sprites/Cane - shade.png" id="3_6muww"]
+[ext_resource type="AudioStream" uid="uid://dft0u8wcwpxdd" path="res://sfx/temp_player_pickup.wav" id="4_vljjh"]
 
 [sub_resource type="Resource" id="Resource_6muww"]
 script = ExtResource("2_vljjh")
@@ -23,5 +24,8 @@ texture = ExtResource("3_6muww")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1542206894]
 position = Vector2(4, -5)
 shape = SubResource("RectangleShape2D_vljjh")
+
+[node name="SFXCollect" type="AudioStreamPlayer2D" parent="." unique_id=1482075693]
+stream = ExtResource("4_vljjh")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
