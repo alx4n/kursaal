@@ -23,12 +23,12 @@ func _on_projectile_timer_timeout() -> void:
 			new_projectile.global_position = self.global_position
 			new_projectile.linear_velocity = Vector2(player_dir.x * projectile_speed, player_dir.y * projectile_speed)
 		
-	if player != null:
-		var new_projectile = projectile_scene.instantiate()
-		get_tree().get_root().add_child(new_projectile)
-		new_projectile.global_position = self.global_position
-		new_projectile.look_at(player.position)
-		$SFX/SFXEnemyShoot.play()
+		if player != null:
+			var new_projectile = projectile_scene.instantiate()
+			get_tree().get_root().add_child(new_projectile)
+			new_projectile.global_position = self.global_position
+			new_projectile.look_at(player.position)
+			$SFX/SFXEnemyShoot.play()
 
 func _on_health_component_died() -> void:
 	$SFX/SFXEnemyDeath.play()
