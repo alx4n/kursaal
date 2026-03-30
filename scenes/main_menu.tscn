@@ -1,45 +1,78 @@
 [gd_scene format=3 uid="uid://cbqfudahiweyj"]
 
-[ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_l6cm7"]
+[ext_resource type="Script" uid="uid://cxkf6k2xcjagh" path="res://scripts/main_menu.gd" id="1_l6cm7"]
+[ext_resource type="Material" uid="uid://b62fqie3scnan" path="res://resources/menu_shader_mat.tres" id="2_ekxnf"]
 
 [node name="MainMenu" type="Node2D" unique_id=363777953]
 script = ExtResource("1_l6cm7")
 
 [node name="StartButton" type="Button" parent="." unique_id=565209862]
-offset_left = 464.0
-offset_top = 409.0
-offset_right = 766.0
-offset_bottom = 487.0
+offset_left = 467.0
+offset_top = 156.0
+offset_right = 769.0
+offset_bottom = 234.0
 theme_override_font_sizes/font_size = 48
 text = "Start"
 
 [node name="OptionsButton" type="Button" parent="." unique_id=481609331]
-visible = false
-offset_left = 464.0
-offset_top = 505.0
-offset_right = 766.0
-offset_bottom = 583.0
+offset_left = 862.0
+offset_top = 368.0
+offset_right = 1164.0
+offset_bottom = 446.0
 theme_override_font_sizes/font_size = 48
 text = "Options"
 
 [node name="QuitButton" type="Button" parent="." unique_id=1324152293]
-offset_left = 464.0
-offset_top = 601.0
-offset_right = 766.0
-offset_bottom = 679.0
+offset_left = 91.0
+offset_top = 605.0
+offset_right = 393.0
+offset_bottom = 683.0
 theme_override_font_sizes/font_size = 48
 text = "Quit"
 
-[node name="Label" type="Label" parent="." unique_id=1193341704]
-offset_left = 318.0
-offset_top = 8.0
-offset_right = 920.0
-offset_bottom = 350.0
-theme_override_font_sizes/font_size = 100
-text = "Kursaal"
-horizontal_alignment = 1
-vertical_alignment = 1
+[node name="OptionsScreen" type="Control" parent="." unique_id=1565405552]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ColorRect" type="ColorRect" parent="OptionsScreen" unique_id=1958917349]
+material = ExtResource("2_ekxnf")
+layout_mode = 0
+offset_right = 1280.0
+offset_bottom = 720.0
+color = Color(0, 0, 0, 1)
+
+[node name="BGMVolSlider" type="HSlider" parent="OptionsScreen" unique_id=1087379193]
+layout_mode = 0
+offset_left = 448.0
+offset_top = 253.0
+offset_right = 781.0
+offset_bottom = 293.0
+max_value = 1.0
+step = 0.01
+value = 1.0
+
+[node name="SFXVolSlider" type="HSlider" parent="OptionsScreen" unique_id=1937081763]
+layout_mode = 0
+offset_left = 448.0
+offset_top = 349.0
+offset_right = 781.0
+offset_bottom = 389.0
+max_value = 1.0
+step = 0.01
+value = 1.0
+
+[node name="BackButton" type="Button" parent="OptionsScreen" unique_id=2130580518]
+layout_mode = 0
+offset_left = 482.0
+offset_top = 459.0
+offset_right = 749.0
+offset_bottom = 514.0
+theme_override_font_sizes/font_size = 32
+text = "Back"
 
 [connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="OptionsButton" to="." method="_on_options_button_pressed"]
 [connection signal="pressed" from="QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="OptionsScreen/BackButton" to="." method="_on_back_button_pressed"]
