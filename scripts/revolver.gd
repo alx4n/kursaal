@@ -5,6 +5,7 @@ const COIN_BULLET = preload("res://scenes/coin_bullet.tscn")
 @onready var weapon_comp := %ShootingWeaponComponent
 @onready var muzzle : Marker2D = $Marker2D
 
+@export var weapon : PhysicsWeapon
 @export var can_shoot := false
 
 func _ready() -> void:
