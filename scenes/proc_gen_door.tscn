@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://dvesye1o2urow"]
+
+[ext_resource type="Texture2D" uid="uid://dcohnl73tntjb" path="res://icon.svg" id="1_j2duy"]
+
+[node name="ProcGenDoor" type="Node2D" unique_id=1146490168]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1404808785]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("1_j2duy")
