@@ -3,7 +3,6 @@
 [ext_resource type="Script" uid="uid://mrb6thsl00f5" path="res://scripts/player.gd" id="1_qhqgy"]
 [ext_resource type="Script" uid="uid://40itrop66v1r" path="res://components/camera_component.gd" id="2_tuyoq"]
 [ext_resource type="Texture2D" uid="uid://qv7bvlxq5chf" path="res://sprites/Run_Cycle_Fix.png" id="3_tuyoq"]
-[ext_resource type="Texture2D" uid="uid://8dxoeyl3chfp" path="res://sprites/Main_Character_Standing_animation.png" id="3_ur7pv"]
 [ext_resource type="PackedScene" uid="uid://b36teh6ours1y" path="res://scenes/arm.tscn" id="4_d2wvv"]
 [ext_resource type="Script" uid="uid://c6t1f7314lva8" path="res://components/health_component.gd" id="4_qlg0r"]
 [ext_resource type="Texture2D" uid="uid://7dhwwr31dwgw" path="res://sprites/Weapon_Arm_Animation_sheet/Weapon_Arm_Animation_sheet/Armless_run.png" id="5_3v2ag"]
@@ -177,14 +176,6 @@ region = Rect2(4599, 0, 400, 1100)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_ur7pv")
-}],
-"loop": true,
-"name": &"idle",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_fjrip")
 }, {
 "duration": 1.0,
@@ -304,8 +295,7 @@ weapon_name = "dice_launcher"
 [node name="PlayerIcon" type="AnimatedSprite2D" parent="." unique_id=201365392]
 visible = false
 material = SubResource("ShaderMaterial_fjrip")
-position = Vector2(-8.000002, 7.1260905)
-scale = Vector2(0.285, 0.23295653)
+scale = Vector2(0.25, 0.25)
 sprite_frames = SubResource("SpriteFrames_4r5pv")
 animation = &"run_cycle"
 autoplay = "run_cycle"
