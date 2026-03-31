@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://yqltpqcuvl4p"
-path="res://.godot/imported/Tile Set Map_02.png-9235dfbe7bbde71945c4ca9c2d724b31.ctex"
+uid="uid://cso600rtkgqli"
+path="res://.godot/imported/Casinotileset1.png-0da737a3e367156dd387c0681071ed0c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/Tile Set Map_02.png"
-dest_files=["res://.godot/imported/Tile Set Map_02.png-9235dfbe7bbde71945c4ca9c2d724b31.ctex"]
+source_file="res://sprites/Tileset/Casinotileset1.png"
+dest_files=["res://.godot/imported/Casinotileset1.png-0da737a3e367156dd387c0681071ed0c.ctex"]
 
 [params]
 

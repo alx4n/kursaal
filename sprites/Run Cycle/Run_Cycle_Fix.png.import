@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cj8hdwcshieo8"
-path="res://.godot/imported/Cane frames 2.png-8b8dfb718562fefe099cae5c82d895b3.ctex"
+uid="uid://qv7bvlxq5chf"
+path="res://.godot/imported/Run_Cycle_Fix.png-852b81bc1e1b6d4342de177873ef329e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/Cane frames 2.png"
-dest_files=["res://.godot/imported/Cane frames 2.png-8b8dfb718562fefe099cae5c82d895b3.ctex"]
+source_file="res://sprites/Run Cycle/Run_Cycle_Fix.png"
+dest_files=["res://.godot/imported/Run_Cycle_Fix.png-852b81bc1e1b6d4342de177873ef329e.ctex"]
 
 [params]
 

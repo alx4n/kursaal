@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dqkuc0342gjbt"
-path="res://.godot/imported/2D_TopDown_Tileset_Casino_1024x512.png-c8f16232c7d176b87f2b0323404f10b2.ctex"
+uid="uid://duoyy7rla4wgm"
+path="res://.godot/imported/enemyTestChaser.png-25a78a4898c0179281ec6ffacc34b03c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/2D_TopDown_Tileset_Casino_1024x512.png"
-dest_files=["res://.godot/imported/2D_TopDown_Tileset_Casino_1024x512.png-c8f16232c7d176b87f2b0323404f10b2.ctex"]
+source_file="res://sprites/Enemy Placeholders/enemyTestChaser.png"
+dest_files=["res://.godot/imported/enemyTestChaser.png-25a78a4898c0179281ec6ffacc34b03c.ctex"]
 
 [params]
 

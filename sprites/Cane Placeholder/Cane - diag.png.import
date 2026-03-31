@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cso600rtkgqli"
-path="res://.godot/imported/Casinotileset1.png-515230805c699cf710215894b4b62e7e.ctex"
+uid="uid://cfntk2esnlyln"
+path="res://.godot/imported/Cane - diag.png-1a4769a268128540f44e07754751fdaa.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/Casinotileset1.png"
-dest_files=["res://.godot/imported/Casinotileset1.png-515230805c699cf710215894b4b62e7e.ctex"]
+source_file="res://sprites/Cane Placeholder/Cane - diag.png"
+dest_files=["res://.godot/imported/Cane - diag.png-1a4769a268128540f44e07754751fdaa.ctex"]
 
 [params]
 
