@@ -6,8 +6,9 @@ class_name PhysicsWeapon extends Area2D
 @onready var melee_comp := %MeleeWeaponComponent
 @onready var muzzle : Marker2D = $Marker2D
 @onready var weapons_dict = {
-	"dice_launcher" : [preload("res://scenes/dice_launcher.tscn"), preload("res://scenes/die_bullet.tscn")],
-	"coin_revolver" : [preload("res://scenes/revolver.tscn"), preload("res://scenes/coin_bullet.tscn")]
+	"dice_launcher" : ["shooting", preload("res://scenes/dice_launcher.tscn"), preload("res://scenes/die_bullet.tscn")],
+	"coin_revolver" : ["shooting", preload("res://scenes/revolver.tscn"), preload("res://scenes/coin_bullet.tscn")],
+	"hatchet" : ["melee", preload("res://scenes/marlboro_hatchet.tscn")]
 }
 
 @export var arm : Arm
@@ -23,19 +24,23 @@ func _ready() -> void:
 	if player:
 		shooting_comp.arm = arm
 		shooting_comp.player = player
+		melee_comp.player = player
 		shooting_comp.muzzle = muzzle
-		shooting_comp.can_shoot = true
 	
+func _process(delta: float) -> void:
+	shooting_comp.can_shoot = can_fire
 	
 func equip_weapon(key: String):
-	var new_weapon = weapons_dict[key][0].instantiate()
+	print(key)
+	var new_weapon = weapons_dict[key][1].instantiate()
+	new_weapon.collision_shape.disabled = true
+	if weapons_dict[key][0] == "shooting":
+		new_weapon.weapon_comp = shooting_comp
+		shooting_comp.bullet = weapons_dict[key][2]
+		can_fire = true
+	elif weapons_dict[key][0] == "melee":
+		can_fire = false
 	if weapon:
 		weapon.queue_free()
 	add_child(new_weapon)
-	shooting_comp.bullet = weapons_dict[key][1]
 	weapon = new_weapon
-
-func _on_body_entered(body: Node2D) -> void:
-	if Input.is_action_pressed("pick_up") && body.is_in_group("player"):
-		reparent(body.arm)
-	pass # Replace with function body.

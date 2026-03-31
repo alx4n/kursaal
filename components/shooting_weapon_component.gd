@@ -20,7 +20,7 @@ func _ready() -> void:
 		
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	if can_shoot && Input.is_action_just_pressed("shoot"):
+	if can_shoot && Input.is_action_just_pressed("attack"):
 		var bullet_instance = bullet.instantiate()
 		get_tree().root.add_child(bullet_instance)
 		bullet_instance.global_position = muzzle.global_position

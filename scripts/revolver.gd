@@ -2,9 +2,10 @@ extends Node2D
 
 const COIN_BULLET = preload("res://scenes/coin_bullet.tscn")
 
-@onready var weapon_comp := %ShootingWeaponComponent
+@export var weapon_comp : ShootingWeaponComponent
 @onready var muzzle : Marker2D = $Marker2D
 
+@export var collision_shape : CollisionShape2D
 @export var weapon : PhysicsWeapon
 @export var can_shoot := false
 
