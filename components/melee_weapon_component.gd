@@ -5,6 +5,7 @@ class_name MeleeWeaponComponent extends Node
 @export var player : Player
 @export var damage_amount := 15
 @export var attack_shape : CollisionPolygon2D
+@export var anim_player : AnimationPlayer
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -16,6 +17,7 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("attack"):
 		attack_shape.disabled = false
+		anim_player.play("melee attack")
 	elif Input.is_action_just_released("attack"):
 		attack_shape.disabled = true
 		#for upgrade in player.upgrades:

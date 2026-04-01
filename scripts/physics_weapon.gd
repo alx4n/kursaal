@@ -36,9 +36,14 @@ func equip_weapon(key: String):
 	new_weapon.collision_shape.disabled = true
 	if weapons_dict[key][0] == "shooting":
 		new_weapon.weapon_comp = shooting_comp
+		melee_comp.process_mode = Node.PROCESS_MODE_DISABLED
+		shooting_comp.process_mode = Node.PROCESS_MODE_INHERIT
 		shooting_comp.bullet = weapons_dict[key][2]
 		can_fire = true
 	elif weapons_dict[key][0] == "melee":
+		shooting_comp.process_mode = Node.PROCESS_MODE_DISABLED
+		melee_comp.process_mode = Node.PROCESS_MODE_INHERIT
+		new_weapon.weapon_comp = melee_comp
 		can_fire = false
 	if weapon:
 		weapon.queue_free()

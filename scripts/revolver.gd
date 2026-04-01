@@ -8,9 +8,9 @@ const COIN_BULLET = preload("res://scenes/coin_bullet.tscn")
 @export var collision_shape : CollisionShape2D
 @export var weapon : PhysicsWeapon
 @export var can_shoot := false
+@export var anim_player : AnimationPlayer
 
 func _ready() -> void:
-	weapon_comp.bullet = COIN_BULLET
 	if get_parent() && get_parent() == Player:
 		weapon_comp.arm = get_parent().arm
 		weapon_comp.player = get_parent().player
@@ -18,6 +18,10 @@ func _ready() -> void:
 		if get_parent().can_fire:
 			can_shoot = true
 
+func _process(delta: float) -> void:
+	if weapon_comp:
+		weapon_comp.bullet = COIN_BULLET
+		weapon_comp.anim_player = $AnimationPlayer
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):

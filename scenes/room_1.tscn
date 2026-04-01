@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://c500ytwhn6gf4" path="res://scenes/tree_obstacle.tscn" id="4_irjyx"]
 [ext_resource type="PackedScene" uid="uid://dh4glgejrhsib" path="res://scenes/enemy_sentry.tscn" id="4_xhekj"]
 [ext_resource type="PackedScene" uid="uid://dli8lduqasv1a" path="res://scenes/revolver.tscn" id="5_irjyx"]
+[ext_resource type="PackedScene" uid="uid://ibpu5byvbjrg" path="res://scenes/marlboro_hatchet.tscn" id="6_0akh5"]
 
 [node name="Room1" type="Node2D" unique_id=2125693867]
 
@@ -54,4 +55,8 @@ position = Vector2(430, 927)
 
 [node name="Revolver" parent="." unique_id=2047187523 instance=ExtResource("5_irjyx")]
 position = Vector2(873, 942)
+scale = Vector2(0.25, 0.25)
+
+[node name="MarlboroHatchet" parent="." unique_id=290432034 instance=ExtResource("6_0akh5")]
+position = Vector2(551, 627)
 scale = Vector2(0.25, 0.25)

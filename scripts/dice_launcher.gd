@@ -7,7 +7,6 @@ const DIE_BULLET = preload("res://scenes/die_bullet.tscn")
 @export var collision_shape : CollisionShape2D
 
 func _ready() -> void:
-	weapon_comp.bullet = DIE_BULLET
 	weapon_comp.arm = get_parent().arm
 	weapon_comp.player = get_parent().player
 	weapon_comp.muzzle = muzzle
@@ -15,6 +14,9 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if get_parent().can_fire:
 		weapon_comp.can_shoot = true
+	if weapon_comp:
+		weapon_comp.bullet = DIE_BULLET
+		weapon_comp.anim_player = $AnimationPlayer
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
