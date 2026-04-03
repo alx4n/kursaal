@@ -8,7 +8,8 @@ class_name PhysicsWeapon extends Area2D
 @onready var weapons_dict = {
 	"dice_launcher" : ["shooting", preload("res://scenes/dice_launcher.tscn"), preload("res://scenes/die_bullet.tscn")],
 	"coin_revolver" : ["shooting", preload("res://scenes/revolver.tscn"), preload("res://scenes/coin_bullet.tscn")],
-	"hatchet" : ["melee", preload("res://scenes/marlboro_hatchet.tscn")]
+	"hatchet" : ["melee", preload("res://scenes/marlboro_hatchet.tscn")],
+	"ray_gun" : ["shooting", preload("res://scenes/Ray_Gun.tscn"), preload("res://scenes/Ray_gun_beam.tscn")]
 }
 
 @export var arm : Arm

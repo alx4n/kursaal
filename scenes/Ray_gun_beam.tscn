@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://d4g4h6d6mqp0b"]
+
+[ext_resource type="Texture2D" uid="uid://smk12vcitalg" path="res://sprites/Weapons Animations/Ray Gun laser beam.png" id="1_651vd"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jp0wk"]
+atlas = ExtResource("1_651vd")
+region = Rect2(367.62524, 119.585144, 1272.163, 128.59232)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j1x50"]
+size = Vector2(1200, 9)
+
+[node name="RayGunBeam" type="Area2D" unique_id=87326422]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1117550074]
+texture = SubResource("AtlasTexture_jp0wk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=792743542]
+position = Vector2(-3, 1.5)
+shape = SubResource("RectangleShape2D_j1x50")
