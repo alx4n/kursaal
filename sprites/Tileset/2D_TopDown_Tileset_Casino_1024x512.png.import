@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cfntk2esnlyln"
-path="res://.godot/imported/Cane - diag.png-c6c20625c5209eb2eb66f8d2ff9cefa3.ctex"
+uid="uid://dqkuc0342gjbt"
+path="res://.godot/imported/2D_TopDown_Tileset_Casino_1024x512.png-51b9937b678c3beedacb089b8f14f065.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/Cane - diag.png"
-dest_files=["res://.godot/imported/Cane - diag.png-c6c20625c5209eb2eb66f8d2ff9cefa3.ctex"]
+source_file="res://sprites/Tileset/2D_TopDown_Tileset_Casino_1024x512.png"
+dest_files=["res://.godot/imported/2D_TopDown_Tileset_Casino_1024x512.png-51b9937b678c3beedacb089b8f14f065.ctex"]
 
 [params]
 

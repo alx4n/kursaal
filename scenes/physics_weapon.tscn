@@ -1,8 +1,11 @@
 [gd_scene format=3 uid="uid://by3smicyoqhfe"]
 
 [ext_resource type="Script" uid="uid://ewk3kwmqs2ox" path="res://scripts/physics_weapon.gd" id="1_fkf6q"]
-[ext_resource type="Texture2D" uid="uid://d0mv7yqiowpb2" path="res://sprites/Cane frames 1.png" id="2_mvfva"]
+[ext_resource type="Texture2D" uid="uid://d0mv7yqiowpb2" path="res://sprites/Cane Placeholder/Cane frames 1.png" id="2_mvfva"]
 [ext_resource type="AudioStream" uid="uid://48gp74yuct8b" path="res://sfx/temp_player_melee.wav" id="3_moxxs"]
+[ext_resource type="Script" uid="uid://u3sdvu5eb1q5" path="res://components/shooting_weapon_component.gd" id="4_moxxs"]
+[ext_resource type="Script" uid="uid://c2bwuut7ynkea" path="res://components/melee_weapon_component.gd" id="5_3ima4"]
+[ext_resource type="Script" uid="uid://bnn4d42eggoye" path="res://components/damage_component.gd" id="6_3ima4"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rup6x"]
 atlas = ExtResource("2_mvfva")
@@ -75,6 +78,7 @@ size = Vector2(21.843636, 18.995731)
 [node name="PhysicsWeapon" type="Area2D" unique_id=1592725378]
 scale = Vector2(4, 4)
 script = ExtResource("1_fkf6q")
+weapon_name = "dice_launcher"
 
 [node name="Marker2D" type="Marker2D" parent="." unique_id=1920035555]
 position = Vector2(15, -4.25)
@@ -108,5 +112,21 @@ position = Vector2(5.33817, -2.5000002)
 rotation = 1.5707964
 scale = Vector2(0.96137846, 1.4647324)
 shape = SubResource("RectangleShape2D_moxxs")
+
+[node name="ShootingWeaponComponent" type="Node" parent="." unique_id=1941612545]
+unique_name_in_owner = true
+script = ExtResource("4_moxxs")
+metadata/_custom_type_script = "uid://u3sdvu5eb1q5"
+
+[node name="MeleeWeaponComponent" type="Node" parent="." unique_id=1322047553 node_paths=PackedStringArray("attack_shape")]
+unique_name_in_owner = true
+script = ExtResource("5_3ima4")
+attack_shape = NodePath("../MeleeAttack/CollisionPolygon2D")
+metadata/_custom_type_script = "uid://c2bwuut7ynkea"
+
+[node name="DamageComponent" type="Node" parent="." unique_id=1210347666]
+unique_name_in_owner = true
+script = ExtResource("6_3ima4")
+metadata/_custom_type_script = "uid://bnn4d42eggoye"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

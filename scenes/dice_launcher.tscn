@@ -47,9 +47,13 @@ _data = {
 &"shoot": SubResource("Animation_t1teh")
 }
 
-[node name="DiceLauncher" type="Node2D" unique_id=174988528]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t1teh"]
+size = Vector2(400, 210)
+
+[node name="DiceLauncher" type="Node2D" unique_id=174988528 node_paths=PackedStringArray("collision_shape")]
 scale = Vector2(0.1, 0.1)
 script = ExtResource("1_ftqd8")
+collision_shape = NodePath("Area2D/CollisionShape2D")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=634288258]
 texture = SubResource("AtlasTexture_ftqd8")
@@ -70,3 +74,12 @@ metadata/_custom_type_script = "uid://bnn4d42eggoye"
 unique_name_in_owner = true
 script = ExtResource("4_t1teh")
 metadata/_custom_type_script = "uid://u3sdvu5eb1q5"
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1846345182]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1224308926]
+position = Vector2(0, -4.9999957)
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("RectangleShape2D_t1teh")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

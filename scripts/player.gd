@@ -35,6 +35,8 @@ func _physics_process(_delta: float) -> void:
 func _ready() -> void:
 	health_component.set_max_health(100)
 	health_bar.value = health_component.current_health
+	self.velocity = Vector2(0, 0)
+	
 
 func _on_health_component_died() -> void:
 	if self.get_parent().has_node("CanvasLayer"):

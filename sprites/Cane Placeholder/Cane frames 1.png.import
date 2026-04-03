@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://djdy870rbqq1l"
-path="res://.godot/imported/Cane - shade diag.png-1739eac679dcbb1f6a068fac206d8a77.ctex"
+uid="uid://d0mv7yqiowpb2"
+path="res://.godot/imported/Cane frames 1.png-ef57da314ae3c7d2f90c890aa5c64833.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/Cane - shade diag.png"
-dest_files=["res://.godot/imported/Cane - shade diag.png-1739eac679dcbb1f6a068fac206d8a77.ctex"]
+source_file="res://sprites/Cane Placeholder/Cane frames 1.png"
+dest_files=["res://.godot/imported/Cane frames 1.png-ef57da314ae3c7d2f90c890aa5c64833.ctex"]
 
 [params]
 

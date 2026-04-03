@@ -2,8 +2,6 @@
 
 [ext_resource type="Script" uid="uid://ij6ma3oks6rw" path="res://scripts/revolver.gd" id="1_4k0e7"]
 [ext_resource type="Texture2D" uid="uid://u0qwckcfsim4" path="res://sprites/Weapons Animations/revolver.png" id="1_37vaw"]
-[ext_resource type="Script" uid="uid://bnn4d42eggoye" path="res://components/damage_component.gd" id="3_uolhl"]
-[ext_resource type="Script" uid="uid://u3sdvu5eb1q5" path="res://components/shooting_weapon_component.gd" id="4_glgif"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rlopr"]
 atlas = ExtResource("1_37vaw")
@@ -49,9 +47,10 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4k0e7"]
 size = Vector2(400, 175)
 
-[node name="Revolver" type="Node2D" unique_id=2047187523]
+[node name="Revolver" type="Node2D" unique_id=2047187523 node_paths=PackedStringArray("collision_shape")]
 scale = Vector2(0.08, 0.08)
 script = ExtResource("1_4k0e7")
+collision_shape = NodePath("Area2D/CollisionShape2D")
 
 [node name="Marker2D" type="Marker2D" parent="." unique_id=1719589238]
 position = Vector2(15, -3)
@@ -62,16 +61,6 @@ hframes = 5
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1567815461]
 libraries/ = SubResource("AnimationLibrary_uolhl")
-
-[node name="DamageComponent" type="Node" parent="." unique_id=1284274364]
-unique_name_in_owner = true
-script = ExtResource("3_uolhl")
-metadata/_custom_type_script = "uid://bnn4d42eggoye"
-
-[node name="ShootingWeaponComponent" type="Node" parent="." unique_id=1896536001]
-unique_name_in_owner = true
-script = ExtResource("4_glgif")
-metadata/_custom_type_script = "uid://u3sdvu5eb1q5"
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1919412381]
 

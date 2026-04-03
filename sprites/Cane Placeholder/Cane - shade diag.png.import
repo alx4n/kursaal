@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://qv7bvlxq5chf"
-path="res://.godot/imported/Run_Cycle_Fix.png-ca735e7123f1b57ce1ac370bea6a0db0.ctex"
+uid="uid://djdy870rbqq1l"
+path="res://.godot/imported/Cane - shade diag.png-ca1792820c37ad995638cd1bf58ce7a1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/Run_Cycle_Fix.png"
-dest_files=["res://.godot/imported/Run_Cycle_Fix.png-ca735e7123f1b57ce1ac370bea6a0db0.ctex"]
+source_file="res://sprites/Cane Placeholder/Cane - shade diag.png"
+dest_files=["res://.godot/imported/Cane - shade diag.png-ca1792820c37ad995638cd1bf58ce7a1.ctex"]
 
 [params]
 

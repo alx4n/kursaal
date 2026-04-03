@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://8ujlw621tiu6"
-path="res://.godot/imported/enemyTestSentry.png-b0402548cb01402bf40b7ca91c61559a.ctex"
+uid="uid://md1s33ul2qgu"
+path="res://.godot/imported/Cane - shade.png-b5a37ff6b7906e0c2ee51099eecac27c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/enemyTestSentry.png"
-dest_files=["res://.godot/imported/enemyTestSentry.png-b0402548cb01402bf40b7ca91c61559a.ctex"]
+source_file="res://sprites/Cane Placeholder/Cane - shade.png"
+dest_files=["res://.godot/imported/Cane - shade.png-b5a37ff6b7906e0c2ee51099eecac27c.ctex"]
 
 [params]
 
