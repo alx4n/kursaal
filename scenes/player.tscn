@@ -8,8 +8,11 @@
 [ext_resource type="Texture2D" uid="uid://7dhwwr31dwgw" path="res://sprites/Weapon_Arm_Animation_sheet/Weapon_Arm_Animation_sheet/Armless_run.png" id="5_3v2ag"]
 [ext_resource type="Script" uid="uid://bnn4d42eggoye" path="res://components/damage_component.gd" id="5_tuyoq"]
 [ext_resource type="AudioStream" uid="uid://cvo8a0b7cycgo" path="res://sfx/temp_player_hurt.wav" id="9_3v2ag"]
+[ext_resource type="Texture2D" uid="uid://cle3vkrmcrfqs" path="res://sprites/empty_healthbar.png" id="9_jej6c"]
 [ext_resource type="PackedScene" uid="uid://by3smicyoqhfe" path="res://scenes/physics_weapon.tscn" id="9_ur7pv"]
+[ext_resource type="Texture2D" uid="uid://cujonripvw2cs" path="res://sprites/Healthbar_01.png" id="10_f1ej7"]
 [ext_resource type="AudioStream" uid="uid://l63sv3gvohp3" path="res://sfx/temp_player_death.wav" id="10_jej6c"]
+[ext_resource type="FontFile" uid="uid://cegb78ucihtow" path="res://resources/number sheet.png" id="11_jej6c"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4r5pv"]
 atlas = ExtResource("5_3v2ag")
@@ -256,6 +259,20 @@ _data = {
 &"damage_taken": SubResource("Animation_smehm")
 }
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_wnwbv"]
+atlas = ExtResource("9_jej6c")
+region = Rect2(0, 0, 400, 400)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gl8cc"]
+atlas = ExtResource("10_f1ej7")
+region = Rect2(0, 0, 400, 400)
+
+[sub_resource type="LabelSettings" id="LabelSettings_3v2ag"]
+font = ExtResource("11_jej6c")
+font_size = 42
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(1.5, 1.5)
+
 [node name="Player" type="CharacterBody2D" unique_id=1896878719 groups=["player"]]
 collision_layer = 5
 motion_mode = 1
@@ -290,6 +307,7 @@ collision_layer = 0
 collision_mask = 0
 arm = NodePath("..")
 player = NodePath("../../..")
+weapon_name = "hatchet"
 
 [node name="PlayerIcon" type="AnimatedSprite2D" parent="." unique_id=201365392]
 visible = false
@@ -322,12 +340,38 @@ libraries/ = SubResource("AnimationLibrary_ur7pv")
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=112439343]
 
 [node name="HealthBar" type="ProgressBar" parent="CanvasLayer" unique_id=249187159]
+visible = false
 offset_left = 28.0
 offset_top = 26.0
 offset_right = 381.0
 offset_bottom = 93.0
 theme_override_font_sizes/font_size = 40
 step = 1.0
+
+[node name="Control" type="Control" parent="CanvasLayer" unique_id=846697177]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 8.0
+offset_top = -142.0
+offset_right = 48.0
+offset_bottom = -102.0
+
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/Control" unique_id=454173388]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="CanvasLayer/Control/CenterContainer" unique_id=1155879194]
+layout_mode = 2
+value = 100.0
+rounded = true
+texture_under = SubResource("AtlasTexture_wnwbv")
+texture_progress = SubResource("AtlasTexture_gl8cc")
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/CenterContainer" unique_id=2105793195]
+layout_mode = 2
+text = "100"
+label_settings = SubResource("LabelSettings_3v2ag")
 
 [node name="SFX" type="Node2D" parent="." unique_id=563773707]
 
