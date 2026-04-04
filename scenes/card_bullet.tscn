@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://bwplw68korlt4"]
+
+[ext_resource type="Script" uid="uid://df1mtpjfxk86v" path="res://scripts/bullet.gd" id="1_18u4e"]
+[ext_resource type="Texture2D" uid="uid://0457wkre066c" path="res://sprites/Weapons Animations/Card Projectile.png" id="2_18u4e"]
+[ext_resource type="Script" uid="uid://bnn4d42eggoye" path="res://components/damage_component.gd" id="3_jh3cj"]
+[ext_resource type="AudioStream" uid="uid://c3m3veith54f8" path="res://sfx/temp_player_shoot.wav" id="4_7f33d"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kh267"]
+atlas = ExtResource("2_18u4e")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y25gk"]
+size = Vector2(4, 6)
+
+[node name="CardBullet" type="Area2D" unique_id=48607352]
+rotation = 1.5560329
+scale = Vector2(0.25, 0.25)
+disable_mode = 2
+script = ExtResource("1_18u4e")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2143724469]
+texture = SubResource("AtlasTexture_kh267")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1023567196]
+position = Vector2(-11.998692, -0.17715472)
+rotation = -1.5707964
+scale = Vector2(-17.174654, 37.003017)
+shape = SubResource("RectangleShape2D_y25gk")
+
+[node name="DamageComponent" type="Node" parent="." unique_id=58288089]
+unique_name_in_owner = true
+script = ExtResource("3_jh3cj")
+metadata/_custom_type_script = "uid://bnn4d42eggoye"
+
+[node name="SFXShoot" type="AudioStreamPlayer2D" parent="." unique_id=527658806]
+stream = ExtResource("4_7f33d")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

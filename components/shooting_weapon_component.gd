@@ -3,11 +3,11 @@ class_name ShootingWeaponComponent extends Node
 
 const MOUSE_SENSITIVITY = .01
 var mouse_delta: Vector2
-@onready var bullet = preload("res://scenes/bullet.tscn")
 
-@onready var muzzle: Marker2D
+@onready var bullet = preload("res://scenes/bullet.tscn")
 @onready var damage_component : DamageComponent = %DamageComponent
 
+@export var muzzle: Marker2D
 @export var arm : Arm
 @export var player : Player
 @export var damage_amount := 15

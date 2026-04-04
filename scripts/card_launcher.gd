@@ -1,11 +1,11 @@
 extends Node2D
 
-const COIN_BULLET = preload("res://scenes/coin_bullet.tscn")
+const CARD_BULLET = preload("res://scenes/card_bullet.tscn")
 
 @export var weapon_comp : ShootingWeaponComponent
 
 @onready var muzzle : Marker2D = $Marker2D
-@onready var weapon_name = "coin_revolver"
+@onready var weapon_name = "card_launcher"
 
 @export var collision_shape : CollisionShape2D
 @export var weapon : PhysicsWeapon
@@ -18,7 +18,7 @@ signal pick_up
 
 func _process(delta: float) -> void:
 	if weapon_comp:
-		weapon_comp.bullet = COIN_BULLET
+		weapon_comp.bullet = CARD_BULLET
 		weapon_comp.anim_player = $AnimationPlayer
 		if get_parent() && get_parent() == Player:
 			weapon_comp.arm = get_parent().arm
@@ -43,6 +43,6 @@ func _on_area_2d_body_exited(body: Node2D) -> void:
 func _on_player_entered(body: Player) -> void:
 	await pick_up
 	if area_entered:
-		body.switch_weapon("coin_revolver")
+		body.switch_weapon("card_launcher")
 		self.queue_free()
 	pass # Replace with function body.

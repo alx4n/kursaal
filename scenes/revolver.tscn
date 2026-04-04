@@ -53,7 +53,7 @@ script = ExtResource("1_4k0e7")
 collision_shape = NodePath("Area2D/CollisionShape2D")
 
 [node name="Marker2D" type="Marker2D" parent="." unique_id=1719589238]
-position = Vector2(15, -3)
+position = Vector2(175, -37.5)
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1968903471]
 texture = SubResource("AtlasTexture_rlopr")
@@ -68,4 +68,6 @@ libraries/ = SubResource("AnimationLibrary_uolhl")
 position = Vector2(0, 12.5)
 shape = SubResource("RectangleShape2D_4k0e7")
 
+[connection signal="player_entered" from="." to="." method="_on_player_entered"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

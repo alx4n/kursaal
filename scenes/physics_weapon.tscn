@@ -84,7 +84,6 @@ weapon_name = "dice_launcher"
 position = Vector2(15, -4.25)
 
 [node name="MeleeAttack" type="Area2D" parent="." unique_id=281865474]
-visible = false
 position = Vector2(9.75, -3.25)
 collision_layer = 2
 collision_mask = 2
@@ -130,3 +129,4 @@ script = ExtResource("6_3ima4")
 metadata/_custom_type_script = "uid://bnn4d42eggoye"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_entered" from="MeleeAttack" to="MeleeWeaponComponent" method="_on_melee_attack_body_entered"]
