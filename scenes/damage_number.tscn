@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://4mlmu8kcwo6e"]
+
+[ext_resource type="Script" uid="uid://b5uqw82s8re3s" path="res://scripts/damage_number.gd" id="1_l4fel"]
+[ext_resource type="FontFile" uid="uid://cegb78ucihtow" path="res://resources/number sheet.png" id="1_vewc8"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_jy3yr"]
+font = ExtResource("1_vewc8")
+font_size = 32
+shadow_color = Color(1, 0, 0, 1)
+shadow_offset = Vector2(2, 2)
+
+[node name="DamageNumber" type="Label" unique_id=581097534]
+z_index = 50
+offset_right = 50.0
+offset_bottom = 30.0
+scale = Vector2(0.8, 0.8)
+pivot_offset = Vector2(25, 15)
+text = "10"
+label_settings = SubResource("LabelSettings_jy3yr")
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("1_l4fel")
