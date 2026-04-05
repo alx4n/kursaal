@@ -11,6 +11,7 @@ var upgrades : Array[BulletUpgrade] = []
 @onready var health_bar : TextureProgressBar = $CanvasLayer/Control/CenterContainer/TextureProgressBar
 @onready var health_label : Label = $CanvasLayer/Control/CenterContainer/Label
 @onready var is_dashing := false
+@onready var is_taking_dmg := false
 @onready var arm := $Body/Arm
 @onready var weapon := $Body/Arm/PhysicsWeapon
 
@@ -33,7 +34,7 @@ func getInput():
 func _process(delta: float) -> void:
 	if is_dashing:
 		invincible = true
-	else:
+	elif !is_taking_dmg && !is_dashing:
 		invincible = false
 	
 func _physics_process(_delta: float) -> void:
@@ -62,8 +63,10 @@ func _on_health_component_health_changed(current: int, _max_health: int, amount:
 	if amount < 0:
 		$AnimationPlayer.play("damage_taken")
 		$SFX/SFXPlayerHurt.play()
+		is_taking_dmg = true
 		invincible = true
-		await get_tree().create_timer(3.0).timeout
+		await get_tree().create_timer(1.2).timeout
+		is_taking_dmg = false
 		invincible = false
 		
 func switch_weapon(weapon_name: String) -> void:

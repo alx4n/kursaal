@@ -56,10 +56,9 @@ position = Vector2(873, 942)
 scale = Vector2(0.25, 0.25)
 
 [node name="MarlboroHatchet" parent="." unique_id=290432034 instance=ExtResource("6_0akh5")]
-position = Vector2(691, 617)
+position = Vector2(551, 627)
 scale = Vector2(0.25, 0.25)
 
 [node name="CardLauncher" parent="." unique_id=174988528 instance=ExtResource("7_d0u7m")]
 position = Vector2(306, 720)
 scale = Vector2(0.25, 0.25)
-can_shoot = false

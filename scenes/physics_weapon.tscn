@@ -78,19 +78,16 @@ size = Vector2(21.843636, 18.995731)
 [node name="PhysicsWeapon" type="Area2D" unique_id=1592725378]
 scale = Vector2(4, 4)
 script = ExtResource("1_fkf6q")
-weapon_name = "dice_launcher"
 
 [node name="Marker2D" type="Marker2D" parent="." unique_id=1920035555]
 position = Vector2(15, -4.25)
 
 [node name="MeleeAttack" type="Area2D" parent="." unique_id=281865474]
 position = Vector2(9.75, -3.25)
-collision_layer = 2
-collision_mask = 2
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="MeleeAttack" unique_id=1166223483]
 scale = Vector2(0.9999998, 0.9999998)
-polygon = PackedVector2Array(-8.799999, 4.2, 14.599999, -12.799999, 13.999999, 24.199999, -8.799999, 7.9999995)
+polygon = PackedVector2Array(-10.000001, -13.000002, 17.500004, -15.750002, 17.750004, 26.750002, -9.750001, 19.750002)
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1582535253]
 visible = false
