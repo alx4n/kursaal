@@ -1,6 +1,6 @@
-[gd_scene format=4 uid="uid://b17pu6lljc17k"]
+[gd_scene format=4 uid="uid://6kky4deya1xo"]
 
-[ext_resource type="Script" uid="uid://t43k0kvfqm4e" path="res://scripts/Dungeon.gd" id="1_iyx0m"]
+[ext_resource type="Script" uid="uid://t43k0kvfqm4e" path="res://scripts/dungeon.gd" id="1_iyx0m"]
 [ext_resource type="PackedScene" uid="uid://bacvwbmrcdokl" path="res://scenes/player.tscn" id="2_74lek"]
 [ext_resource type="TileSet" uid="uid://ccof0irhc7y62" path="res://resources/casino_tile_set_pixel.tres" id="4_74lek"]
 [ext_resource type="Script" uid="uid://2th3ay6gqql6" path="res://scripts/door.gd" id="4_j5jx5"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" uid="uid://blwm36sahn10l" path="res://scripts/blacksquare.gd" id="6_lpvoh"]
 [ext_resource type="PackedScene" uid="uid://v1m5xbie07pb" path="res://scenes/enemy_chaser.tscn" id="7_at5dv"]
 [ext_resource type="Script" uid="uid://40itrop66v1r" path="res://components/camera_component.gd" id="8_jcd4p"]
+[ext_resource type="PackedScene" uid="uid://bo83w52aq07os" path="res://scenes/boss.tscn" id="9_uacia"]
 [ext_resource type="PackedScene" uid="uid://c765s0dlx0oyj" path="res://scenes/item.tscn" id="10_yk7ts"]
 [ext_resource type="AudioStream" uid="uid://301cbvc674oq" path="res://music/mus_maincasino.wav" id="11_ajshl"]
 
@@ -110,6 +111,19 @@ collision_mask = 2
 position = Vector2(-6, -3)
 collision_layer = 3
 collision_mask = 3
+
+[node name="Sentry" parent="." unique_id=1686908263 groups=["enemy"] instance=ExtResource("4_lpvoh")]
+position = Vector2(-544, -243)
+
+[node name="Chaser" parent="." unique_id=749136513 groups=["enemy"] instance=ExtResource("7_at5dv")]
+position = Vector2(-489, 519)
+
+[node name="Boss" parent="." unique_id=1467479596 instance=ExtResource("9_uacia")]
+position = Vector2(-2061, 533)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=404684116 groups=["walls"]]
+collision_layer = 2
+collision_mask = 2
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D" unique_id=385409005]
 build_mode = 1
@@ -436,7 +450,7 @@ scale = Vector2(1.022328, 1.581073)
 position = Vector2(2226, -890.00006)
 scale = Vector2(1.158783, 1.6323441)
 
-[node name="CameraComponent" type="Camera2D" parent="." unique_id=1464906790 node_paths=PackedStringArray("parent")]
+[node name="TransitionCamera" type="Camera2D" parent="." unique_id=1464906790 node_paths=PackedStringArray("parent")]
 unique_name_in_owner = true
 script = ExtResource("8_jcd4p")
 parent = NodePath("..")

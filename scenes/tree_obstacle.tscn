@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://c500ytwhn6gf4"]
+
+[ext_resource type="Texture2D" uid="uid://yqltpqcuvl4p" path="res://sprites/Tile Set Map_02.png" id="1_sssrp"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2vesu"]
+atlas = ExtResource("1_sssrp")
+region = Rect2(1603, 413, 352, 408)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sssrp"]
+size = Vector2(20, 11.148602)
+
+[node name="TreeObstacle" type="Node2D" unique_id=1160523354]
+scale = Vector2(0.5, 0.5)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1685241913]
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D" unique_id=1274880134]
+texture = SubResource("AtlasTexture_2vesu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1499660054]
+position = Vector2(0, -74)
+scale = Vector2(17.754818, -22.244942)
+shape = SubResource("RectangleShape2D_sssrp")

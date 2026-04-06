@@ -10,6 +10,9 @@
 [ext_resource type="Texture2D" uid="uid://bxe6iiuni40hl" path="res://sprites/menu/Trashcan glow.png" id="5_jk1qb"]
 [ext_resource type="Texture2D" uid="uid://xnbnxxyoy8h6" path="res://sprites/menu/button slider.png" id="5_oa1go"]
 
+[sub_resource type="LabelSettings" id="LabelSettings_l6cm7"]
+font_size = 100
+
 [node name="MainMenu" type="Node2D" unique_id=363777953]
 script = ExtResource("1_l6cm7")
 

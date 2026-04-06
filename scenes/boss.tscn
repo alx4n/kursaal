@@ -1,0 +1,63 @@
+[gd_scene format=3 uid="uid://bo83w52aq07os"]
+
+[ext_resource type="Texture2D" uid="uid://8ujlw621tiu6" path="res://sprites/enemyTestSentry.png" id="1_dlmty"]
+[ext_resource type="Script" uid="uid://0bajpaj1krpx" path="res://scripts/boss.gd" id="1_jncid"]
+[ext_resource type="PackedScene" uid="uid://thi3oyffph67" path="res://scenes/sentry_projectile.tscn" id="2_wqpjq"]
+[ext_resource type="Script" uid="uid://c6t1f7314lva8" path="res://components/health_component.gd" id="5_2cdgk"]
+[ext_resource type="Script" uid="uid://bnn4d42eggoye" path="res://components/damage_component.gd" id="6_qsl3t"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_neq0i"]
+atlas = ExtResource("1_dlmty")
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jncid"]
+radius = 169.95587
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wqpjq"]
+radius = 745.6447
+
+[node name="Boss" type="CharacterBody2D" unique_id=1467479596 groups=["enemy"]]
+script = ExtResource("1_jncid")
+projectile_scene = ExtResource("2_wqpjq")
+damage_amount = 15
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1452123373]
+texture_filter = 1
+scale = Vector2(10, 10)
+texture = SubResource("AtlasTexture_neq0i")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2007212318]
+shape = SubResource("CircleShape2D_jncid")
+
+[node name="ProjectileTimer" type="Timer" parent="." unique_id=1966983051]
+wait_time = 2.5
+
+[node name="Components" type="Node" parent="." unique_id=1914323543]
+
+[node name="HealthComponent" type="Node" parent="Components" unique_id=2093222746]
+unique_name_in_owner = true
+script = ExtResource("5_2cdgk")
+_max_health = 300
+metadata/_custom_type_script = "uid://c6t1f7314lva8"
+
+[node name="DamageComponent" type="Node" parent="Components" unique_id=260239719]
+unique_name_in_owner = true
+script = ExtResource("6_qsl3t")
+metadata/_custom_type_script = "uid://bnn4d42eggoye"
+
+[node name="ProgressBar" type="ProgressBar" parent="." unique_id=669376598]
+offset_left = -131.0
+offset_top = -240.0
+offset_right = 136.0
+offset_bottom = -207.0
+step = 1.0
+value = 100.0
+
+[node name="Area2D" type="Area2D" parent="." unique_id=2060377363]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=568394575]
+shape = SubResource("CircleShape2D_wqpjq")
+
+[connection signal="timeout" from="ProjectileTimer" to="." method="_on_projectile_timer_timeout"]
+[connection signal="died" from="Components/HealthComponent" to="." method="_on_health_component_died"]
+[connection signal="health_changed" from="Components/HealthComponent" to="." method="_on_health_component_health_changed"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://c8ii73gufou32"]
+
+[ext_resource type="Script" uid="uid://ysgw5pbtxk45" path="res://scripts/proc_gen_room.gd" id="1_1utyt"]
+[ext_resource type="Texture2D" uid="uid://dcohnl73tntjb" path="res://icon.svg" id="1_6erja"]
+[ext_resource type="PackedScene" uid="uid://dvesye1o2urow" path="res://scenes/proc_gen_door.tscn" id="3_6g8j6"]
+
+[node name="ProcGenRoom" type="Node2D" unique_id=312932281]
+script = ExtResource("1_1utyt")
+_door_scene = ExtResource("3_6g8j6")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=954793714]
+texture = ExtResource("1_6erja")

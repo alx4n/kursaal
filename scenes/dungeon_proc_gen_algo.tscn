@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://dby0xfx36cqnw"]
+
+[ext_resource type="Script" uid="uid://oeyylc6ue0vq" path="res://scripts/dungeon_gen.gd" id="1_xss3c"]
+
+[node name="DungeonProcGenAlgo" type="Node2D" unique_id=1125748966]
+script = ExtResource("1_xss3c")
