@@ -1,6 +1,14 @@
 [gd_scene format=3 uid="uid://cbqfudahiweyj"]
 
-[ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_l6cm7"]
+[ext_resource type="Script" uid="uid://cxkf6k2xcjagh" path="res://scripts/main_menu.gd" id="1_l6cm7"]
+[ext_resource type="Texture2D" uid="uid://d13oi22l5otit" path="res://sprites/menu/Menu_01.png" id="2_8ln24"]
+[ext_resource type="Material" uid="uid://b62fqie3scnan" path="res://resources/menu_shader_mat.tres" id="2_ekxnf"]
+[ext_resource type="Texture2D" uid="uid://cswj3xv53nd7r" path="res://sprites/menu/Door_highlight.png" id="3_rtw2f"]
+[ext_resource type="AudioStream" uid="uid://301cbvc674oq" path="res://music/mus_maincasino.wav" id="3_wu84c"]
+[ext_resource type="AudioStream" uid="uid://x3v4akrtrci3" path="res://sfx/temp_enemy_hurt.wav" id="4_8ln24"]
+[ext_resource type="Texture2D" uid="uid://c0lqiegrmjuns" path="res://sprites/menu/Blackjack_table_highlight.png" id="4_tbmy8"]
+[ext_resource type="Texture2D" uid="uid://bxe6iiuni40hl" path="res://sprites/menu/Trashcan glow.png" id="5_jk1qb"]
+[ext_resource type="Texture2D" uid="uid://xnbnxxyoy8h6" path="res://sprites/menu/button slider.png" id="5_oa1go"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_l6cm7"]
 font_size = 100
@@ -8,39 +16,206 @@ font_size = 100
 [node name="MainMenu" type="Node2D" unique_id=363777953]
 script = ExtResource("1_l6cm7")
 
-[node name="StartButton" type="Button" parent="." unique_id=565209862]
-offset_left = 488.0
-offset_top = 400.0
-offset_right = 790.0
-offset_bottom = 478.0
+[node name="BG" type="Sprite2D" parent="." unique_id=2131357094]
+position = Vector2(640, 360)
+texture = ExtResource("2_8ln24")
+
+[node name="StartLabel" type="Label" parent="." unique_id=1981443254]
+offset_left = 576.0
+offset_top = 343.0
+offset_right = 719.0
+offset_bottom = 410.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 16
 theme_override_font_sizes/font_size = 48
-text = "Start"
+text = "START"
+
+[node name="OptionsLabel" type="Label" parent="." unique_id=661711292]
+offset_left = 977.0
+offset_top = 481.0
+offset_right = 1118.0
+offset_bottom = 526.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 32
+text = "OPTIONS"
+
+[node name="QuitLabel" type="Label" parent="." unique_id=850405494]
+offset_left = 10.0
+offset_top = 402.0
+offset_right = 151.0
+offset_bottom = 447.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 32
+text = "QUIT"
+
+[node name="StartButton" type="Button" parent="." unique_id=565209862]
+offset_left = 502.0
+offset_right = 797.0
+offset_bottom = 341.0
+theme_override_font_sizes/font_size = 48
+flat = true
+
+[node name="RoomDarker" type="ColorRect" parent="StartButton" unique_id=332990448]
+visible = false
+layout_mode = 0
+offset_left = -502.0
+offset_right = 778.0
+offset_bottom = 720.0
+mouse_filter = 2
+color = Color(0, 0, 0, 0.5019608)
+
+[node name="Highlight" type="TextureRect" parent="StartButton" unique_id=1454218957]
+visible = false
+layout_mode = 0
+offset_left = -502.0
+offset_right = 778.0
+offset_bottom = 720.0
+mouse_filter = 2
+texture = ExtResource("3_rtw2f")
 
 [node name="OptionsButton" type="Button" parent="." unique_id=481609331]
-visible = false
-offset_left = 488.0
-offset_top = 503.0
-offset_right = 790.0
-offset_bottom = 581.0
+offset_left = 906.0
+offset_top = 295.0
+offset_right = 1177.0
+offset_bottom = 483.0
 theme_override_font_sizes/font_size = 48
-text = "Options"
+flat = true
+
+[node name="Highlight" type="TextureRect" parent="OptionsButton" unique_id=1120804835]
+visible = false
+layout_mode = 0
+offset_left = -906.0
+offset_top = -295.0
+offset_right = 374.0
+offset_bottom = 425.0
+mouse_filter = 2
+texture = ExtResource("4_tbmy8")
 
 [node name="QuitButton" type="Button" parent="." unique_id=1324152293]
-offset_left = 488.0
-offset_top = 584.0
-offset_right = 790.0
-offset_bottom = 662.0
+offset_left = 2.0
+offset_top = 285.0
+offset_right = 93.0
+offset_bottom = 399.0
 theme_override_font_sizes/font_size = 48
-text = "Quit"
+flat = true
 
-[node name="Label" type="Label" parent="." unique_id=2024331646]
-offset_left = 456.0
-offset_top = 176.0
-offset_right = 819.0
-offset_bottom = 313.0
-text = "Kursaal"
-label_settings = SubResource("LabelSettings_l6cm7")
+[node name="Highlight" type="TextureRect" parent="QuitButton" unique_id=1939033576]
+visible = false
+layout_mode = 0
+offset_left = -2.0
+offset_top = -285.0
+offset_right = 1278.0
+offset_bottom = 435.0
+mouse_filter = 2
+texture = ExtResource("5_jk1qb")
 
+[node name="OptionsScreen" type="Control" parent="." unique_id=2002792377]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ColorRect" type="ColorRect" parent="OptionsScreen" unique_id=1854174990]
+material = ExtResource("2_ekxnf")
+layout_mode = 0
+offset_right = 1280.0
+offset_bottom = 720.0
+color = Color(0, 0, 0, 1)
+
+[node name="BGMVolSlider" type="HSlider" parent="OptionsScreen" unique_id=947704023]
+layout_mode = 0
+offset_left = 448.0
+offset_top = 253.0
+offset_right = 781.0
+offset_bottom = 293.0
+theme_override_icons/grabber = ExtResource("5_oa1go")
+theme_override_icons/grabber_highlight = ExtResource("5_oa1go")
+theme_override_icons/grabber_disabled = ExtResource("5_oa1go")
+max_value = 1.0
+step = 0.01
+value = 1.0
+
+[node name="Label" type="Label" parent="OptionsScreen/BGMVolSlider" unique_id=1044594851]
+layout_mode = 0
+offset_left = -79.0
+offset_top = 2.0
+offset_right = -11.0
+offset_bottom = 36.0
+theme_override_font_sizes/font_size = 24
+text = "Music"
+horizontal_alignment = 2
+
+[node name="Value" type="Label" parent="OptionsScreen/BGMVolSlider" unique_id=240103151]
+layout_mode = 0
+offset_left = 342.0
+offset_top = 3.0
+offset_right = 383.0
+offset_bottom = 37.0
+theme_override_font_sizes/font_size = 24
+text = "100"
+
+[node name="SFXVolSlider" type="HSlider" parent="OptionsScreen" unique_id=527432741]
+layout_mode = 0
+offset_left = 448.0
+offset_top = 349.0
+offset_right = 781.0
+offset_bottom = 389.0
+theme_override_icons/grabber = ExtResource("5_oa1go")
+theme_override_icons/grabber_highlight = ExtResource("5_oa1go")
+theme_override_icons/grabber_disabled = ExtResource("5_oa1go")
+max_value = 1.0
+step = 0.01
+value = 1.0
+
+[node name="Label" type="Label" parent="OptionsScreen/SFXVolSlider" unique_id=1617889148]
+layout_mode = 0
+offset_left = -79.0
+offset_top = 2.0
+offset_right = -11.0
+offset_bottom = 36.0
+theme_override_font_sizes/font_size = 24
+text = "SFX"
+horizontal_alignment = 2
+
+[node name="Value" type="Label" parent="OptionsScreen/SFXVolSlider" unique_id=1719720664]
+layout_mode = 0
+offset_left = 342.0
+offset_top = 3.0
+offset_right = 383.0
+offset_bottom = 37.0
+theme_override_font_sizes/font_size = 24
+text = "100"
+
+[node name="BackButton" type="Button" parent="OptionsScreen" unique_id=1703221864]
+layout_mode = 0
+offset_left = 482.0
+offset_top = 459.0
+offset_right = 749.0
+offset_bottom = 514.0
+theme_override_font_sizes/font_size = 32
+text = "Back"
+
+[node name="BGM" type="AudioStreamPlayer" parent="." unique_id=170794972]
+stream = ExtResource("3_wu84c")
+autoplay = true
+bus = &"BGM"
+
+[node name="SFXButton" type="AudioStreamPlayer" parent="." unique_id=1966742423]
+stream = ExtResource("4_8ln24")
+bus = &"SFX"
+
+[connection signal="mouse_entered" from="StartButton" to="." method="_on_start_button_mouse_entered"]
+[connection signal="mouse_exited" from="StartButton" to="." method="_on_start_button_mouse_exited"]
 [connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="mouse_entered" from="OptionsButton" to="." method="_on_options_button_mouse_entered"]
+[connection signal="mouse_exited" from="OptionsButton" to="." method="_on_options_button_mouse_exited"]
 [connection signal="pressed" from="OptionsButton" to="." method="_on_options_button_pressed"]
+[connection signal="mouse_entered" from="QuitButton" to="." method="_on_quit_button_mouse_entered"]
+[connection signal="mouse_exited" from="QuitButton" to="." method="_on_quit_button_mouse_exited"]
 [connection signal="pressed" from="QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="value_changed" from="OptionsScreen/BGMVolSlider" to="." method="_on_bgm_vol_slider_value_changed"]
+[connection signal="value_changed" from="OptionsScreen/SFXVolSlider" to="." method="_on_sfx_vol_slider_value_changed"]
+[connection signal="pressed" from="OptionsScreen/BackButton" to="." method="_on_back_button_pressed"]

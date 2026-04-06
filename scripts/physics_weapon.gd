@@ -10,6 +10,7 @@ class_name PhysicsWeapon extends Area2D
 	"coin_revolver" : ["shooting", preload("res://scenes/revolver.tscn"), preload("res://scenes/coin_bullet.tscn")],
 	"hatchet" : ["melee", preload("res://scenes/marlboro_hatchet.tscn")],
 	"card_launcher" : ["shooting", preload("res://scenes/card_launcher.tscn"), preload("res://scenes/card_bullet.tscn")]
+	"ray_gun" : ["shooting", preload("res://scenes/Ray_Gun.tscn"), preload("res://scenes/Ray_gun_beam.tscn")]
 }
 
 @export var arm : Arm
