@@ -9,7 +9,9 @@
 [ext_resource type="Script" uid="uid://cjtf0ndkc1qw5" path="res://scripts/sfx_enemy_death.gd" id="7_s6v6k"]
 [ext_resource type="Texture2D" uid="uid://cle3vkrmcrfqs" path="res://sprites/empty_healthbar.png" id="8_ftubw"]
 [ext_resource type="Texture2D" uid="uid://cujonripvw2cs" path="res://sprites/Healthbar_01.png" id="9_sfio7"]
+[ext_resource type="Texture2D" uid="uid://cfwkl3stqqq5d" path="res://sprites/white_health_bar.png" id="10_cfmhr"]
 [ext_resource type="FontFile" uid="uid://cegb78ucihtow" path="res://resources/number sheet.png" id="10_sfio7"]
+[ext_resource type="Script" uid="uid://djh1sx7gl3iy2" path="res://scripts/health_bar.gd" id="11_gr15d"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lbcmp"]
 radius = 32.0
@@ -27,10 +29,6 @@ region = Rect2(0, 0, 400, 400)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_k8rl0"]
 atlas = ExtResource("8_ftubw")
-region = Rect2(0, 0, 400, 400)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_vwss3"]
-atlas = ExtResource("9_sfio7")
 region = Rect2(0, 0, 400, 400)
 
 [sub_resource type="LabelSettings" id="LabelSettings_jnqnd"]
@@ -126,7 +124,9 @@ layout_mode = 2
 value = 100.0
 rounded = true
 texture_under = SubResource("AtlasTexture_k8rl0")
-texture_progress = SubResource("AtlasTexture_vwss3")
+texture_progress = ExtResource("10_cfmhr")
+script = ExtResource("11_gr15d")
+full_health = 15.0
 
 [node name="Label" type="Label" parent="Control/CenterContainer" unique_id=682968866]
 layout_mode = 2

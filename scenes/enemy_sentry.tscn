@@ -11,7 +11,9 @@
 [ext_resource type="AudioStream" uid="uid://x3v4akrtrci3" path="res://sfx/temp_enemy_hurt.wav" id="7_rxgyh"]
 [ext_resource type="Script" uid="uid://cjtf0ndkc1qw5" path="res://scripts/sfx_enemy_death.gd" id="8_u6owr"]
 [ext_resource type="AudioStream" uid="uid://bsahj37yoqh4s" path="res://sfx/temp_enemy_death.wav" id="8_xotbq"]
+[ext_resource type="Texture2D" uid="uid://cfwkl3stqqq5d" path="res://sprites/white_health_bar.png" id="12_6xwau"]
 [ext_resource type="FontFile" uid="uid://cegb78ucihtow" path="res://resources/number sheet.png" id="12_dv5b2"]
+[ext_resource type="Script" uid="uid://djh1sx7gl3iy2" path="res://scripts/health_bar.gd" id="13_i7vp3"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gv20t"]
 radius = 32.0
@@ -26,10 +28,6 @@ region = Rect2(0, 0, 400, 400)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4hi71"]
 atlas = ExtResource("6_dlhxv")
-region = Rect2(0, 0, 400, 400)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_d12dp"]
-atlas = ExtResource("7_dv5b2")
 region = Rect2(0, 0, 400, 400)
 
 [sub_resource type="LabelSettings" id="LabelSettings_s0r36"]
@@ -118,7 +116,9 @@ layout_mode = 2
 value = 100.0
 rounded = true
 texture_under = SubResource("AtlasTexture_4hi71")
-texture_progress = SubResource("AtlasTexture_d12dp")
+texture_progress = ExtResource("12_6xwau")
+script = ExtResource("13_i7vp3")
+full_health = 300.0
 
 [node name="Label" type="Label" parent="Control/CenterContainer" unique_id=1329936135]
 layout_mode = 2
