@@ -115,4 +115,6 @@ libraries/ = SubResource("AnimationLibrary_pa0ae")
 position = Vector2(113.33333, 73.33333)
 shape = SubResource("RectangleShape2D_7hbyi")
 
+[connection signal="player_entered" from="." to="." method="_on_player_entered"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

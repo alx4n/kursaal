@@ -9,6 +9,7 @@ class_name PhysicsWeapon extends Area2D
 	"dice_launcher" : ["shooting", preload("res://scenes/dice_launcher.tscn"), preload("res://scenes/die_bullet.tscn")],
 	"coin_revolver" : ["shooting", preload("res://scenes/revolver.tscn"), preload("res://scenes/coin_bullet.tscn")],
 	"hatchet" : ["melee", preload("res://scenes/marlboro_hatchet.tscn")],
+	"card_launcher" : ["shooting", preload("res://scenes/card_launcher.tscn"), preload("res://scenes/card_bullet.tscn")]
 	"ray_gun" : ["shooting", preload("res://scenes/Ray_Gun.tscn"), preload("res://scenes/Ray_gun_beam.tscn")]
 }
 
@@ -32,7 +33,6 @@ func _process(delta: float) -> void:
 	shooting_comp.can_shoot = can_fire
 	
 func equip_weapon(key: String):
-	print(key)
 	var new_weapon = weapons_dict[key][1].instantiate()
 	new_weapon.collision_shape.disabled = true
 	if weapons_dict[key][0] == "shooting":
@@ -47,6 +47,14 @@ func equip_weapon(key: String):
 		new_weapon.weapon_comp = melee_comp
 		can_fire = false
 	if weapon:
+		drop_weapon()
 		weapon.queue_free()
 	add_child(new_weapon)
 	weapon = new_weapon
+
+func drop_weapon() -> void:
+	var current_weapon = weapons_dict[weapon.weapon_name][1].instantiate()
+	current_weapon.global_scale = Vector2(0.25, 0.25)
+	current_weapon.global_position = player.global_position
+	get_tree().root.add_child(current_weapon)
+	

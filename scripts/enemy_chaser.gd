@@ -4,7 +4,9 @@ var speed = 120
 @export var damage_amount: int
 @onready var health_component: HealthComponent = %HealthComponent
 @onready var damage_component: DamageComponent = %DamageComponent
-@onready var health_bar: ProgressBar = $ProgressBar
+@onready var health_bar: ProgressBar = $Control/CenterContainer/TextureProgressBar
+@onready var health_label : Label = $Control/CenterContainer/Label
+@export var player : Player
 
 var collider
 enum States {IDLE, CHASING}
@@ -47,4 +49,5 @@ func _on_attack_cooldown_timeout() -> void:
 
 func _on_health_component_health_changed(current: int, _max: int, _amount: int) -> void:
 	health_bar.value = current
+	health_label.text = str(current)
 	$SFX/SFXEnemyHurt.play()

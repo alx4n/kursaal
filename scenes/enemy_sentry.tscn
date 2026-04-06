@@ -2,18 +2,41 @@
 
 [ext_resource type="Script" uid="uid://5twqmvb3mjx1" path="res://scripts/enemy_sentry.gd" id="1_h2a1c"]
 [ext_resource type="PackedScene" uid="uid://thi3oyffph67" path="res://scenes/sentry_projectile.tscn" id="2_r4oi2"]
-[ext_resource type="Texture2D" uid="uid://8ujlw621tiu6" path="res://sprites/enemyTestSentry.png" id="3_r4oi2"]
+[ext_resource type="Texture2D" uid="uid://8ujlw621tiu6" path="res://sprites/Enemy Placeholders/enemyTestSentry.png" id="3_r4oi2"]
 [ext_resource type="Script" uid="uid://bnn4d42eggoye" path="res://components/damage_component.gd" id="4_r4oi2"]
 [ext_resource type="Script" uid="uid://c6t1f7314lva8" path="res://components/health_component.gd" id="5_yvw6x"]
+[ext_resource type="Texture2D" uid="uid://cle3vkrmcrfqs" path="res://sprites/empty_healthbar.png" id="6_dlhxv"]
 [ext_resource type="AudioStream" uid="uid://dvc58upauj4ii" path="res://sfx/temp_enemy_sentry_shoot.wav" id="6_u6owr"]
+[ext_resource type="Texture2D" uid="uid://cujonripvw2cs" path="res://sprites/Healthbar_01.png" id="7_dv5b2"]
 [ext_resource type="AudioStream" uid="uid://x3v4akrtrci3" path="res://sfx/temp_enemy_hurt.wav" id="7_rxgyh"]
 [ext_resource type="Script" uid="uid://cjtf0ndkc1qw5" path="res://scripts/sfx_enemy_death.gd" id="8_u6owr"]
 [ext_resource type="AudioStream" uid="uid://bsahj37yoqh4s" path="res://sfx/temp_enemy_death.wav" id="8_xotbq"]
+[ext_resource type="Texture2D" uid="uid://cfwkl3stqqq5d" path="res://sprites/white_health_bar.png" id="12_6xwau"]
+[ext_resource type="FontFile" uid="uid://cegb78ucihtow" path="res://resources/number sheet.png" id="12_dv5b2"]
+[ext_resource type="Script" uid="uid://djh1sx7gl3iy2" path="res://scripts/health_bar.gd" id="13_i7vp3"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gv20t"]
 radius = 32.0
 
-[node name="Sentry" type="CharacterBody2D" unique_id=1686908263]
+[sub_resource type="AtlasTexture" id="AtlasTexture_6xwau"]
+atlas = ExtResource("6_dlhxv")
+region = Rect2(0, 0, 400, 400)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i7vp3"]
+atlas = ExtResource("7_dv5b2")
+region = Rect2(0, 0, 400, 400)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4hi71"]
+atlas = ExtResource("6_dlhxv")
+region = Rect2(0, 0, 400, 400)
+
+[sub_resource type="LabelSettings" id="LabelSettings_s0r36"]
+font = ExtResource("12_dv5b2")
+font_size = 42
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(1.5, 1.5)
+
+[node name="Sentry" type="CharacterBody2D" unique_id=1686908263 groups=["enemies"]]
 motion_mode = 1
 script = ExtResource("1_h2a1c")
 projectile_scene = ExtResource("2_r4oi2")
@@ -42,12 +65,25 @@ script = ExtResource("4_r4oi2")
 metadata/_custom_type_script = "uid://bnn4d42eggoye"
 
 [node name="ProgressBar" type="ProgressBar" parent="." unique_id=1195396270]
+visible = false
 offset_left = -47.0
 offset_top = -81.0
 offset_right = 54.0
 offset_bottom = -54.0
 step = 1.0
 value = 100.0
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="." unique_id=857745839]
+visible = false
+offset_left = -78.0
+offset_top = -133.0
+offset_right = 322.0
+offset_bottom = 267.0
+scale = Vector2(0.38628307, 0.38628307)
+value = 100.0
+rounded = true
+texture_under = SubResource("AtlasTexture_6xwau")
+texture_progress = SubResource("AtlasTexture_i7vp3")
 
 [node name="SFX" type="Node2D" parent="." unique_id=1094816403 groups=["enemies"]]
 
@@ -60,6 +96,34 @@ stream = ExtResource("7_rxgyh")
 [node name="SFXEnemyDeath" type="AudioStreamPlayer2D" parent="SFX" unique_id=72206355]
 stream = ExtResource("8_xotbq")
 script = ExtResource("8_u6owr")
+
+[node name="Control" type="Control" parent="." unique_id=391069462]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -76.00001
+offset_top = -127.000015
+offset_right = -36.000008
+offset_bottom = -87.000015
+scale = Vector2(0.386, 0.386)
+
+[node name="CenterContainer" type="CenterContainer" parent="Control" unique_id=351225910]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="Control/CenterContainer" unique_id=268718409]
+layout_mode = 2
+value = 100.0
+rounded = true
+texture_under = SubResource("AtlasTexture_4hi71")
+texture_progress = ExtResource("12_6xwau")
+script = ExtResource("13_i7vp3")
+full_health = 300.0
+
+[node name="Label" type="Label" parent="Control/CenterContainer" unique_id=1329936135]
+layout_mode = 2
+text = "100"
+label_settings = SubResource("LabelSettings_s0r36")
 
 [connection signal="timeout" from="ProjectileTimer" to="." method="_on_projectile_timer_timeout"]
 [connection signal="died" from="Components/HealthComponent" to="." method="_on_health_component_died"]

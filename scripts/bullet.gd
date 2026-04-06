@@ -5,7 +5,7 @@ extends Area2D
 
 @export var shot_damage = 10
 
-var speed: int = 100
+var speed: int = 1000
 
 
 func _ready() -> void:

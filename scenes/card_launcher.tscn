@@ -1,11 +1,10 @@
-[gd_scene format=3 uid="uid://b0c6wnbu6od26"]
+[gd_scene format=3 uid="uid://cd8pxgdqtnw01"]
 
-[ext_resource type="Script" uid="uid://df6lftm2yof0i" path="res://scripts/dice_launcher.gd" id="1_ftqd8"]
-[ext_resource type="Texture2D" uid="uid://cwga2ihvtgbbs" path="res://sprites/Weapons Animations/Dice Launcher.png" id="1_vjwmk"]
+[ext_resource type="Script" uid="uid://xmevog8cqqdg" path="res://scripts/card_launcher.gd" id="1_7ikmn"]
+[ext_resource type="Texture2D" uid="uid://dhj1gthf541b4" path="res://sprites/Weapons Animations/Card Launching.png" id="2_ffcjg"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ftqd8"]
-atlas = ExtResource("1_vjwmk")
-region = Rect2(0, 0, 1600, 400)
+[sub_resource type="AtlasTexture" id="AtlasTexture_7ikmn"]
+atlas = ExtResource("2_ffcjg")
 
 [sub_resource type="Animation" id="Animation_o4i07"]
 length = 0.001
@@ -24,7 +23,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_t1teh"]
 resource_name = "shoot"
-length = 0.350005
+length = 0.3
 step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -33,10 +32,10 @@ tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2, 0.24936825),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [0, 1, 2, 3, 2, 1, 0]
+"values": [0, 1, 2, 3, 4, 0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_nbpv3"]
@@ -48,22 +47,25 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t1teh"]
 size = Vector2(400, 210)
 
-[node name="DiceLauncher" type="Node2D" unique_id=174988528 node_paths=PackedStringArray("collision_shape")]
+[node name="CardLauncher" type="Node2D" unique_id=174988528 node_paths=PackedStringArray("collision_shape")]
 scale = Vector2(0.1, 0.1)
-script = ExtResource("1_ftqd8")
+script = ExtResource("1_7ikmn")
 collision_shape = NodePath("Area2D/CollisionShape2D")
+can_shoot = null
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=634288258]
-texture = SubResource("AtlasTexture_ftqd8")
-hframes = 4
+position = Vector2(69.99999, -29.999996)
+texture = SubResource("AtlasTexture_7ikmn")
+hframes = 5
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2076166990]
 libraries/ = SubResource("AnimationLibrary_nbpv3")
 
 [node name="Marker2D" type="Marker2D" parent="." unique_id=309788223]
-position = Vector2(109.99999, -30)
+position = Vector2(189.99998, 19.999996)
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1846345182]
+position = Vector2(69.99999, -29.999996)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1224308926]
 position = Vector2(0, -4.9999957)
@@ -72,3 +74,4 @@ shape = SubResource("RectangleShape2D_t1teh")
 
 [connection signal="player_entered" from="." to="." method="_on_player_entered"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

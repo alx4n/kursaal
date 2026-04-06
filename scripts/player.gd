@@ -8,8 +8,10 @@ var upgrades : Array[BulletUpgrade] = []
 
 @onready var health_component : HealthComponent = %HealthComponent
 @onready var damage_component : DamageComponent = %DamageComponent
-@onready var health_bar : ProgressBar = $CanvasLayer/HealthBar
+@onready var health_bar : TextureProgressBar = $CanvasLayer/Control/CenterContainer/TextureProgressBar
+@onready var health_label : Label = $CanvasLayer/Control/CenterContainer/Label
 @onready var is_dashing := false
+@onready var is_taking_dmg := false
 @onready var arm := $Body/Arm
 @onready var weapon := $Body/Arm/PhysicsWeapon
 
@@ -19,14 +21,21 @@ func getInput():
 	var input_direction = Input.get_vector("left","right","up","down")
 	self.velocity = input_direction * speed
 	if Input.is_action_just_pressed("dash"):
+		is_dashing = true
 		speed += dash_speed
 		await get_tree().create_timer(0.275).timeout
+		is_dashing = false
 		speed -= dash_speed
 	if self.velocity.x < 0 && !$PlayerIcon.flip_h:
 		$PlayerIcon.flip_h = true
 	elif self.velocity.x > 0 && $PlayerIcon.flip_h:
 		$PlayerIcon.flip_h = false
 	
+func _process(delta: float) -> void:
+	if is_dashing:
+		invincible = true
+	elif !is_taking_dmg && !is_dashing:
+		invincible = false
 	
 func _physics_process(_delta: float) -> void:
 	getInput()
@@ -50,11 +59,14 @@ func _on_health_component_died() -> void:
 # Changes value of health bar, if damage is taken, play invicibility frames
 func _on_health_component_health_changed(current: int, _max_health: int, amount: int) -> void:
 	health_bar.value = current
+	health_label.text = str(current)
 	if amount < 0:
 		$AnimationPlayer.play("damage_taken")
 		$SFX/SFXPlayerHurt.play()
+		is_taking_dmg = true
 		invincible = true
-		await get_tree().create_timer(3.0).timeout
+		await get_tree().create_timer(1.2).timeout
+		is_taking_dmg = false
 		invincible = false
 		
 func switch_weapon(weapon_name: String) -> void:
