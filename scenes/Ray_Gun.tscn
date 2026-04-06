@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://c2m6js1kf5ur2"]
+
+[ext_resource type="Texture2D" uid="uid://bio5h20ux3fvf" path="res://sprites/Weapons Animations/Ray Gun.png" id="1_026ax"]
+[ext_resource type="Script" uid="uid://bnuv3m8wdyn2p" path="res://scenes/ray_gun.gd" id="1_rbboo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rbboo"]
+size = Vector2(200, 119)
+
+[node name="RayGun" type="Node2D" unique_id=551057756]
+script = ExtResource("1_rbboo")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1274937952]
+position = Vector2(33, 33)
+scale = Vector2(0.835, 0.835)
+texture = ExtResource("1_026ax")
+
+[node name="Marker2D" type="Marker2D" parent="." unique_id=792835401]
+position = Vector2(128, 20)
+
+[node name="Area2D" type="Area2D" parent="." unique_id=348287544]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1064968364]
+position = Vector2(43, 32.5)
+shape = SubResource("RectangleShape2D_rbboo")
